@@ -1,0 +1,25 @@
+:root {
+  --primary: #ff7a00; /* Bright Orange */
+  --primary-dark: #cc6200; /* Darker Orange */
+  --secondary: #ffb347; /* Soft Orange Accent */
+  --dark: #1a0a00; /* Dark background with a warm hue */
+  --darker: #0d0500; /* Even darker background */
+  --light: #fff4e6; /* Light warm tone */
+  --gray: #b38b6d; /* Warm gray */
+  --dark-gray: #332211;
+
+  --font-heading: 'Orbitron', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --gradient-primary: linear-gradient(135deg, var(--primary), var(--secondary));
+  --gradient-dark: linear-gradient(135deg, var(--dark), var(--darker));
+
+  --shadow-sm: 0 2px 8px rgba(255, 122, 0, 0.1);
+  --shadow-md: 0 4px 16px rgba(255, 122, 0, 0.2);
+  --shadow-lg: 0 8px 32px rgba(255, 122, 0, 0.3);
+
+  --border-radius: 8px;
+  --border-radius-lg: 16px;
+
+  --transition: all 0.3s ease;
+}
