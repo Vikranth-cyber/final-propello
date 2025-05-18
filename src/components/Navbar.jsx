@@ -85,7 +85,7 @@ const Navbar = ({ activeSection }) => {
     }
   };
 
-  const handleSignup = async (e) => {
+  handleSignup = async (e) => {
   e.preventDefault();
   const formData = new FormData(e.target);
   const username = formData.get('username');
@@ -114,6 +114,37 @@ const Navbar = ({ activeSection }) => {
     setError(err.message || 'Failed to connect to server');
   }
 };
+const BACKEND_URL = 'https://mysql-production-a27d.up.railway.app';
+
+const handleSignup = async (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  const username = formData.get('username');
+  const email = formData.get('email');
+  const password = formData.get('password');
+
+  try {
+    const response = await fetch(`${BACKEND_URL}/api/signup`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username, email, password }),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || 'Sign up failed');
+    }
+
+    setShowModal(false);
+    setActiveTab('signin');
+    setError('Account created successfully! Please sign in.');
+  } catch (err) {
+    console.error('Sign up error:', err);
+    setError(err.message || 'Failed to connect to server');
+  }
+};
 
 const handleGoogleSignIn = async (credentialResponse) => {
   try {
@@ -121,7 +152,7 @@ const handleGoogleSignIn = async (credentialResponse) => {
       throw new Error('Google credential missing');
     }
 
-    const response = await fetch('/api/auth/google', {
+    const response = await fetch(`${BACKEND_URL}/api/auth/google`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -167,7 +198,7 @@ const handleLogout = () => {
 useEffect(() => {
   const token = localStorage.getItem('token');
   if (token) {
-    fetch('/api/verify', {
+    fetch(`${BACKEND_URL}/api/verify`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -187,7 +218,6 @@ useEffect(() => {
       });
   }
 }, []);
-
 
   return (
     <GoogleOAuthProvider clientId="355871214182-btv1jgg73muhg8inefr8e7lv6755p5dq.apps.googleusercontent.com">
