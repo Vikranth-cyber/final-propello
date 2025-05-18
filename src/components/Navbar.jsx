@@ -61,7 +61,8 @@ const Navbar = ({ activeSection }) => {
     const password = formData.get('password');
 
     try {
-      const response = await fetch('http://localhost:4000/api/signin', {
+      const response = awaitfetch('/api/...'
+, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -85,42 +86,42 @@ const Navbar = ({ activeSection }) => {
   };
 
   const handleSignup = async (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const username = formData.get('username');
-    const email = formData.get('email');
-    const password = formData.get('password');
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  const username = formData.get('username');
+  const email = formData.get('email');
+  const password = formData.get('password');
 
-    try {
-      const response = await fetch('http://localhost:4000/api/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, email, password }),
-      });
+  try {
+    const response = await fetch('/api/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username, email, password }),
+    });
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Sign up failed');
-      }
-
-      setShowModal(false);
-      setActiveTab('signin');
-      setError('Account created successfully! Please sign in.');
-    } catch (err) {
-      console.error('Sign up error:', err);
-      setError(err.message || 'Failed to connect to server');
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || 'Sign up failed');
     }
-  };
 
- const handleGoogleSignIn = async (credentialResponse) => {
+    setShowModal(false);
+    setActiveTab('signin');
+    setError('Account created successfully! Please sign in.');
+  } catch (err) {
+    console.error('Sign up error:', err);
+    setError(err.message || 'Failed to connect to server');
+  }
+};
+
+const handleGoogleSignIn = async (credentialResponse) => {
   try {
     if (!credentialResponse.credential) {
       throw new Error('Google credential missing');
     }
 
-    const response = await fetch('http://localhost:4000/api/auth/google', {
+    const response = await fetch('/api/auth/google', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -157,35 +158,36 @@ const Navbar = ({ activeSection }) => {
   }
 };
 
-  const handleLogout = () => {
-    setUser(null);
-    localStorage.removeItem('token');
-    setShowModal(false);
-  };
+const handleLogout = () => {
+  setUser(null);
+  localStorage.removeItem('token');
+  setShowModal(false);
+};
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      fetch('http://localhost:4000/api/verify', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+useEffect(() => {
+  const token = localStorage.getItem('token');
+  if (token) {
+    fetch('/api/verify', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error('Token verification failed');
+        return res.json();
       })
-        .then((res) => {
-          if (!res.ok) throw new Error('Token verification failed');
-          return res.json();
-        })
-        .then((data) => {
-          if (data.user) {
-            setUser({ name: data.user.username, email: data.user.email });
-          }
-        })
-        .catch((err) => {
-          console.error('Token verification error:', err);
-          localStorage.removeItem('token');
-        });
-    }
-  }, []);
+      .then((data) => {
+        if (data.user) {
+          setUser({ name: data.user.username, email: data.user.email });
+        }
+      })
+      .catch((err) => {
+        console.error('Token verification error:', err);
+        localStorage.removeItem('token');
+      });
+  }
+}, []);
+
 
   return (
     <GoogleOAuthProvider clientId="355871214182-btv1jgg73muhg8inefr8e7lv6755p5dq.apps.googleusercontent.com">
