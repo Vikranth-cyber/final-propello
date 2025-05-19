@@ -1,31 +1,27 @@
 import React from 'react';
-import { FaShieldAlt, FaRobot, FaLightbulb, FaChartLine } from 'react-icons/fa';
+import { FaBrain, FaRocket, FaChartBar, FaPlug } from 'react-icons/fa';
 
 const Benefits = () => {
   const benefits = [
     {
-      icon: <FaRobot size={20} />,
-      title: "AI-Powered Conversations",
-      description:
-        "Human-like interactions powered by neural networks that understand context and nuance.",
+      icon: <FaBrain size={24} style={{ color: "#A3E4D7" }} />,
+      title: "Truly Humanlike AI",
+      description: "Natural tone, emotion-sensitive answers, and multilingual fluency.",
     },
     {
-      icon: <FaLightbulb size={20} />,
-      title: "Continuous Learning",
-      description:
-        "Adaptive algorithms that improve with every interaction, delivering smarter responses.",
+      icon: <FaChartBar size={24} style={{ color: "#A3E4D7" }} />,
+      title: "Better Conversions",
+      description: "Drive sales with compelling, NEPQ-style conversations designed for your business.",
     },
     {
-      icon: <FaShieldAlt size={20} />,
-      title: "Enterprise Security",
-      description:
-        "Military-grade encryption and compliance with the strictest data protection standards.",
+      icon: <FaRocket size={24} style={{ color: "#A3E4D7" }} />,
+      title: "Effortless Scaling",
+      description: "Run thousands of calls daily—without hiring.",
     },
     {
-      icon: <FaChartLine size={20} />,
-      title: "Actionable Insights",
-      description:
-        "Real-time analytics and performance metrics to drive data-driven decisions.",
+      icon: <FaPlug size={24} style={{ color: "#A3E4D7" }} />,
+      title: "Plug-and-Play Setup",
+      description: "Fast integration with your CRM and support tools. Zero hassle.",
     },
   ];
 
@@ -37,10 +33,9 @@ const Benefits = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        backgroundColor: "transparent",
+        backgroundColor: "#000", // BLACK background
       }}
     >
-      {/* Title - gradient text only, no background */}
       <h2
         style={{
           fontSize: "2.5rem",
@@ -56,19 +51,18 @@ const Benefits = () => {
           maxWidth: "800px",
         }}
       >
-        Key Benefits
+        Why Choose Propello AI?
       </h2>
 
-      {/* Benefits Grid Container */}
       <div
         style={{
-          background: "rgba(27, 31, 59, 0.6)",
+          background: "#000", // BLACK background
           padding: "2rem",
           borderRadius: "16px",
           width: "100%",
           maxWidth: "1200px",
-         boxShadow: "0 0 8px #5D9EFF, 0 0 15px #A3E4D7, 0 0 25px #5D9EFF, inset 0 0 6px #A3E4D7",
-          backdropFilter: "blur(12px)",
+          boxShadow: "0 0 12px #5D9EFF, inset 0 0 8px #5D9EFF", // Glowing blue border
+          border: "1px solid #5D9EFF",
           transition: "all 0.3s ease",
         }}
       >
@@ -77,67 +71,32 @@ const Benefits = () => {
             display: "grid",
             gridTemplateColumns: "repeat(2, 1fr)",
             gap: "2rem",
-
-            // Responsive grid columns on smaller screens
-            // We'll add media queries using a style tag below
           }}
-          className="benefits-grid"
         >
           {benefits.map((benefit, index) => (
             <div
               key={index}
               style={{
-                position: "relative",
-                padding: "1.5rem 1rem 1.5rem 3.5rem",
+                backgroundColor: "#000", // BLACK card
+                border: "1px solid #5D9EFF",
+                boxShadow: "0 0 10px #5D9EFF, inset 0 0 6px #5D9EFF",
+                padding: "1.5rem 1rem",
                 borderRadius: "12px",
-                background:
-                  "linear-gradient(135deg, rgba(93,158,255,0.15), rgba(163,228,215,0.08))",
-                border: "1px solid rgba(163,228,215,0.3)",
-                backdropFilter: "blur(8px)",
                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
                 cursor: "pointer",
-                willChange: "transform",
-                boxShadow:
-                  "0 0 5px #5D9EFF, 0 0 15px #A3E4D7, inset 0 0 8px #5D9EFF", // subtle neon glow
-              }}
-              onTouchStart={(e) => {
-                e.currentTarget.style.transform = "scale(1.03)";
-                e.currentTarget.style.boxShadow =
-                  "0 0 10px #5D9EFF, 0 0 25px #A3E4D7, inset 0 0 12px #A3E4D7";
-              }}
-              onTouchEnd={(e) => {
-                e.currentTarget.style.transform = "scale(1)";
-                e.currentTarget.style.boxShadow =
-                  "0 0 5px #5D9EFF, 0 0 15px #A3E4D7, inset 0 0 8px #5D9EFF";
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "scale(1.03)";
                 e.currentTarget.style.boxShadow =
-                  "0 0 10px #5D9EFF, 0 0 25px #A3E4D7, inset 0 0 12px #A3E4D7";
+                  "0 0 16px #5D9EFF, 0 0 24px #5D9EFF, inset 0 0 10px #5D9EFF";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = "scale(1)";
                 e.currentTarget.style.boxShadow =
-                  "0 0 5px #5D9EFF, 0 0 15px #A3E4D7, inset 0 0 8px #5D9EFF";
+                  "0 0 10px #5D9EFF, inset 0 0 6px #5D9EFF";
               }}
             >
-              <div
-                style={{
-                  position: "absolute",
-                  left: "1rem",
-                  top: "1.4rem",
-                  padding: "0.6rem",
-                  borderRadius: "50%",
-                  background: "rgba(93, 158, 255, 0.2)",
-                  color: "#A3E4D7",
-                  boxShadow: "0 0 8px #5D9EFF",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                {benefit.icon}
-              </div>
+              {benefit.icon}
               <h3
                 style={{
                   fontSize: "1.2rem",
@@ -163,60 +122,6 @@ const Benefits = () => {
           ))}
         </div>
       </div>
-
-      {/* Responsive styles */}
-      <style>
-        {`
-          /* Container max width shrink on smaller screens */
-          @media (max-width: 768px) {
-            #benefits > div {
-              padding: 1.5rem;
-              max-width: 95vw !important;
-              box-shadow:
-                0 0 6px #5D9EFF,
-                0 0 12px #A3E4D7,
-                0 0 18px #5D9EFF,
-                inset 0 0 6px #A3E4D7;
-            }
-
-            .benefits-grid {
-              grid-template-columns: 1fr !important;
-              gap: 1.5rem !important;
-            }
-
-            #benefits h2 {
-              font-size: 2rem !important;
-              max-width: 100% !important;
-            }
-
-            #benefits h3 {
-              font-size: 1.1rem !important;
-            }
-
-            #benefits p {
-              font-size: 0.9rem !important;
-            }
-          }
-
-          @media (max-width: 400px) {
-            #benefits {
-              padding: 3rem 0.5rem !important;
-            }
-            #benefits h2 {
-              font-size: 1.6rem !important;
-            }
-            #benefits > div {
-              padding: 1rem !important;
-            }
-            #benefits h3 {
-              font-size: 1rem !important;
-            }
-            #benefits p {
-              font-size: 0.85rem !important;
-            }
-          }
-        `}
-      </style>
     </section>
   );
 };

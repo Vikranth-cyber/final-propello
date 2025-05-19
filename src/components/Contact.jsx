@@ -51,8 +51,8 @@ const Contact = () => {
     >
       <div
         style={{
-          background: "rgba(27, 31, 59, 0.8)",
-          padding: "3rem 4rem",
+          background: "rgba(0, 0, 0, 0.8)", // Updated for black transparency
+          padding: "3rem 3.5rem",
           borderRadius: "48px",
           maxWidth: "600px",
           width: "100%",
@@ -94,7 +94,7 @@ const Contact = () => {
         ) : (
           <form
             onSubmit={handleSubmit}
-            style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}
+            style={{ display: "flex", flexDirection: "column", gap: "1.2rem" }}
           >
             <input
               type="text"
@@ -122,7 +122,7 @@ const Contact = () => {
               value={formData.message}
               onChange={handleChange}
               required
-              rows={5}
+              rows={4}
               style={{ ...inputStyle, resize: "vertical" }}
             />
 
@@ -149,10 +149,10 @@ const Contact = () => {
 };
 
 const inputStyle = {
-  padding: "1rem",
+  padding: "0.8rem",
   borderRadius: "12px",
   border: "1px solid #5D9EFF",
-  background: "rgba(255, 255, 255, 0.05)",
+  background: "rgba(0, 0, 0, 0.4)", // Updated for black transparency
   color: "#E5E9F0",
   fontSize: "1rem",
   outline: "none",
@@ -161,11 +161,11 @@ const inputStyle = {
 
 const submitBtnStyle = {
   background: "linear-gradient(to right, #5D9EFF, #A3E4D7)",
-  padding: "1.2rem",
+  padding: "1.1rem",
   borderRadius: "999px",
   border: "none",
   fontWeight: "700",
-  fontSize: "1.1rem",
+  fontSize: "1.05rem",
   cursor: "pointer",
   color: "#0B0C2A",
   boxShadow: "0 8px 25px rgba(93,158,255,0.3)",

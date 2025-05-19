@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  base: './',   // add this line for correct build paths
+  base: '/',   // add this line for correct build paths
   plugins: [react()],
   server: {
     proxy: {

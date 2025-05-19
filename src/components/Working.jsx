@@ -21,7 +21,7 @@ const steps = [
 
 const Working = () => {
   return (
-    <section className="working-section">
+    <section id="working" className="working-section">
       <h2 className="working-title">How It Works</h2>
 
       <div className="steps-container">

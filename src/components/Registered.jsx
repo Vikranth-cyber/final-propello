@@ -2,8 +2,8 @@ import React from "react";
 
 const styles = {
   container: {
-    backgroundColor: "transparent",
-    color: "white",
+    backgroundColor: "transparent", // No background, for stars to show
+    color: "#e0f7ff", // Breezy light blue text
     minHeight: "100vh",
     display: "flex",
     flexDirection: "column",
@@ -18,12 +18,12 @@ const styles = {
     textAlign: "center",
   },
   sectionTitle: {
-    color: "#b0ff00",
+    color: "#00e5ff",
     fontSize: "1.8rem",
     marginBottom: "1.5rem",
     textTransform: "uppercase",
     letterSpacing: "1.5px",
-    textShadow: "0 0 6px rgba(176, 255, 0, 0.6)",
+    textShadow: "0 0 8px rgba(0, 229, 255, 0.6)",
     fontWeight: "700",
   },
   logoGrid: {
@@ -48,7 +48,7 @@ const styles = {
     maxWidth: "140px",
     maxHeight: "120px",
     objectFit: "contain",
-    filter: "drop-shadow(0 0 7px rgba(0,255,200,0.7))",
+    filter: "drop-shadow(0 0 10px rgba(0,255,255,0.7))",
     transition: "transform 0.3s ease",
     borderRadius: "12px",
   },
@@ -56,7 +56,7 @@ const styles = {
     position: "absolute",
     bottom: "-3rem",
     width: "100%",
-    color: "#00f7ff",
+    color: "#b2f5ff",
     fontSize: "1.1rem",
     fontWeight: "700",
     letterSpacing: "0.3px",
@@ -120,7 +120,7 @@ const Registered = () => {
             width: "90%",
             height: "2px",
             background:
-              "linear-gradient(90deg, transparent, #00f7ff, #b0ff00, #00f7ff, transparent)",
+              "linear-gradient(90deg, transparent, #00e5ff, #00bcd4, #00e5ff, transparent)",
             margin: "1.5rem auto 2rem",
             borderRadius: "3px",
           }}

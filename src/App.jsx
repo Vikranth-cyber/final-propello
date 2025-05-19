@@ -73,28 +73,29 @@ export default function App() {
 
   return (
     <div className="container">
-      <div className="app">
-        {/* Animated Stars */}
-        <div className="stars-container">
-          {Array.from({ length: 600 }).map((_, i) => {
-            const size = Math.random() > 0.85 ? 4 : 3;
-            return (
-              <div
-                key={i}
-                className="stars"
-                style={{
-                  top: `${Math.random() * 100}vh`,
-                  left: `${Math.random() * 100}vw`,
-                  animationDelay: `${Math.random() * 90}s, ${Math.random() * 3}s`,
-                  animationDuration: `${60 + Math.random() * 30}s, 3s`,
-                  opacity: 0.6 + Math.random() * 0.4,
-                  width: `${size}px`,
-                  height: `${size}px`,
-                }}
-              />
-            );
-          })}
-        </div>
+  <div className="app">
+    {/* Animated Stars */}
+    <div className="stars-container">
+      {Array.from({ length: 650 }).map((_, i) => {
+        const size = Math.random() > 0.85 ? 5 : Math.random() > 0.6 ? 4 : 3; // more size variation
+        return (
+          <div
+            key={i}
+            className="stars"
+            style={{
+              top: `${Math.random() * 100}vh`,
+              left: `${Math.random() * 100}vw`,
+              animationDelay: `${Math.random() * 90}s, ${Math.random() * 2.5}s`,
+              animationDuration: `${60 + Math.random() * 30}s, ${1 + Math.random() * 2}s`, // faster twinkle
+              opacity: 0.7 + Math.random() * 0.3,
+              width: `${size}px`,
+              height: `${size}px`,
+              filter: 'drop-shadow(0 0 4px white)', // sparkle effect
+            }}
+          />
+        );
+      })}
+    </div>
 
         {/* Navbar */}
         <Navbar

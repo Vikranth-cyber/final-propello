@@ -6,7 +6,7 @@ const Demo = () => {
       <style>{`
         /* Responsive container */
         #demo .container {
-          background: rgba(27, 31, 59, 0.8);
+          background: rgba(0, 0, 0, 0.4); /* transparent black */
           padding: 4rem 2rem;
           border-radius: 48px;
           max-width: 1200px;
@@ -22,7 +22,6 @@ const Demo = () => {
           transition: width 0.3s ease;
         }
 
-        /* Grid container */
         #demo .grid {
           display: grid;
           grid-template-columns: 1fr 1fr;
@@ -31,7 +30,6 @@ const Demo = () => {
           flex-wrap: wrap;
         }
 
-        /* Video box */
         #demo .video-box {
           position: relative;
           padding-top: 56.25%;
@@ -39,7 +37,6 @@ const Demo = () => {
           border-radius: 32px;
         }
 
-        /* Play button */
         #demo .play-btn {
           position: absolute;
           top: 50%;
@@ -60,24 +57,24 @@ const Demo = () => {
           box-shadow: 0 12px 30px rgba(93, 158, 255, 0.3);
         }
 
-        /* Play button hover scale */
         #demo .play-btn:hover,
         #demo .play-btn:active {
           transform: translate(-50%, -50%) scale(1.1);
         }
 
-        /* Features container */
         #demo .features {
           display: flex;
           flex-direction: column;
           gap: 2rem;
         }
 
-        /* Feature item */
         #demo .feature-item {
           display: flex;
           gap: 1rem;
           align-items: center;
+          background: rgba(0, 0, 0, 0.4); /* transparent black */
+          padding: 1rem;
+          border-radius: 20px;
         }
 
         #demo .feature-icon {
@@ -96,7 +93,6 @@ const Demo = () => {
           margin: 0;
         }
 
-        /* Button */
         #demo .demo-btn {
           margin-top: 1rem;
           align-self: start;
@@ -115,12 +111,12 @@ const Demo = () => {
           cursor: pointer;
           font-family: 'Poppins', sans-serif;
         }
+
         #demo .demo-btn:hover,
         #demo .demo-btn:active {
           transform: scale(1.05);
         }
 
-        /* Heading */
         #demo h2 {
           text-align: center;
           font-size: 2.8rem;
@@ -132,7 +128,6 @@ const Demo = () => {
           font-weight: 700;
         }
 
-        /* Responsive Styles */
         @media (max-width: 900px) {
           #demo .container {
             max-width: 90%;
@@ -212,7 +207,7 @@ const Demo = () => {
         }}
       >
         <div className="container">
-          <h2>LIVE DEMO</h2>
+          <h2>Experience Propello AI in Action </h2>
 
           <div className="grid">
             {/* Video Box */}
@@ -227,19 +222,10 @@ const Demo = () => {
               <div className="feature-item">
                 <FaCode className="feature-icon" />
                 <div className="feature-text">
-                  <h3>API Integration</h3>
-                  <p>Developer-friendly API endpoints and SDKs.</p>
+                  <h3>Propello AI makes every call count</h3>
+                  <p>Watch how our AI agent processes real calls with clarity, empathy and precision.</p>
                 </div>
               </div>
-
-              <div className="feature-item">
-                <FaServer className="feature-icon" />
-                <div className="feature-text">
-                  <h3>Cloud Deployment</h3>
-                  <p>99.9% uptime with scalable infrastructure.</p>
-                </div>
-              </div>
-
               <button className="demo-btn">
                 <FaDesktop />
                 Request Demo

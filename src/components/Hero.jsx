@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const Hero = ({ user }) => {
   const titles = [
-    "Voice Conversational AI",
+    "AI Thats speaks for you",
     "Real-Time Speech Intelligence",
     "Next-Gen AI Voice Agent"
   ];
@@ -80,7 +80,7 @@ const Hero = ({ user }) => {
             }}
             className="hero-badge"
           >
-            VOICE-FIRST AI AGENT
+            FIRST VOICE- AI AGENT 
           </div>
 
           <h1
@@ -114,7 +114,7 @@ const Hero = ({ user }) => {
             }}
             className="hero-description"
           >
-            Experience natural voice interactions with our advanced speech recognition and neural voice synthesis technology.
+            AI-Powered, Humanlike Voice Agents That Sell,Support and Scale-Across Real Estate,Retail,Finance & More.
           </p>
 
           <div
@@ -154,7 +154,7 @@ const Hero = ({ user }) => {
                   }
                   className="hero-button primary"
                 >
-                  Start Free Trial
+                 Get Started Free
                 </button>
 
                 <button
@@ -184,7 +184,7 @@ const Hero = ({ user }) => {
                   }}
                   className="hero-button secondary"
                 >
-                  Try Voice Demo
+                  Book a Demo
                 </button>
               </>
             ) : (
