@@ -1,42 +1,16 @@
 import React from "react";
-import { FaUserTie, FaRocket, FaChartLine } from "react-icons/fa";
-
-const steps = [
-  {
-    icon: <FaUserTie size={36} />,
-    title: "Select Your Agent & Script",
-    desc: "Pick your industry-ready AI agent and share your scripts. We convert them into dynamic conversations using NEPQ.",
-  },
-  {
-    icon: <FaRocket size={36} />,
-    title: "Go Live Instantly",
-    desc: "Our voice agents are trained and deployed within days – no coding required.",
-  },
-  {
-    icon: <FaChartLine size={36} />,
-    title: "Track, Improve, and Scale",
-    desc: "Access dashboards for analytics, sentiment analysis & CRM-integrated actions to improve performance.",
-  },
-];
 
 const Working = () => {
   return (
     <section id="working" className="working-section">
       <h2 className="working-title">How It Works</h2>
 
-      <div className="steps-container">
-        {steps.map((step, idx) => (
-          <div className="step-wrapper" key={idx}>
-            <div className="step-box">
-              <div className="step-icon">{step.icon}</div>
-              <h3 className="step-title">{step.title}</h3>
-              <p className="step-desc">{step.desc}</p>
-            </div>
-            {idx !== steps.length - 1 && (
-              <div className="arrow">{/* Arrow element */}</div>
-            )}
-          </div>
-        ))}
+      <div className="steps-image-wrapper">
+        <img
+          src="/website steps.png"
+          alt="How it works steps"
+          className="steps-image"
+        />
       </div>
 
       <style>{`
@@ -48,6 +22,7 @@ const Working = () => {
           display: flex;
           flex-direction: column;
           align-items: center;
+          text-align: center;
         }
 
         .working-title {
@@ -57,78 +32,61 @@ const Working = () => {
           background: linear-gradient(90deg, #5D9EFF, #A3E4D7);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-          text-align: center;
         }
 
-        .steps-container {
+        .steps-image-wrapper {
+          width: 100%;
+          max-width: 1200px;
+          padding: 0 1rem;
           display: flex;
-          flex-direction: column;
+          justify-content: center;
           align-items: center;
         }
 
-        .step-wrapper {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          position: relative;
-        }
-
-        .step-box {
-          width: 300px;
-          height: 320px;
-          background: rgba(255, 255, 255, 0.04);
-          border: 2px solid #5D9EFF;
+        .steps-image {
+          width: 100%;
+          max-width: 100%;
+          height: auto;
           border-radius: 16px;
-          padding: 1.5rem;
-          text-align: center;
-          box-shadow: 0 0 15px #5D9EFF, inset 0 0 8px #5D9EFF;
+          box-shadow: 0 0 20px #5D9EFF, inset 0 0 10px #A3E4D7;
           transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .step-box:hover {
-          transform: scale(1.05);
-          box-shadow: 0 0 25px #5D9EFF, inset 0 0 12px #A3E4D7;
+        .steps-image:hover {
+          transform: scale(1.02);
+          box-shadow: 0 0 30px #5D9EFF, inset 0 0 15px #A3E4D7;
         }
 
-        .step-icon {
-          margin-bottom: 1rem;
-          color: #A3E4D7;
+        /* Responsive Typography */
+        @media (max-width: 1024px) {
+          .working-title {
+            font-size: 2.5rem;
+          }
         }
 
-        .step-title {
-          color: #A3E4D7;
-          font-size: 1.2rem;
-          margin-bottom: 0.5rem;
-        }
-
-        .step-desc {
-          color: #C7D3E0;
-          font-size: 0.95rem;
-        }
-
-        .arrow {
-          width: 2px;
-          height: 40px;
-          background: linear-gradient(#5D9EFF, #A3E4D7);
-          margin: 20px 0;
-        }
-
-        @media (min-width: 768px) {
-          .steps-container {
-            flex-direction: row;
-            justify-content: center;
-            gap: 3rem;
+        @media (max-width: 768px) {
+          .working-title {
+            font-size: 2.2rem;
           }
 
-          .step-wrapper {
-            flex-direction: row;
-            align-items: center;
+          .steps-image-wrapper {
+            padding: 0 0.5rem;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .working-title {
+            font-size: 1.8rem;
           }
 
-          .arrow {
-            width: 40px;
-            height: 2px;
-            margin: 0 20px;
+          .steps-image {
+            border-radius: 12px;
+          }
+        }
+
+        @media (max-width: 360px) {
+          .working-title {
+            font-size: 1.5rem;
           }
         }
       `}</style>

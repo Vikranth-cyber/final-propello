@@ -1,4 +1,4 @@
-import { FaPlay, FaCode, FaServer, FaDesktop } from 'react-icons/fa';
+import { FaPlay, FaCode, FaDesktop } from 'react-icons/fa';
 
 const Demo = () => {
   return (
@@ -11,13 +11,12 @@ const Demo = () => {
           border-radius: 48px;
           max-width: 1200px;
           width: 100%;
-          box-shadow: 0 30px 60px rgba(93,158,255,0.25);
           position: relative;
-          border: 3px solid #5D9EFF;
+          /* Removed border and box-shadow for shadow and border */
+          /* Add subtle lighting/glow with text-shadow and inner glow */
           box-shadow:
-            0 0 8px #5D9EFF,
-            0 0 20px #5D9EFF,
-            0 0 30px #A3E4D7;
+            0 0 15px #5D9EFF66,
+            inset 0 0 30px #5D9EFF33;
           font-family: 'Poppins', sans-serif;
           transition: width 0.3s ease;
         }
@@ -35,6 +34,8 @@ const Demo = () => {
           padding-top: 56.25%;
           background: #1e1e1e;
           border-radius: 32px;
+          /* subtle inner glow */
+          box-shadow: inset 0 0 20px #5D9EFF33;
         }
 
         #demo .play-btn {
@@ -54,7 +55,10 @@ const Demo = () => {
           color: #0B0C2A;
           cursor: pointer;
           transition: transform 0.3s ease;
-          box-shadow: 0 12px 30px rgba(93, 158, 255, 0.3);
+          /* subtle glow lighting instead of shadow */
+          box-shadow:
+            0 0 10px #5D9EFFAA,
+            0 0 25px #A3E4D7CC;
         }
 
         #demo .play-btn:hover,
@@ -75,6 +79,8 @@ const Demo = () => {
           background: rgba(0, 0, 0, 0.4); /* transparent black */
           padding: 1rem;
           border-radius: 20px;
+          /* subtle lighting effect */
+          box-shadow: inset 0 0 15px #5D9EFF33;
         }
 
         #demo .feature-icon {
@@ -106,7 +112,10 @@ const Demo = () => {
           font-size: 1rem;
           border-radius: 999px;
           border: none;
-          box-shadow: 0 10px 20px rgba(93,158,255,0.25);
+          /* subtle lighting glow instead of shadow */
+          box-shadow:
+            0 0 15px #5D9EFF88,
+            0 0 25px #A3E4D7BB;
           transition: transform 0.3s ease;
           cursor: pointer;
           font-family: 'Poppins', sans-serif;
@@ -126,6 +135,10 @@ const Demo = () => {
           font-family: 'Poppins', sans-serif;
           margin-bottom: 3rem;
           font-weight: 700;
+          /* subtle text glow */
+          text-shadow:
+            0 0 5px #5D9EFF88,
+            0 0 10px #A3E4D7BB;
         }
 
         @media (max-width: 900px) {
@@ -207,7 +220,7 @@ const Demo = () => {
         }}
       >
         <div className="container">
-          <h2>Experience Propello AI in Action </h2>
+          <h2>Experience Propello AI in Action</h2>
 
           <div className="grid">
             {/* Video Box */}

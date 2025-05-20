@@ -33,20 +33,11 @@ const Footer = () => {
         @media (max-width: 600px) {
           .footer-links {
             flex-wrap: wrap !important;
-            flex-direction: column !important;
+            flex-direction: row !important;
+            gap: 2rem;
           }
-          /* Product + Resources side by side */
-          .footer-links > div:nth-child(1),
-          .footer-links > div:nth-child(2) {
+          .footer-links > div:not(:first-child) {
             width: 48%;
-            display: inline-block;
-          }
-          /* Company + Legal side by side below */
-          .footer-links > div:nth-child(3),
-          .footer-links > div:nth-child(4) {
-            width: 48%;
-            display: inline-block;
-            margin-top: 1.5rem;
           }
         }
       `}</style>
@@ -67,7 +58,7 @@ const Footer = () => {
             background: "rgba(255, 255, 255, 0.05)",
             borderRadius: "32px",
             padding: "3rem 3.5rem",
-            boxShadow: "0 20px 50px rgba(0, 255, 200, 0.15)",
+            boxShadow: "0 20px 50px rgba(93, 158, 255, 0.35)", // breezy blue shadow
             color: "#9BAACB",
             userSelect: "none",
           }}

@@ -2,8 +2,8 @@ import React from "react";
 
 const styles = {
   container: {
-    backgroundColor: "transparent", // No background, for stars to show
-    color: "#e0f7ff", // Breezy light blue text
+    backgroundColor: "transparent",
+    color: "#e0f7ff",
     minHeight: "100vh",
     display: "flex",
     flexDirection: "column",
@@ -52,6 +52,10 @@ const styles = {
     transition: "transform 0.3s ease",
     borderRadius: "12px",
   },
+  largeLogoImage: {
+    maxWidth: "180px",
+    maxHeight: "150px",
+  },
   logoText: {
     position: "absolute",
     bottom: "-3rem",
@@ -82,7 +86,7 @@ const Registered = () => {
   const backedBy = [
     { name: "Google", logo: "/cloud.png" },
     { name: "Microsoft", logo: "/microsoft.png" },
-    { name: "Nvidia", logo: "/nvidia.png" },
+    { name: "Nvidia", logo: "/inception.png" },
     { name: "AWS", logo: "/aws.png" },
   ];
 
@@ -137,7 +141,14 @@ const Registered = () => {
               onTouchStart={() => setHoverIndex(`backed-${i}`)}
               onTouchEnd={() => setHoverIndex(null)}
             >
-              <img src={item.logo} alt={item.name} style={styles.logoImage} />
+              <img
+                src={item.logo}
+                alt={item.name}
+                style={{
+                  ...styles.logoImage,
+                  ...(item.name === "AWS" ? styles.largeLogoImage : {}),
+                }}
+              />
               <p
                 style={{
                   ...styles.logoText,

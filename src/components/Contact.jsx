@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { sendMessage } from "../message"; // Correct path relative to components/
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -19,23 +20,14 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
-    try {
-      const res = await fetch("http://localhost:4000/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData)
-      });
 
-      const data = await res.json();
-      if (res.ok) {
-        setSubmitted(true);
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        setError(data.message || "Something went wrong. Please try again.");
-      }
+    try {
+      await sendMessage(formData); // Send data to Firestore via your helper
+      setSubmitted(true);
+      setFormData({ name: "", email: "", message: "" });
     } catch (err) {
-      console.error("Error submitting form:", err);
-      setError("Network error. Please try again later.");
+      console.error("Form error:", err);
+      setError(err.message || "Something went wrong. Please try again.");
     }
   };
 
@@ -51,18 +43,17 @@ const Contact = () => {
     >
       <div
         style={{
-          background: "rgba(0, 0, 0, 0.8)", // Updated for black transparency
+          background: "rgba(0, 0, 0, 0.8)",
           padding: "3rem 3.5rem",
           borderRadius: "48px",
           maxWidth: "600px",
           width: "100%",
           boxShadow: `
-            0 0 8px #5D9EFF,
-            0 0 20px #A3E4D7,
-            0 0 30px #5D9EFF,
-            inset 0 0 12px #A3E4D7
+            0 0 4px #5D9EFF,
+            0 0 10px #A3E4D7,
+            inset 0 0 6px #A3E4D7
           `,
-          border: "2px solid #5D9EFF",
+          border: "1px solid #5D9EFF",
           color: "#E5E9F0",
           transition: "box-shadow 0.3s ease"
         }}
@@ -151,8 +142,8 @@ const Contact = () => {
 const inputStyle = {
   padding: "0.8rem",
   borderRadius: "12px",
-  border: "1px solid #5D9EFF",
-  background: "rgba(0, 0, 0, 0.4)", // Updated for black transparency
+  border: "1px solid #3B6CB5",
+  background: "rgba(0, 0, 0, 0.4)",
   color: "#E5E9F0",
   fontSize: "1rem",
   outline: "none",

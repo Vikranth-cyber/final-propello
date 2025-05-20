@@ -65,10 +65,11 @@ const Definition = () => {
           padding: 3rem 1rem;
           color: #e0e0e0;
           text-align: center;
+          font-family: var(--font-body);
         }
 
         .definition-title {
-          font-size: 2.5rem;
+          font-size: 2.6rem;
           background: linear-gradient(90deg, #5D9EFF, #A3E4D7);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -86,44 +87,46 @@ const Definition = () => {
         .definition-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 1.5rem;
-          max-width: 1200px;
+          gap: 1rem;
+          max-width: 1000px;
           margin: 0 auto;
         }
 
         .feature-card {
-          background: rgba(0, 0, 0, 0.4);
-          border-radius: 16px;
-          padding: 1.8rem 1.2rem;
-          box-shadow: 0 0 12px rgba(93, 158, 255, 0.3);
+          background: rgba(0, 0, 0, 0.5);
+          border: 1px solid #5D9EFF;
+          border-radius: 10px;
+          padding: 1rem;
+          min-height: 220px;
           transition: transform 0.3s ease, box-shadow 0.3s ease;
-          backdrop-filter: blur(6px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
         }
 
         .feature-card:hover {
-          transform: translateY(-6px);
-          box-shadow: 0 0 20px rgba(93, 158, 255, 0.6);
+          transform: scale(1.05);
+          box-shadow: 0 0 10px #5D9EFF;
         }
 
         .feature-icon {
-          font-size: 2rem;
-          color: #5D9EFF;
-          margin-bottom: 1rem;
-          filter: drop-shadow(0 0 6px #5D9EFF);
+          font-size: 1.7rem;
+          color: #A3E4D7;
+          margin-bottom: 0.7rem;
         }
 
         .feature-title {
           font-size: 1.2rem;
-          font-weight: bold;
-          margin-bottom: 0.6rem;
+          font-weight: 600;
           background: linear-gradient(90deg, #5D9EFF, #A3E4D7);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
+          margin-bottom: 0.3rem;
         }
 
         .feature-desc {
-          font-size: 0.95rem;
+          font-size: 0.9rem;
           color: #cfd8e3;
         }
 
@@ -142,16 +145,12 @@ const Definition = () => {
             font-size: 2rem;
           }
 
-          .feature-icon {
-            font-size: 1.7rem;
-          }
-
           .feature-title {
             font-size: 1.1rem;
           }
 
           .feature-desc {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
           }
         }
       `}</style>

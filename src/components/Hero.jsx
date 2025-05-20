@@ -420,24 +420,36 @@ const Hero = ({ user }) => {
 
         @media (max-width: 600px) {
           .mic-container {
-            display: none;
+            display: none !important;
           }
           
           .hero-container {
             padding: 2rem 2rem !important;
+            text-align: center !important;
           }
           
           .hero-title {
             font-size: 2.2rem !important;
+            text-align: center !important;
+            margin-left: auto;
+            margin-right: auto;
           }
           
           .hero-description {
             font-size: 1rem !important;
+            text-align: center !important;
           }
           
           .hero-badge {
             font-size: 0.9rem !important;
             padding: 0.3rem 1rem !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+          }
+          
+          .hero-buttons {
+            flex-direction: column;
+            align-items: center;
           }
         }
 
@@ -454,6 +466,7 @@ const Hero = ({ user }) => {
           .hero-buttons {
             flex-direction: column;
             gap: 1rem !important;
+            width: 100%;
           }
           
           .hero-button {
@@ -471,6 +484,10 @@ const Hero = ({ user }) => {
           .hero-badge {
             font-size: 0.8rem !important;
             letter-spacing: 1.5px !important;
+          }
+          
+          .hero-description {
+            font-size: 0.95rem !important;
           }
         }
       `}</style>

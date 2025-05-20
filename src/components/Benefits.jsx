@@ -1,25 +1,25 @@
 import React from 'react';
-import { FaBrain, FaRocket, FaChartBar, FaPlug } from 'react-icons/fa';
+import { FaRobot, FaHandshake, FaChartLine, FaPlug } from 'react-icons/fa';
 
 const Benefits = () => {
   const benefits = [
     {
-      icon: <FaBrain size={24} style={{ color: "#A3E4D7" }} />,
+      icon: <FaRobot size={24} style={{ color: "#A3E4D7" }} />, // AI / Robot icon for Truly Humanlike AI
       title: "Truly Humanlike AI",
       description: "Natural tone, emotion-sensitive answers, and multilingual fluency.",
     },
     {
-      icon: <FaChartBar size={24} style={{ color: "#A3E4D7" }} />,
+      icon: <FaHandshake size={24} style={{ color: "#A3E4D7" }} />, // Handshake for Better Conversions (partnership/sales)
       title: "Better Conversions",
       description: "Drive sales with compelling, NEPQ-style conversations designed for your business.",
     },
     {
-      icon: <FaRocket size={24} style={{ color: "#A3E4D7" }} />,
+      icon: <FaChartLine size={24} style={{ color: "#A3E4D7" }} />, // ChartLine for Effortless Scaling (growth)
       title: "Effortless Scaling",
       description: "Run thousands of calls daily—without hiring.",
     },
     {
-      icon: <FaPlug size={24} style={{ color: "#A3E4D7" }} />,
+      icon: <FaPlug size={24} style={{ color: "#A3E4D7" }} />, // Plug icon fits Plug-and-Play Setup
       title: "Plug-and-Play Setup",
       description: "Fast integration with your CRM and support tools. Zero hassle.",
     },
@@ -33,7 +33,7 @@ const Benefits = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        backgroundColor: "#000", // BLACK background
+        backgroundColor: "#000",
       }}
     >
       <h2
@@ -56,13 +56,13 @@ const Benefits = () => {
 
       <div
         style={{
-          background: "#000", // BLACK background
+          background: "#000",
           padding: "2rem",
           borderRadius: "16px",
           width: "100%",
           maxWidth: "1200px",
-          boxShadow: "0 0 12px #5D9EFF, inset 0 0 8px #5D9EFF", // Glowing blue border
-          border: "1px solid #5D9EFF",
+          boxShadow: "0 0 6px #5D9EFF88, inset 0 0 4px #5D9EFF88", // lighter glow
+          border: "1px solid #5D9EFF66", // softer border
           transition: "all 0.3s ease",
         }}
       >
@@ -77,9 +77,9 @@ const Benefits = () => {
             <div
               key={index}
               style={{
-                backgroundColor: "#000", // BLACK card
-                border: "1px solid #5D9EFF",
-                boxShadow: "0 0 10px #5D9EFF, inset 0 0 6px #5D9EFF",
+                backgroundColor: "#000",
+                border: "1px solid #5D9EFF44", // softer border
+                boxShadow: "0 0 6px #5D9EFF55, inset 0 0 3px #5D9EFF55", // lighter shadow
                 padding: "1.5rem 1rem",
                 borderRadius: "12px",
                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -88,12 +88,12 @@ const Benefits = () => {
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "scale(1.03)";
                 e.currentTarget.style.boxShadow =
-                  "0 0 16px #5D9EFF, 0 0 24px #5D9EFF, inset 0 0 10px #5D9EFF";
+                  "0 0 10px #5D9EFFAA, 0 0 14px #5D9EFFAA, inset 0 0 6px #5D9EFFAA"; // slightly stronger on hover
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = "scale(1)";
                 e.currentTarget.style.boxShadow =
-                  "0 0 10px #5D9EFF, inset 0 0 6px #5D9EFF";
+                  "0 0 6px #5D9EFF55, inset 0 0 3px #5D9EFF55";
               }}
             >
               {benefit.icon}

@@ -1,36 +1,43 @@
 import React from "react";
-import { FaPhoneAlt, FaHandshake, FaComments, FaShieldAlt, FaNetworkWired, FaChartBar } from "react-icons/fa";
+import {
+  FaPhoneAlt,
+  FaHandshake,
+  FaComments,
+  FaShieldAlt,
+  FaNetworkWired,
+  FaChartBar,
+} from "react-icons/fa";
 
 const services = [
   {
     title: "Outbound AI Calling",
     description: "Automated outbound AI calls for seamless customer engagement.",
-    icon: <FaPhoneAlt size={18} style={{ color: "#A3E4D7", marginBottom: "0.3rem" }} />,
+    icon: <FaPhoneAlt size={24} color="#A3E4D7" />,
   },
   {
     title: "Sales AI Calling",
     description: "Boost conversions with AI-driven sales call automation.",
-    icon: <FaHandshake size={18} style={{ color: "#A3E4D7", marginBottom: "0.3rem" }} />,
+    icon: <FaHandshake size={24} color="#A3E4D7" />,
   },
   {
     title: "Inbound AI Handling",
     description: "Manage WhatsApp, Email, Chatbot, and scheduling automatically.",
-    icon: <FaComments size={18} style={{ color: "#A3E4D7", marginBottom: "0.3rem" }} />,
+    icon: <FaComments size={24} color="#A3E4D7" />,
   },
   {
     title: "Data Security",
     description: "Enterprise-grade encryption and compliance for secure communications.",
-    icon: <FaShieldAlt size={18} style={{ color: "#A3E4D7", marginBottom: "0.3rem" }} />,
+    icon: <FaShieldAlt size={24} color="#A3E4D7" />,
   },
   {
     title: "Omnichannel Automation",
     description: "Integrate AI across multiple platforms for effortless customer interaction.",
-    icon: <FaNetworkWired size={18} style={{ color: "#A3E4D7", marginBottom: "0.3rem" }} />,
+    icon: <FaNetworkWired size={24} color="#A3E4D7" />,
   },
   {
     title: "Custom Dashboards & Analytics",
     description: "Monitor AI call performance and customer engagement in real-time.",
-    icon: <FaChartBar size={18} style={{ color: "#A3E4D7", marginBottom: "0.3rem" }} />,
+    icon: <FaChartBar size={24} color="#A3E4D7" />,
   },
 ];
 
@@ -39,89 +46,84 @@ const Services = () => {
     <>
       <style>{`
         #services {
-          padding: 2rem 0.8rem;
+          padding: 3rem 1rem;
           background: transparent;
           color: #E5E9F0;
           font-family: var(--font-body);
-          position: relative;
-          z-index: 1;
+          text-align: center;
         }
 
         #services h2 {
-          text-align: center;
-          font-size: 1.9rem;
+          font-size: 2.6rem;
           font-weight: 700;
-          margin-bottom: 1.2rem;
-          user-select: none;
+          margin-bottom: 2rem;
           background: linear-gradient(90deg, #5D9EFF, #A3E4D7);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
+          user-select: none;
         }
 
         .services-container {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 0.6rem;
-          width: 100%;
-          max-width: 850px;
+          gap: 1rem;
+          max-width: 1000px;
           margin: 0 auto;
         }
 
         .service-card {
-          background: rgba(255,255,255,0.05);
-          border: 2px solid #5D9EFF;
-          border-radius: 8px;
-          padding: 0.4rem; /* Reduced padding for smaller height */
-          text-align: center;
+          background: rgba(0, 0, 0, 0.5);
+          border: 1px solid #5D9EFF;
+          border-radius: 10px;
+          padding: 1rem;
           transition: transform 0.3s ease, box-shadow 0.3s ease;
-          backdrop-filter: blur(5px);
-          cursor: pointer;
-          user-select: none;
-
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          
-          aspect-ratio: 1 / 1;
-          width: 100%;
-          box-sizing: border-box;
-          
-          box-shadow: 0 0 5px #5D9EFF, inset 0 0 3px #5D9EFF;
+          min-height: 220px;
         }
 
         .service-card:hover {
           transform: scale(1.05);
-          box-shadow: 0 0 10px #A3E4D7, inset 0 0 5px #A3E4D7;
+          box-shadow: 0 0 10px #5D9EFF;
         }
 
         .service-title {
-          font-size: 0.95rem;
+          font-size: 1.2rem;
           font-weight: 600;
+          margin: 0.6rem 0 0.3rem;
           color: #A3E4D7;
-          margin-bottom: 0.2rem;
         }
 
         .service-desc {
-          font-size: 0.75rem;
-          color: #9BAACB;
+          font-size: 0.9rem;
+          color: #BFC9D9;
         }
 
-        @media (max-width: 768px) {
+        /* Tablet: 2 columns */
+        @media (max-width: 992px) {
           .services-container {
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-            max-width: 300px;
-            margin: 0 auto;
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        /* Mobile: 1 column */
+        @media (max-width: 600px) {
+          .services-container {
+            grid-template-columns: 1fr;
           }
 
-          .service-card {
-            padding: 0.6rem;
+          #services h2 {
+            font-size: 2rem;
+          }
+
+          .service-title {
+            font-size: 1.1rem;
           }
 
           .service-desc {
-            display: none;
+            font-size: 0.85rem;
           }
         }
       `}</style>
