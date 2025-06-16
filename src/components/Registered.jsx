@@ -74,6 +74,72 @@ const styles = {
     transform: "translateY(0)",
     pointerEvents: "auto",
   },
+
+  // New styles for user guide icon & popup
+  breezyBlue: "#4fc3f7",
+  breezyBlueTransparent: "rgba(79, 195, 247, 0.15)",
+
+  guideIcon: {
+    position: "fixed",
+    bottom: "20px",
+    left: "20px",
+    width: "45px",
+    height: "45px",
+    backgroundColor: "#4fc3f7", // breezy blue
+    color: "white",
+    borderRadius: "50%",
+    fontSize: "28px",
+    fontWeight: "700",
+    cursor: "pointer",
+    boxShadow: "0 0 12px rgba(79,195,247,0.7)",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    zIndex: 1000,
+    userSelect: "none",
+    transition: "background-color 0.3s ease",
+  },
+
+  guidePopup: {
+    position: "fixed",
+    bottom: "75px",
+    left: "20px",
+    width: "320px",
+    maxWidth: "90vw",
+    maxHeight: "60vh",
+    backgroundColor: "#4fc3f6", // transparent breezy blue
+    color: "white",
+    padding: "1rem 1.5rem",
+    borderRadius: "10px",
+    boxShadow: "0 0 15px rgba(79,195,247,0.5)",
+    overflowY: "auto",
+    fontSize: "0.9rem",
+    fontWeight: "600",
+    lineHeight: "1.4",
+    zIndex: 1001,
+  },
+
+  guideTitle: {
+    fontWeight: "800",
+    fontSize: "1.1rem",
+    marginBottom: "0.8rem",
+    borderBottom: "2px solid rgba(255,255,255,0.4)",
+    paddingBottom: "4px",
+  },
+
+  guideList: {
+    paddingLeft: "1.2rem",
+    marginBottom: "0.8rem",
+  },
+
+  // Responsive adjustments
+  "@media(max-width: 400px)": {
+    guidePopup: {
+      width: "90vw",
+      bottom: "70px",
+      left: "5vw",
+    },
+  },
 };
 
 const Registered = () => {
@@ -91,77 +157,135 @@ const Registered = () => {
   ];
 
   const [hoverIndex, setHoverIndex] = React.useState(null);
+  const [showGuide, setShowGuide] = React.useState(false);
 
   return (
-    <div style={styles.container}>
-      <div style={styles.content}>
-        <h2 style={styles.sectionTitle}>Registered With</h2>
-        <div style={styles.logoGrid}>
-          {registeredWith.map((item, i) => (
-            <div
-              key={item.name}
-              style={styles.logoItem}
-              onMouseEnter={() => setHoverIndex(`reg-${i}`)}
-              onMouseLeave={() => setHoverIndex(null)}
-              onTouchStart={() => setHoverIndex(`reg-${i}`)}
-              onTouchEnd={() => setHoverIndex(null)}
-            >
-              <img src={item.logo} alt={item.name} style={styles.logoImage} />
-              <p
-                style={{
-                  ...styles.logoText,
-                  ...(hoverIndex === `reg-${i}` ? styles.logoTextVisible : {}),
-                }}
+    <>
+      <div style={styles.container}>
+        <div style={styles.content}>
+          <h2 style={styles.sectionTitle}>Registered With</h2>
+          <div style={styles.logoGrid}>
+            {registeredWith.map((item, i) => (
+              <div
+                key={item.name}
+                style={styles.logoItem}
+                onMouseEnter={() => setHoverIndex(`reg-${i}`)}
+                onMouseLeave={() => setHoverIndex(null)}
+                onTouchStart={() => setHoverIndex(`reg-${i}`)}
+                onTouchEnd={() => setHoverIndex(null)}
               >
-                {item.name}
-              </p>
-            </div>
-          ))}
-        </div>
+                <img src={item.logo} alt={item.name} style={styles.logoImage} />
+                <p
+                  style={{
+                    ...styles.logoText,
+                    ...(hoverIndex === `reg-${i}` ? styles.logoTextVisible : {}),
+                  }}
+                >
+                  {item.name}
+                </p>
+              </div>
+            ))}
+          </div>
 
-        <div
-          style={{
-            width: "90%",
-            height: "2px",
-            background:
-              "linear-gradient(90deg, transparent, #00e5ff, #00bcd4, #00e5ff, transparent)",
-            margin: "1.5rem auto 2rem",
-            borderRadius: "3px",
-          }}
-        ></div>
+          <div
+            style={{
+              width: "90%",
+              height: "2px",
+              background:
+                "linear-gradient(90deg, transparent, #00e5ff, #00bcd4, #00e5ff, transparent)",
+              margin: "1.5rem auto 2rem",
+              borderRadius: "3px",
+            }}
+          ></div>
 
-        <h2 style={styles.sectionTitle}>Backed By</h2>
-        <div style={styles.logoGrid}>
-          {backedBy.map((item, i) => (
-            <div
-              key={item.name}
-              style={styles.logoItem}
-              onMouseEnter={() => setHoverIndex(`backed-${i}`)}
-              onMouseLeave={() => setHoverIndex(null)}
-              onTouchStart={() => setHoverIndex(`backed-${i}`)}
-              onTouchEnd={() => setHoverIndex(null)}
-            >
-              <img
-                src={item.logo}
-                alt={item.name}
-                style={{
-                  ...styles.logoImage,
-                  ...(item.name === "AWS" ? styles.largeLogoImage : {}),
-                }}
-              />
-              <p
-                style={{
-                  ...styles.logoText,
-                  ...(hoverIndex === `backed-${i}` ? styles.logoTextVisible : {}),
-                }}
+          <h2 style={styles.sectionTitle}>Backed By</h2>
+          <div style={styles.logoGrid}>
+            {backedBy.map((item, i) => (
+              <div
+                key={item.name}
+                style={styles.logoItem}
+                onMouseEnter={() => setHoverIndex(`backed-${i}`)}
+                onMouseLeave={() => setHoverIndex(null)}
+                onTouchStart={() => setHoverIndex(`backed-${i}`)}
+                onTouchEnd={() => setHoverIndex(null)}
               >
-                {item.name}
-              </p>
-            </div>
-          ))}
+                <img
+                  src={item.logo}
+                  alt={item.name}
+                  style={{
+                    ...styles.logoImage,
+                    ...(item.name === "AWS" ? styles.largeLogoImage : {}),
+                  }}
+                />
+                <p
+                  style={{
+                    ...styles.logoText,
+                    ...(hoverIndex === `backed-${i}` ? styles.logoTextVisible : {}),
+                  }}
+                >
+                  {item.name}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+
+      {/* Scrollbar styling for WebKit browsers */}
+      <style>{`
+        /* WebKit scrollbar for guidePopup */
+        div[role="dialog"]::-webkit-scrollbar {
+          width: 6px;
+          background: transparent;
+        }
+        div[role="dialog"]::-webkit-scrollbar-thumb {
+          background-color: rgba(255, 255, 255, 0.3);
+          border-radius: 10px;
+        }
+        div[role="dialog"]::-webkit-scrollbar-thumb:hover {
+          background-color: rgba(255, 255, 255, 0.5);
+        }
+        /* Firefox scrollbar */
+        div[role="dialog"] {
+          scrollbar-width: thin;
+          scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+        }
+        /* Responsive popup */
+        @media (max-width: 400px) {
+          div[role="dialog"] {
+            width: 90vw !important;
+            left: 5vw !important;
+            bottom: 70px !important;
+          }
+        }
+      `}</style>
+
+      {/* Question mark icon */}
+      <div
+        style={styles.guideIcon}
+        onClick={() => setShowGuide(!showGuide)}
+        title="User Guides"
+        aria-label="Toggle User Guides"
+      >
+        ?
+      </div>
+
+      {/* Popup with user guide content */}
+      {showGuide && (
+        <div style={styles.guidePopup} role="dialog" aria-modal="true" aria-labelledby="guideTitle">
+          <h3 id="guideTitle" style={styles.guideTitle}>User Guides - How to Use the Bot</h3>
+          <p><strong>Getting Started with Propello AI</strong></p>
+          <ul style={styles.guideList}>
+            <li><strong>Sign Up:</strong> Create your account in minutes.</li>
+            <li><strong>Connect Your Number:</strong> Link your business number to our system.</li>
+            <li><strong>Train Your Bot:</strong> Use our easy interface to feed FAQs and workflows.</li>
+            <li><strong>Go Live:</strong> Your voice assistant starts answering calls immediately.</li>
+            <li><strong>Track Performance:</strong> Use the dashboard to monitor calls and responses.</li>
+          </ul>
+          <p>Need help? Our onboarding team is always available.</p>
+        </div>
+      )}
+    </>
   );
 };
 

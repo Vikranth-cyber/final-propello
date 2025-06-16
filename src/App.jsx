@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Definition from './components/Definition';
@@ -72,292 +73,298 @@ const App = () => {
   };
 
   return (
-    <div className="app">
-      {/* Animated Stars */}
-      <div className="stars-container">
-        {Array.from({ length: 200 }).map((_, i) => {
-          const size = Math.random() > 0.9 ? 4 : Math.random() > 0.7 ? 3 : 2;
-          return (
-            <div
-              key={i}
-              className="stars"
-              style={{
-                top: `${Math.random() * 100}vh`,
-                left: `${Math.random() * 100}vw`,
-                animationDelay: `${Math.random() * 90}s, ${Math.random() * 2.5}s`,
-                animationDuration: `${60 + Math.random() * 30}s, ${1 + Math.random() * 2}s`,
-                opacity: 0.7 + Math.random() * 0.3,
-                width: `${size}px`,
-                height: `${size}px`,
-                filter: 'drop-shadow(0 0 4px white)',
-              }}
-            />
-          );
-        })}
-      </div>
+    <Router>
+      <div className="app">
+        {/* Animated Stars */}
+        <div className="stars-container">
+          {Array.from({ length: 200 }).map((_, i) => {
+            const size = Math.random() > 0.9 ? 4 : Math.random() > 0.7 ? 3 : 2;
+            return (
+              <div
+                key={i}
+                className="stars"
+                style={{
+                  top: `${Math.random() * 100}vh`,
+                  left: `${Math.random() * 100}vw`,
+                  animationDelay: `${Math.random() * 90}s, ${Math.random() * 2.5}s`,
+                  animationDuration: `${60 + Math.random() * 30}s, ${1 + Math.random() * 2}s`,
+                  opacity: 0.7 + Math.random() * 0.3,
+                  width: `${size}px`,
+                  height: `${size}px`,
+                  filter: 'drop-shadow(0 0 4px white)',
+                }}
+              />
+            );
+          })}
+        </div>
 
-      {/* Navbar */}
-      <Navbar
-        user={user}
-        scrolled={scrolled}
-        activeSection={activeSection}
-        onAuthClick={() => setShowAuthModal(true)}
-        onLogout={() => setUser(null)}
-      />
+        {/* Navbar */}
+        <Navbar
+          user={user}
+          scrolled={scrolled}
+          activeSection={activeSection}
+          onAuthClick={() => setShowAuthModal(true)}
+          onLogout={() => setUser(null)}
+        />
 
-      {/* Sections */}
-      <main>
-        <Hero user={user} />
-        <Definition />
-        <Services />
-        <Working />
-        <Demo />
-        <Benefits />
-        <Registered />
-        <Contact />
-      </main>
+        {/* Routes */}
+        <Routes>
+          <Route path="/" element={
+            <main>
+              <Hero user={user} />
+              <Definition />
+              <Services />
+              <Working />
+              <Demo />
+              <Benefits />
+              <Registered />
+              <Contact />
+            </main>
+          } />
+        </Routes>
 
-      <Footer />
+        <Footer />
 
-      {/* Auth Modal */}
-      <AnimatePresence>
-        {showAuthModal && (
-          <motion.div
-            className="auth-modal"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            style={{
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              width: '100vw',
-              height: '100vh',
-              background: 'rgba(0, 0, 0, 0.9)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              zIndex: 9999,
-              backdropFilter: 'blur(10px)',
-            }}
-          >
+        {/* Auth Modal */}
+        <AnimatePresence>
+          {showAuthModal && (
             <motion.div
-              className="modal-content"
-              initial={{ y: -50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 50, opacity: 0 }}
+              className="auth-modal"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               style={{
-                width: '400px',
-                maxWidth: '90%',
-                background: 'rgba(20, 20, 20, 0.95)',
-                borderRadius: '24px',
-                padding: '2rem',
-                color: 'white',
-                boxShadow: '0 0 40px rgba(138, 109, 255, 0.4)',
-                border: '1px solid rgba(138, 109, 255, 0.3)',
-                position: 'relative',
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                width: '100vw',
+                height: '100vh',
+                background: 'rgba(0, 0, 0, 0.9)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                zIndex: 9999,
+                backdropFilter: 'blur(10px)',
               }}
             >
-              <button
-                className="close-btn"
-                onClick={() => setShowAuthModal(false)}
+              <motion.div
+                className="modal-content"
+                initial={{ y: -50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: 50, opacity: 0 }}
                 style={{
-                  position: 'absolute',
-                  top: '16px',
-                  right: '20px',
-                  background: 'transparent',
-                  border: 'none',
-                  fontSize: '28px',
-                  color: 'var(--primary)',
-                  cursor: 'pointer',
+                  width: '400px',
+                  maxWidth: '90%',
+                  background: 'rgba(20, 20, 20, 0.95)',
+                  borderRadius: '24px',
+                  padding: '2rem',
+                  color: 'white',
+                  boxShadow: '0 0 40px rgba(138, 109, 255, 0.4)',
+                  border: '1px solid rgba(138, 109, 255, 0.3)',
+                  position: 'relative',
                 }}
               >
-                ×
-              </button>
-              
-              {authMode === 'login' ? (
-                <div className="auth-form">
-                  <h3 style={{ textAlign: 'center', marginBottom: '1.5rem' }}>Sign In</h3>
-                  <form onSubmit={(e) => {
-                    e.preventDefault();
-                    handleLogin({
-                      username: e.target.username.value,
-                      password: e.target.password.value,
-                    });
-                  }}>
-                    <input
-                      type="text"
-                      name="username"
-                      placeholder="Username"
-                      required
-                      style={{
-                        width: '100%',
-                        padding: '12px',
-                        margin: '10px 0',
-                        borderRadius: '12px',
-                        background: 'rgba(255, 255, 255, 0.1)',
-                        color: 'white',
-                        border: '1px solid rgba(138, 109, 255, 0.3)',
-                      }}
-                    />
-                    <input
-                      type="password"
-                      name="password"
-                      placeholder="Password"
-                      required
-                      style={{
-                        width: '100%',
-                        padding: '12px',
-                        margin: '10px 0',
-                        borderRadius: '12px',
-                        background: 'rgba(255, 255, 255, 0.1)',
-                        color: 'white',
-                        border: '1px solid rgba(138, 109, 255, 0.3)',
-                      }}
-                    />
+                <button
+                  className="close-btn"
+                  onClick={() => setShowAuthModal(false)}
+                  style={{
+                    position: 'absolute',
+                    top: '16px',
+                    right: '20px',
+                    background: 'transparent',
+                    border: 'none',
+                    fontSize: '28px',
+                    color: 'var(--primary)',
+                    cursor: 'pointer',
+                  }}
+                >
+                  ×
+                </button>
+                
+                {authMode === 'login' ? (
+                  <div className="auth-form">
+                    <h3 style={{ textAlign: 'center', marginBottom: '1.5rem' }}>Sign In</h3>
+                    <form onSubmit={(e) => {
+                      e.preventDefault();
+                      handleLogin({
+                        username: e.target.username.value,
+                        password: e.target.password.value,
+                      });
+                    }}>
+                      <input
+                        type="text"
+                        name="username"
+                        placeholder="Username"
+                        required
+                        style={{
+                          width: '100%',
+                          padding: '12px',
+                          margin: '10px 0',
+                          borderRadius: '12px',
+                          background: 'rgba(255, 255, 255, 0.1)',
+                          color: 'white',
+                          border: '1px solid rgba(138, 109, 255, 0.3)',
+                        }}
+                      />
+                      <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        required
+                        style={{
+                          width: '100%',
+                          padding: '12px',
+                          margin: '10px 0',
+                          borderRadius: '12px',
+                          background: 'rgba(255, 255, 255, 0.1)',
+                          color: 'white',
+                          border: '1px solid rgba(138, 109, 255, 0.3)',
+                        }}
+                      />
+                      <button
+                        type="submit"
+                        style={{
+                          background: 'var(--gradient-primary)',
+                          color: 'black',
+                          padding: '12px',
+                          width: '100%',
+                          borderRadius: '12px',
+                          marginTop: '10px',
+                          fontWeight: 'bold',
+                          border: 'none',
+                          cursor: 'pointer',
+                        }}
+                      >
+                        Sign In
+                      </button>
+                    </form>
+                    <p style={{ marginTop: '15px', textAlign: 'center' }}>
+                      Don't have an account?{' '}
+                      <button
+                        onClick={() => setAuthMode('register')}
+                        style={{
+                          background: 'none',
+                          border: 'none',
+                          color: 'var(--primary)',
+                          cursor: 'pointer',
+                          textDecoration: 'underline',
+                        }}
+                      >
+                        Create one
+                      </button>
+                    </p>
                     <button
-                      type="submit"
+                      onClick={handleGuest}
                       style={{
-                        background: 'var(--gradient-primary)',
-                        color: 'black',
-                        padding: '12px',
+                        background: 'transparent',
+                        border: '1px solid var(--primary)',
+                        color: 'var(--primary)',
+                        padding: '10px',
                         width: '100%',
                         borderRadius: '12px',
                         marginTop: '10px',
-                        fontWeight: 'bold',
-                        border: 'none',
                         cursor: 'pointer',
                       }}
                     >
-                      Sign In
+                      Continue as Guest
                     </button>
-                  </form>
-                  <p style={{ marginTop: '15px', textAlign: 'center' }}>
-                    Don't have an account?{' '}
-                    <button
-                      onClick={() => setAuthMode('register')}
-                      style={{
-                        background: 'none',
-                        border: 'none',
-                        color: 'var(--primary)',
-                        cursor: 'pointer',
-                        textDecoration: 'underline',
-                      }}
-                    >
-                      Create one
-                    </button>
-                  </p>
-                  <button
-                    onClick={handleGuest}
-                    style={{
-                      background: 'transparent',
-                      border: '1px solid var(--primary)',
-                      color: 'var(--primary)',
-                      padding: '10px',
-                      width: '100%',
-                      borderRadius: '12px',
-                      marginTop: '10px',
-                      cursor: 'pointer',
-                    }}
-                  >
-                    Continue as Guest
-                  </button>
-                </div>
-              ) : (
-                <div className="auth-form">
-                  <h3 style={{ textAlign: 'center', marginBottom: '1.5rem' }}>Create Account</h3>
-                  <form onSubmit={(e) => {
-                    e.preventDefault();
-                    handleRegister({
-                      username: e.target.username.value,
-                      email: e.target.email.value,
-                      password: e.target.password.value,
-                    });
-                  }}>
-                    <input
-                      type="text"
-                      name="username"
-                      placeholder="Username"
-                      required
-                      style={{
-                        width: '100%',
-                        padding: '12px',
-                        margin: '10px 0',
-                        borderRadius: '12px',
-                        background: 'rgba(255, 255, 255, 0.1)',
-                        color: 'white',
-                        border: '1px solid rgba(138, 109, 255, 0.3)',
-                      }}
-                    />
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="Email"
-                      required
-                      style={{
-                        width: '100%',
-                        padding: '12px',
-                        margin: '10px 0',
-                        borderRadius: '12px',
-                        background: 'rgba(255, 255, 255, 0.1)',
-                        color: 'white',
-                        border: '1px solid rgba(138, 109, 255, 0.3)',
-                      }}
-                    />
-                    <input
-                      type="password"
-                      name="password"
-                      placeholder="Password"
-                      required
-                      style={{
-                        width: '100%',
-                        padding: '12px',
-                        margin: '10px 0',
-                        borderRadius: '12px',
-                        background: 'rgba(255, 255, 255, 0.1)',
-                        color: 'white',
-                        border: '1px solid rgba(138, 109, 255, 0.3)',
-                      }}
-                    />
-                    <button
-                      type="submit"
-                      style={{
-                        background: 'var(--gradient-primary)',
-                        color: 'black',
-                        padding: '12px',
-                        width: '100%',
-                        borderRadius: '12px',
-                        marginTop: '10px',
-                        fontWeight: 'bold',
-                        border: 'none',
-                        cursor: 'pointer',
-                      }}
-                    >
-                      Register
-                    </button>
-                  </form>
-                  <p style={{ marginTop: '15px', textAlign: 'center' }}>
-                    Already have an account?{' '}
-                    <button
-                      onClick={() => setAuthMode('login')}
-                      style={{
-                        background: 'none',
-                        border: 'none',
-                        color: 'var(--primary)',
-                        cursor: 'pointer',
-                        textDecoration: 'underline',
-                      }}
-                    >
-                      Sign In
-                    </button>
-                  </p>
-                </div>
-              )}
+                  </div>
+                ) : (
+                  <div className="auth-form">
+                    <h3 style={{ textAlign: 'center', marginBottom: '1.5rem' }}>Create Account</h3>
+                    <form onSubmit={(e) => {
+                      e.preventDefault();
+                      handleRegister({
+                        username: e.target.username.value,
+                        email: e.target.email.value,
+                        password: e.target.password.value,
+                      });
+                    }}>
+                      <input
+                        type="text"
+                        name="username"
+                        placeholder="Username"
+                        required
+                        style={{
+                          width: '100%',
+                          padding: '12px',
+                          margin: '10px 0',
+                          borderRadius: '12px',
+                          background: 'rgba(255, 255, 255, 0.1)',
+                          color: 'white',
+                          border: '1px solid rgba(138, 109, 255, 0.3)',
+                        }}
+                      />
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        required
+                        style={{
+                          width: '100%',
+                          padding: '12px',
+                          margin: '10px 0',
+                          borderRadius: '12px',
+                          background: 'rgba(255, 255, 255, 0.1)',
+                          color: 'white',
+                          border: '1px solid rgba(138, 109, 255, 0.3)',
+                        }}
+                      />
+                      <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        required
+                        style={{
+                          width: '100%',
+                          padding: '12px',
+                          margin: '10px 0',
+                          borderRadius: '12px',
+                          background: 'rgba(255, 255, 255, 0.1)',
+                          color: 'white',
+                          border: '1px solid rgba(138, 109, 255, 0.3)',
+                        }}
+                      />
+                      <button
+                        type="submit"
+                        style={{
+                          background: 'var(--gradient-primary)',
+                          color: 'black',
+                          padding: '12px',
+                          width: '100%',
+                          borderRadius: '12px',
+                          marginTop: '10px',
+                          fontWeight: 'bold',
+                          border: 'none',
+                          cursor: 'pointer',
+                        }}
+                      >
+                        Register
+                      </button>
+                    </form>
+                    <p style={{ marginTop: '15px', textAlign: 'center' }}>
+                      Already have an account?{' '}
+                      <button
+                        onClick={() => setAuthMode('login')}
+                        style={{
+                          background: 'none',
+                          border: 'none',
+                          color: 'var(--primary)',
+                          cursor: 'pointer',
+                          textDecoration: 'underline',
+                        }}
+                      >
+                        Sign In
+                      </button>
+                    </p>
+                  </div>
+                )}
+              </motion.div>
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+          )}
+        </AnimatePresence>
+      </div>
+    </Router>
   );
 };
 

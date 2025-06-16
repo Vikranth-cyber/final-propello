@@ -190,7 +190,8 @@ export default function Navbar({ activeSection }) {
       paddingRight: "40px",
       background:
         "linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.65) 100%)",
-      fontFamily: "Baskerville, serif",
+      fontFamily: "Inter, sans-serif",
+       fontWeight: 600,
       zIndex: 1500
     },
     navBtn: {
@@ -265,7 +266,8 @@ export default function Navbar({ activeSection }) {
       width: isMobile ? "90%" : "380px",
       boxShadow: "0 0 15px 2px #00b7ff",
       color: "white",
-      fontFamily: "Arial, sans-serif",
+      fontFamily: "Inter, sans-serif",
+  fontWeight: 500,
     },
     formGroup: {
       marginBottom: "15px",
