@@ -10,6 +10,9 @@ import {
 const Footer = () => {
   const [showFAQs, setShowFAQs] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
+  const [showAdminLogin, setShowAdminLogin] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const socialIcons = [
     { icon: <FaXTwitter />, url: "https://x.com/Propello_AI" },
@@ -59,6 +62,40 @@ const Footer = () => {
     fontSize: "0.9rem",
   };
 
+  const inputStyle = {
+    width: "100%",
+    padding: "0.8rem",
+    marginBottom: "1rem",
+    background: "#1A2138",
+    border: "1px solid #2D374D",
+    borderRadius: "8px",
+    color: "#E5E9F0",
+    fontSize: "0.95rem",
+  };
+
+  const buttonStyle = {
+    width: "100%",
+    padding: "0.8rem",
+    background: "linear-gradient(90deg, #5D9EFF, #A3E4D7)",
+    border: "none",
+    borderRadius: "8px",
+    color: "#0A0E17",
+    fontWeight: "bold",
+    cursor: "pointer",
+    fontSize: "0.95rem",
+    marginTop: "0.5rem",
+  };
+
+  const handleAdminLogin = (e) => {
+    e.preventDefault();
+    // Add your login logic here
+    console.log("Login attempted with:", username, password);
+    // For demo purposes, just close the modal
+    setShowAdminLogin(false);
+    setUsername("");
+    setPassword("");
+  };
+
   return (
     <>
       {showFAQs && (
@@ -93,6 +130,45 @@ const Footer = () => {
               <p><strong>Your Privacy, Our Priority</strong><br />
                 We do not store sensitive data beyond need. All interactions are encrypted. We comply with Indian privacy laws.</p>
             </div>
+          </div>
+        </>
+      )}
+
+      {showAdminLogin && (
+        <>
+          <div style={overlayStyle} onClick={() => setShowAdminLogin(false)} />
+          <div style={modalStyle}>
+            <button style={backButtonStyle} onClick={() => setShowAdminLogin(false)}>
+              <FaArrowLeft /> Back
+            </button>
+            <h2 style={{ marginBottom: "1rem", fontSize: "1.3rem" }}>Admin Login</h2>
+            <form onSubmit={handleAdminLogin}>
+              <div>
+                <label htmlFor="username" style={{ display: "block", marginBottom: "0.5rem" }}>Username</label>
+                <input
+                  type="text"
+                  id="username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  style={inputStyle}
+                  placeholder="Enter admin username"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="password" style={{ display: "block", marginBottom: "0.5rem" }}>Password</label>
+                <input
+                  type="password"
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  style={inputStyle}
+                  placeholder="Enter password"
+                  required
+                />
+              </div>
+              <button type="submit" style={buttonStyle}>Login</button>
+            </form>
           </div>
         </>
       )}
@@ -208,6 +284,18 @@ const Footer = () => {
                   }}
                 >
                   Privacy Policy
+                </button>
+                <button
+                  onClick={() => setShowAdminLogin(true)}
+                  style={{
+                    background: "none",
+                    border: "none",
+                    color: "#9BAACB",
+                    cursor: "pointer",
+                    fontSize: "0.9rem",
+                  }}
+                >
+                  Admin Login
                 </button>
               </div>
 

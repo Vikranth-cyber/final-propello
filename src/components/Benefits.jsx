@@ -1,27 +1,27 @@
 import React from 'react';
-import { FaRobot, FaHandshake, FaChartLine, FaPlug } from 'react-icons/fa';
+import { FaComments, FaRocket, FaCogs , FaChartBar} from 'react-icons/fa';
 
 const Benefits = () => {
   const benefits = [
     {
-      icon: <FaRobot size={24} style={{ color: "#A3E4D7" }} />, // AI / Robot icon for Truly Humanlike AI
-      title: "Truly Humanlike AI",
-      description: "Natural tone, emotion-sensitive answers, and multilingual fluency.",
+      icon: <FaComments size={24} style={{ color: "#A3E4D7" }} />,
+      title: "Natural Conversations",
+      description: "Engage users with lifelike tone, emotional nuance, and fluent multilingual support.",
     },
     {
-      icon: <FaHandshake size={24} style={{ color: "#A3E4D7" }} />, // Handshake for Better Conversions (partnership/sales)
-      title: "Better Conversions",
-      description: "Drive sales with compelling, NEPQ-style conversations designed for your business.",
+      icon: <FaChartBar size={24} style={{ color: "#A3E4D7" }} />,
+title: "Boost Sales Faster",
+description: "Use proven NEPQ-style scripting to close more leads—automated and at scale.",
     },
     {
-      icon: <FaChartLine size={24} style={{ color: "#A3E4D7" }} />, // ChartLine for Effortless Scaling (growth)
-      title: "Effortless Scaling",
-      description: "Run thousands of calls daily—without hiring.",
+      icon: <FaRocket size={24} style={{ color: "#A3E4D7" }} />,
+      title: "Scale Without Limits",
+      description: "Run thousands of voice interactions daily—no added headcount needed.",
     },
     {
-      icon: <FaPlug size={24} style={{ color: "#A3E4D7" }} />, // Plug icon fits Plug-and-Play Setup
-      title: "Plug-and-Play Setup",
-      description: "Fast integration with your CRM and support tools. Zero hassle.",
+      icon: <FaCogs size={24} style={{ color: "#A3E4D7" }} />,
+      title: "Easy Integration",
+      description: "Instant setup with your CRM, helpdesk, and tools. No dev time required.",
     },
   ];
 
@@ -61,8 +61,8 @@ const Benefits = () => {
           borderRadius: "16px",
           width: "100%",
           maxWidth: "1200px",
-          boxShadow: "0 0 6px #5D9EFF88, inset 0 0 4px #5D9EFF88", // lighter glow
-          border: "1px solid #5D9EFF66", // softer border
+          boxShadow: "0 0 6px #5D9EFF88, inset 0 0 4px #5D9EFF88",
+          border: "1px solid #5D9EFF66",
           transition: "all 0.3s ease",
         }}
       >
@@ -78,8 +78,8 @@ const Benefits = () => {
               key={index}
               style={{
                 backgroundColor: "#000",
-                border: "1px solid #5D9EFF44", // softer border
-                boxShadow: "0 0 6px #5D9EFF55, inset 0 0 3px #5D9EFF55", // lighter shadow
+                border: "1px solid #5D9EFF44",
+                boxShadow: "0 0 6px #5D9EFF55, inset 0 0 3px #5D9EFF55",
                 padding: "1.5rem 1rem",
                 borderRadius: "12px",
                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -88,7 +88,7 @@ const Benefits = () => {
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "scale(1.03)";
                 e.currentTarget.style.boxShadow =
-                  "0 0 10px #5D9EFFAA, 0 0 14px #5D9EFFAA, inset 0 0 6px #5D9EFFAA"; // slightly stronger on hover
+                  "0 0 10px #5D9EFFAA, 0 0 14px #5D9EFFAA, inset 0 0 6px #5D9EFFAA";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = "scale(1)";

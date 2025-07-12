@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 
 const Hero = ({ user }) => {
   const titles = [
-    "AI Thats speaks for you",
-    "Real-Time Speech Intelligence",
-    "Next-Gen AI Voice Agent"
-  ];
+  "Conversational AI That Sells",
+  "Engage Customers in Real Time",
+  "AI Assistants for Growth"
+];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fade, setFade] = useState(true);
 
@@ -80,7 +80,7 @@ const Hero = ({ user }) => {
             }}
             className="hero-badge"
           >
-            FIRST VOICE- AI AGENT 
+            Humanlike AI Voice Agents
           </div>
 
           <h1
@@ -114,7 +114,7 @@ const Hero = ({ user }) => {
             }}
             className="hero-description"
           >
-            AI-Powered, Humanlike Voice Agents That Sell,Support and Scale-Across Real Estate,Retail,Finance & More.
+           Voice AI for Business: Smarter Conversations, Better Conversions, and Seamless Customer Experiences
           </p>
 
           <div

@@ -1,4 +1,3 @@
-/* Import Fonts */
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.cdnfonts.com/css/deepseek');
@@ -286,4 +285,120 @@ img {
     opacity: 1;
     transform: translateY(0);
   }
+}
+/* Add these to your existing global.css */
+
+/* Dashboard Mode Styles */
+.dashboard-mode {
+  background: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden;
+}
+
+.dashboard-mode .stars-container {
+  display: none;
+}
+
+.dashboard-content {
+  width: 100vw !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+/* Ensure html and body have no margin in dashboard mode */
+.dashboard-mode html,
+.dashboard-mode body {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+}
+
+/* Main content styles for regular pages */
+.main-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* === Dashboard Fullscreen Cleanup === */
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+}
+
+.app {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-mode {
+  background-color: #F9FAFB !important;
+  overflow-x: hidden !important;
+}
+
+.dashboard-mode .stars-container,
+.dashboard-mode .Navbar,
+.dashboard-mode .Footer {
+  display: none !important;
+}
+
+/* Main dashboard layout */
+.dashboard-content {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Reset container margins/paddings */
+.dashboard-mode .container,
+.dashboard-mode section {
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: 100vw !important;
+  width: 100vw !important;
+}
+
+/* If you use .dashboard-page wrapper in your components */
+.dashboard-page {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Remove spacing between components inside dashboard if needed */
+.dashboard-mode main,
+.dashboard-mode .content-wrapper {
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+/* Optional: remove max-width limit in .container globally when inside dashboard */
+.dashboard-mode .container {
+  max-width: 100vw !important;
+}
+
+/* Optional: disable section padding if applied by landing design */
+.dashboard-mode section {
+  padding: 0 !important;
+}
+
+/* Prevent horizontal scroll glitch */
+body::-webkit-scrollbar {
+  width: 8px;
 }

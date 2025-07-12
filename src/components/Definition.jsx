@@ -1,16 +1,49 @@
-import { FaComments, FaBrain, FaChartLine, FaSatelliteDish, FaRocket, FaLock } from "react-icons/fa";
+import {
+  FaComments,
+  FaQuestionCircle,
+  FaChartPie,
+  FaGlobe,
+  FaBolt,
+  FaShieldAlt,
+} from "react-icons/fa";
+
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
 const Definition = () => {
-  const features = [
-    { icon: <FaComments />, title: "Natural Voice AI", description: "Speaks in humanlike tones with emotion-aware responses." },
-    { icon: <FaBrain />, title: "Neuro Dialogues", description: "Persuasive questioning for high-quality sales conversations." },
-    { icon: <FaChartLine />, title: "Insights", description: "Track call outcomes, sentiment, and conversions live." },
-    { icon: <FaSatelliteDish />, title: "Multi-Channel", description: "Voice, SMS, WhatsApp, Email — all integrated." },
-    { icon: <FaRocket />, title: "Fast Setup", description: "Go live in days — no code needed." },
-    { icon: <FaLock />, title: "Security", description: "End-to-end encryption with strict controls." },
-  ];
+ const features = [
+  {
+    icon: <FaComments />,
+    title: "Humanlike Conversations",
+    description: "Realistic AI that speaks naturally, understands context, and adapts tone.",
+  },
+  {
+    icon: <FaQuestionCircle />,
+    title: "Sales Psychology Engine",
+    description: "Built-in NEPQ-style logic to guide buyers with persuasive dialogues.",
+  },
+  {
+    icon: <FaChartPie />,
+    title: "Smart Call Analytics",
+    description: "Get real-time data on sentiment, intent, and conversion performance.",
+  },
+  {
+    icon: <FaGlobe />,
+    title: "Omnichannel Presence",
+    description: "Connect via Voice, WhatsApp, SMS, and Email — all in one platform.",
+  },
+  {
+    icon: <FaBolt />,
+    title: "Instant Deployment",
+    description: "Go live in 48 hours. No technical setup or coding skills required.",
+  },
+  {
+    icon: <FaShieldAlt />,
+    title: "Enterprise-Grade Security",
+    description: "Your data is protected with end-to-end encryption and role-based access.",
+  },
+];
+
 
   const [showAbout, setShowAbout] = useState(false);
 
