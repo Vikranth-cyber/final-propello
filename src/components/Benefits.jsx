@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaComments, FaRocket, FaCogs , FaChartBar} from 'react-icons/fa';
+import { FaComments, FaRocket, FaCogs, FaChartBar } from 'react-icons/fa';
 
 const Benefits = () => {
   const benefits = [
@@ -10,8 +10,8 @@ const Benefits = () => {
     },
     {
       icon: <FaChartBar size={24} style={{ color: "#A3E4D7" }} />,
-title: "Boost Sales Faster",
-description: "Use proven NEPQ-style scripting to close more leads—automated and at scale.",
+      title: "Boost Sales Faster",
+      description: "Use proven NEPQ-style scripting to close more leads—automated and at scale.",
     },
     {
       icon: <FaRocket size={24} style={{ color: "#A3E4D7" }} />,
@@ -29,16 +29,18 @@ description: "Use proven NEPQ-style scripting to close more leads—automated an
     <section
       id="benefits"
       style={{
-        padding: "5rem 1rem",
+        padding: "clamp(2rem, 5vw, 5rem) 1rem",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         backgroundColor: "#000",
+        width: "100%",
+        boxSizing: "border-box",
       }}
     >
       <h2
         style={{
-          fontSize: "2.5rem",
+          fontSize: "clamp(1.8rem, 5vw, 2.5rem)",
           fontFamily: "var(--font-heading)",
           background: "linear-gradient(90deg, #5D9EFF, #A3E4D7)",
           WebkitBackgroundClip: "text",
@@ -49,6 +51,7 @@ description: "Use proven NEPQ-style scripting to close more leads—automated an
           textAlign: "center",
           width: "100%",
           maxWidth: "800px",
+          padding: "0 1rem",
         }}
       >
         Why Choose Propello AI?
@@ -57,20 +60,22 @@ description: "Use proven NEPQ-style scripting to close more leads—automated an
       <div
         style={{
           background: "#000",
-          padding: "2rem",
+          padding: "clamp(1rem, 3vw, 2rem)",
           borderRadius: "16px",
           width: "100%",
           maxWidth: "1200px",
           boxShadow: "0 0 6px #5D9EFF88, inset 0 0 4px #5D9EFF88",
           border: "1px solid #5D9EFF66",
           transition: "all 0.3s ease",
+          boxSizing: "border-box",
         }}
       >
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)",
-            gap: "2rem",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 400px), 1fr))",
+            gap: "clamp(1rem, 3vw, 2rem)",
+            justifyContent: "center",
           }}
         >
           {benefits.map((benefit, index) => (
@@ -80,10 +85,13 @@ description: "Use proven NEPQ-style scripting to close more leads—automated an
                 backgroundColor: "#000",
                 border: "1px solid #5D9EFF44",
                 boxShadow: "0 0 6px #5D9EFF55, inset 0 0 3px #5D9EFF55",
-                padding: "1.5rem 1rem",
+                padding: "clamp(1rem, 2vw, 1.5rem) clamp(0.8rem, 2vw, 1rem)",
                 borderRadius: "12px",
                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
                 cursor: "pointer",
+                minHeight: "200px",
+                display: "flex",
+                flexDirection: "column",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "scale(1.03)";
@@ -96,10 +104,10 @@ description: "Use proven NEPQ-style scripting to close more leads—automated an
                   "0 0 6px #5D9EFF55, inset 0 0 3px #5D9EFF55";
               }}
             >
-              {benefit.icon}
+              <div style={{ marginBottom: "1rem" }}>{benefit.icon}</div>
               <h3
                 style={{
-                  fontSize: "1.2rem",
+                  fontSize: "clamp(1.1rem, 3vw, 1.2rem)",
                   fontWeight: 600,
                   marginBottom: "0.5rem",
                   color: "#A3E4D7",
@@ -110,10 +118,11 @@ description: "Use proven NEPQ-style scripting to close more leads—automated an
               </h3>
               <p
                 style={{
-                  fontSize: "0.95rem",
+                  fontSize: "clamp(0.85rem, 2.5vw, 0.95rem)",
                   lineHeight: 1.6,
                   color: "#E5E9F0",
                   fontFamily: "var(--font-body)",
+                  flex: 1,
                 }}
               >
                 {benefit.description}

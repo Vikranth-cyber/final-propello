@@ -122,23 +122,24 @@ const Definition = () => {
     color: #e0e0e0;
     font-family: var(--font-body);
     position: relative;
+    display: flex; /* Add this */
+    justify-content: center; /* Add this */
+    align-items: center; /* Add this */
   }
 
-  .slide-container {
+   .slide-container {
     width: 100%;
+    max-width: 1200px; /* Add this to match your container width */
     position: relative;
-    min-height: 100vh;
+    min-height: auto; /* Change from 100vh */
+    padding: 2rem 1rem; /* Add padding */
   }
 
-  .main-content,
+ .main-content,
   .about-panel {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    min-height: 100vh;
-    padding: 1rem 0.5rem 2rem 0.5rem;
-    box-sizing: border-box;
+    min-height: auto;
+    padding: 1rem;
   }
 
   .definition-content {
@@ -270,15 +271,18 @@ const Definition = () => {
   }
 
   @media (max-width: 768px) {
-    .definition-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
+  .definition-grid {
+    grid-template-columns: repeat(2, 1fr); /* Changed from 3 to 2 for better mobile layout */
   }
+  .slide-container {
+    padding: 1rem;
+  }
+}
 
-  @media (max-width: 600px) {
-    .definition-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
+ @media (max-width: 480px) {
+  .definition-grid {
+    grid-template-columns: 1fr; /* Single column on smallest screens */
+  }
     .main-content {
       padding: 0.5rem;
     }
