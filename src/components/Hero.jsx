@@ -23,18 +23,18 @@ const Hero = ({ user }) => {
   return (
     <section
       id="home"
-      style={{
+       style={{
         minHeight: "100vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         paddingTop: "40px",
-        backgroundColor: "transparent",
-        userSelect: "none",
         paddingLeft: "1rem",
         paddingRight: "1rem",
+        backgroundColor: "transparent",
+        userSelect: "none",
         position: "relative",
-        overflow: "hidden",
+        overflow: "hidden"
       }}
     >
       <div

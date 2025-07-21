@@ -118,39 +118,38 @@ const Definition = () => {
   .slide-wrapper {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.6);
-    min-height: 100vh;
     color: #e0e0e0;
     font-family: var(--font-body);
     position: relative;
-    display: flex; /* Add this */
-    justify-content: center; /* Add this */
-    align-items: center; /* Add this */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
   }
 
    .slide-container {
     width: 100%;
-    max-width: 1200px; /* Add this to match your container width */
+    max-width: 1200px;
     position: relative;
-    min-height: auto; /* Change from 100vh */
-    padding: 2rem 1rem; /* Add padding */
+    padding: 0 1rem;
   }
 
  .main-content,
   .about-panel {
     width: 100%;
     min-height: auto;
-    padding: 1rem;
+    position: relative;
   }
 
-  .definition-content {
-    max-width: 1000px;
-    margin: auto;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 100vh;
-  }
+ .definition-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 2rem; 
+}
 
   .definition-title {
     font-size: 2.2rem;
@@ -168,17 +167,18 @@ const Definition = () => {
     border-radius: 2px;
   }
 
-  .definition-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    padding: 0 0.5rem;
-  }
+ .definition-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 0 0.5rem;
+  margin-bottom: 1rem; 
+}
 
   .feature-card {
     background: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-    padding: 1rem;
+    padding: 1.5rem 1rem;
     text-align: center;
     min-height: 180px;
     box-shadow: 0 0 6px rgba(255,255,255,0.1);
@@ -212,11 +212,12 @@ const Definition = () => {
     text-overflow: ellipsis;
   }
 
- .about-btn-container {
+  .about-btn-container {
   position: absolute;
-  bottom: 30px;
-  right: 30px;
+  bottom: 20px;  
+  right: 20px; 
   z-index: 9;
+  margin-top: 0;  
 }
 
   .about-btn {
@@ -226,7 +227,7 @@ const Definition = () => {
     background: linear-gradient(90deg, #5D9EFF, #A3E4D7);
     color: black;
     border-radius: 25px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     box-shadow: 0 0 6px #5D9EFF;
@@ -271,21 +272,29 @@ const Definition = () => {
   }
 
   @media (max-width: 768px) {
-  .definition-grid {
-    grid-template-columns: repeat(2, 1fr); /* Changed from 3 to 2 for better mobile layout */
+    .definition-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .slide-container {
+      padding: 0 1rem;
+    }
   }
-  .slide-container {
-    padding: 1rem;
-  }
-}
 
- @media (max-width: 480px) {
-  .definition-grid {
-    grid-template-columns: 1fr; /* Single column on smallest screens */
-  }
+  @media (max-width: 480px) {
+    .definition-grid {
+      grid-template-columns: 1fr;
+    }
     .main-content {
       padding: 0.5rem;
     }
+    .definition-content {
+    padding-bottom: 1.5rem; 
+  }
+    
+  .about-btn-container {
+    bottom: 15px;  
+    right: 15px;   
+  }
   }
 
   @media (max-width: 480px) {

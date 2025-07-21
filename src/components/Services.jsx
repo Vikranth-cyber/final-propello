@@ -107,7 +107,7 @@ const Services = () => {
 
   .services-section {
     min-height: 100vh;
-    padding: 1.5rem 1rem;
+    padding: 1rem 1rem 0.5rem;
     background: rgba(0, 0, 0, 0.2);
     color: var(--breeze-light);
     font-family: 'Segoe UI', sans-serif;
@@ -137,7 +137,7 @@ const Services = () => {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0.7rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem; /* Reduced spacing between cards and button */
   }
 
   .service-card {
@@ -173,7 +173,7 @@ const Services = () => {
 
   .read-more-btn {
     position: absolute;
-    bottom: 20px;
+    bottom: 10px; /* Reduced bottom padding */
     right: 20px;
     padding: 0.6rem 1.2rem;
     font-size: 0.9rem;
@@ -218,7 +218,7 @@ const Services = () => {
     }
 
     .read-more-btn {
-      bottom: 15px;
+      bottom: 10px;
       right: 12px;
       padding: 0.6rem 1.1rem;
       font-size: 0.8rem;
