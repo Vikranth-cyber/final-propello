@@ -59,14 +59,14 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Background and Body */
+/* Background and Body - FIXED WHITE LINE ISSUE */
 html, body {
   width: 100%;
   height: 100%;
   margin: 0;
-  background: #000000; /* UPDATED: darker black */
+  background: #000000;
   color-scheme: dark;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
   overflow-y: auto;
   color: var(--text-primary);
   font-family: var(--font-body);
@@ -75,19 +75,23 @@ html, body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  z-index: -2; /* UPDATED */
+  z-index: -2;
 }
 
+/* FIX FOR WHITE LINE - ADDED THESE RULES */
 body {
   position: relative;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
-/* App Wrapper */
+/* App Wrapper - ADDED WIDTH FIX */
 .app {
-  width: 100%;
+  width: 100vw;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 /* Main Content */
@@ -95,6 +99,7 @@ main {
   flex: 1;
   width: 100%;
   padding-top: 80px;
+  overflow-x: hidden;
 }
 
 /* Section Styling */
@@ -110,15 +115,17 @@ section {
   overflow: hidden;
 }
 
-/* Container */
+/* Container - ADDED OVERFLOW HIDDEN */
 .container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
   position: relative;
+  overflow-x: hidden;
 }
 
+/* Rest of your existing CSS remains the same */
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
@@ -286,14 +293,13 @@ img {
     transform: translateY(0);
   }
 }
-/* Add these to your existing global.css */
 
 /* Dashboard Mode Styles */
 .dashboard-mode {
   background: transparent !important;
   margin: 0 !important;
   padding: 0 !important;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 .dashboard-mode .stars-container {
@@ -306,6 +312,7 @@ img {
   margin: 0 !important;
   padding: 0 !important;
   background: transparent !important;
+  overflow-x: hidden !important;
 }
 
 /* Ensure html and body have no margin in dashboard mode */
@@ -322,27 +329,10 @@ img {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  overflow-x: hidden;
 }
 
 /* === Dashboard Fullscreen Cleanup === */
-
-html, body {
-  width: 100%;
-  height: 100%;
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow-x: hidden !important;
-}
-
-.app {
-  width: 100vw !important;
-  max-width: 100vw !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  display: flex;
-  flex-direction: column;
-}
-
 .dashboard-mode {
   background-color: #F9FAFB !important;
   overflow-x: hidden !important;
@@ -370,6 +360,7 @@ html, body {
   padding: 0 !important;
   max-width: 100vw !important;
   width: 100vw !important;
+  overflow-x: hidden !important;
 }
 
 /* If you use .dashboard-page wrapper in your components */
@@ -378,6 +369,7 @@ html, body {
   max-width: 100vw !important;
   margin: 0 !important;
   padding: 0 !important;
+  overflow-x: hidden !important;
 }
 
 /* Remove spacing between components inside dashboard if needed */
@@ -386,6 +378,7 @@ html, body {
   padding: 0 !important;
   margin: 0 !important;
   width: 100% !important;
+  overflow-x: hidden !important;
 }
 
 /* Optional: remove max-width limit in .container globally when inside dashboard */
@@ -400,5 +393,40 @@ html, body {
 
 /* Prevent horizontal scroll glitch */
 body::-webkit-scrollbar {
-  width: 8px;
+  width: 0 !important;
+  display: none;
+}
+
+/* === SCROLL FIX FOR SAFARI & MOBILE === */
+html, body {
+  scroll-behavior: smooth;
+  overflow-x: hidden !important;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+}
+
+/* Ensure every section fills screen */
+section {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  overflow-x: hidden !important;
+}
+
+/* Optional: Add scroll snap behavior for full section snapping */
+main {
+  scroll-snap-type: y mandatory;
+  overflow-x: hidden !important;
+}
+
+/* FINAL FIX FOR WHITE LINE - ADD THESE RULES */
+html {
+  overflow-x: hidden !important;
+}
+body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+}
+.app, .container, section {
+  overflow-x: hidden !important;
 }

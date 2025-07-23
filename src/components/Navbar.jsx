@@ -24,6 +24,7 @@ export default function Navbar({ activeSection }) {
   const [otpSent, setOtpSent] = useState(false);
   const confirmationResultRef = useRef(null);
   const [showForgotPassword, setShowForgotPassword] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -44,6 +45,13 @@ export default function Navbar({ activeSection }) {
       }
     }
   }, [loginWithPhone, isModalOpen, otpSent]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowTooltip(false);
+    }, 4000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const navItems = [
     { id: "home", label: "Home" },
@@ -286,6 +294,61 @@ export default function Navbar({ activeSection }) {
       fontSize: "12px",
       color: "gray",
     },
+   tooltip: {
+  position: 'absolute',
+  top: '100%',
+  right: 0,
+  marginTop: '10px',
+  backgroundColor: '#1e88e5', // a calmer, professional blue (Material Blue 600)
+  color: '#fff'  ,             // white text
+  boxShadow: '0 4px 20px rgba(30, 136, 229, 0.4)',
+  padding: '10px 14px',
+  borderRadius: '10px',
+  width: isMobile ? '160px' : '220px', // 👈 shrink on mobile
+  fontSize: isMobile ? '12px' : '13px', // 👈 responsive font
+  zIndex: 9999,
+  animation: 'fadeIn 0.5s ease-out',
+  border: '1px solid rgba(255, 255, 255, 0.2)',
+  backdropFilter: 'blur(5px)',
+  transformOrigin: 'top right',
+  fontFamily: 'Inter, sans-serif',
+},
+
+    tooltipArrow: {
+      position: 'absolute',
+      top: '-8px',
+      right: '20px',
+      width: '0',
+      height: '0',
+      borderLeft: '10px solid transparent',
+      borderRight: '10px solid transparent',
+      borderBottom: '10px solid rgba(0, 183, 255, 0.95)',
+      filter: 'drop-shadow(0 -2px 2px rgba(0,0,0,0.1))'
+    },
+    tooltipHeader: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '8px',
+      marginBottom: '6px'
+    },
+    tooltipClose: {
+      position: 'absolute',
+      top: '6px',
+      right: '6px',
+      background: 'transparent',
+      border: 'none',
+      color: '#000',
+      opacity: '0.6',
+      cursor: 'pointer',
+      fontSize: '12px',
+      padding: '2px',
+      borderRadius: '50%',
+      width: '18px',
+      height: '18px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    }
   };
 
   return (
@@ -350,14 +413,43 @@ export default function Navbar({ activeSection }) {
         {/* Spacer */}
         <div style={{ width: "20px" }} />
 
-        {/* Sign In button - always shown */}
-        <button
-          style={styles.signInBtn}
-          onClick={() => setIsModalOpen(true)}
-          aria-label="Sign in"
-        >
-          Sign In
-        </button>
+        {/* Sign In button with tooltip */}
+        <div style={{ position: 'relative' }}>
+          <button
+            style={styles.signInBtn}
+            onClick={() => {
+              setIsModalOpen(true);
+              setShowTooltip(false);
+            }}
+            aria-label="Sign in"
+          >
+            Sign In
+          </button>
+          
+          {showTooltip && (
+            <div style={styles.tooltip}>
+              <div style={styles.tooltipArrow} />
+              <div style={styles.tooltipHeader}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M12 16V12" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M12 8H12.01" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                <span style={{ fontWeight: 'bold', fontSize: '14px' }}>Quick Access</span>
+              </div>
+              <p style={{ margin: 0, fontSize: '13px', lineHeight: '1.4', color: '#000' }}>
+                Click here to login or create an account to continue
+              </p>
+              <button 
+                onClick={() => setShowTooltip(false)}
+                style={styles.tooltipClose}
+                aria-label="Close tooltip"
+              >
+                ×
+              </button>
+            </div>
+          )}
+        </div>
 
         {/* Modal for login/signup */}
         {isModalOpen && (

@@ -21,13 +21,21 @@ import DashboardPage from './pages/DashboardPage';
 
 import './styles/global.css';
 
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [pathname]);
+  return null;
+};
+
 const AppWrapper = () => {
   const location = useLocation();
   const isDashboard = location.pathname.startsWith('/dashboard');
 
   return (
-    <div className="app">
-      {/* Stars background */}
+    <div className="app" style={{ scrollBehavior: 'smooth', overflowX: 'hidden', WebkitOverflowScrolling: 'touch' }}>
+      <ScrollToTop />
       {!isDashboard && (
         <div className="stars-container">
           {Array.from({ length: 200 }).map((_, i) => {
@@ -52,10 +60,8 @@ const AppWrapper = () => {
         </div>
       )}
 
-      {/* Navbar */}
       {!isDashboard && <Navbar />}
 
-      {/* Routes */}
       <Routes>
         <Route
           path="/"
@@ -75,7 +81,6 @@ const AppWrapper = () => {
         <Route path="/dashboard/*" element={<DashboardPage />} />
       </Routes>
 
-      {/* Footer */}
       {!isDashboard && <Footer />}
     </div>
   );
