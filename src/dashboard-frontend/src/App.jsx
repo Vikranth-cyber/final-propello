@@ -9,11 +9,12 @@ import SummaryTable from './components/SummaryTable';
 import BotPerformance from './components/BotPerformance';
 import Transactions from './components/Transactions';
 import AuthModal from './components/AuthModal';
+import StartAgent from './Sections/StartAgent';
 import './global.css';
 
 function App() {
   const [showAuth, setShowAuth] = useState(false);
-  const [currentPage, setCurrentPage] = useState('Dashboard');
+  const [currentPage, setCurrentPage] = useState('StartAgent'); // Set StartAgent as default
 
   const appStyle = {
     display: 'flex',
@@ -24,23 +25,23 @@ function App() {
     padding: 0,
     overflow: 'hidden',
     backgroundColor: '#FFFFFF',
-    color: '#1F2937', // Gray-800 text
+    color: '#1F2937',
     fontFamily: "'Inter', sans-serif",
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
   };
 
   const contentStyle = {
     flex: 1,
     padding: '24px',
     overflowY: 'auto',
-    backgroundColor: '#F9FAFB' // light gray card contrast
+    backgroundColor: '#F9FAFB',
   };
 
   const gridLayout = {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
     gap: '30px',
-    marginBottom: '30px'
+    marginBottom: '30px',
   };
 
   const handlePageSelect = (page) => setCurrentPage(page);
@@ -54,12 +55,15 @@ function App() {
         />
       </Helmet>
 
-      <Sidebar onSelectPage={handlePageSelect} />
+      <Sidebar onSelectPage={handlePageSelect} currentPage={currentPage} />
 
       <div style={contentStyle}>
-        {currentPage === 'Dashboard' ? (
+        <Header onLoginClick={() => setShowAuth(true)} />
+
+        {currentPage === 'StartAgent' && <StartAgent />}
+
+        {currentPage === 'Dashboard' && (
           <>
-            <Header onLoginClick={() => setShowAuth(true)} />
             <StatCards />
             <CallsStats />
             <div style={gridLayout}>
@@ -69,8 +73,6 @@ function App() {
             <SummaryTable />
             <BotPerformance />
           </>
-        ) : (
-          currentPage
         )}
       </div>
 

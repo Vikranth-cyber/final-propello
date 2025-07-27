@@ -34,7 +34,7 @@ const AppWrapper = () => {
   const isDashboard = location.pathname.startsWith('/dashboard');
 
   return (
-    <div className={`app ${isDashboard ? 'dashboard-mode' : ''}`}>
+    <div className={`app ${isDashboard ? 'dashboard-mode' : ''}`} style={{ overflowX: 'hidden' }}>
       <ScrollToTop />
       {!isDashboard && (
         <div className="stars-container">
@@ -53,6 +53,7 @@ const AppWrapper = () => {
                   width: `${size}px`,
                   height: `${size}px`,
                   filter: 'drop-shadow(0 0 4px white)',
+                  position: 'absolute'
                 }}
               />
             );
@@ -62,24 +63,26 @@ const AppWrapper = () => {
 
       {!isDashboard && <Navbar />}
 
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <main>
-              <Hero />
-              <Definition />
-              <Services />
-              <Working />
-              <Demo />
-              <Benefits />
-              <Registered />
-              <Contact />
-            </main>
-          }
-        />
-        <Route path="/dashboard/*" element={<DashboardPage />} />
-      </Routes>
+      <main style={{ overflowX: 'hidden' }}>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Hero />
+                <Definition />
+                <Services />
+                <Working />
+                <Demo />
+                <Benefits />
+                <Registered />
+                <Contact />
+              </>
+            }
+          />
+          <Route path="/dashboard/*" element={<DashboardPage />} />
+        </Routes>
+      </main>
 
       {!isDashboard && <Footer />}
     </div>
