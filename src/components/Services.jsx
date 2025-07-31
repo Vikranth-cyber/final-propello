@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import {
-  FaPhoneAlt, FaHandshake, FaComments, FaShieldAlt, FaNetworkWired, FaChartBar,
-  FaArrowRight, FaArrowLeft, FaHospital, FaShoppingBag, FaTruck, FaGraduationCap,
-  FaBuilding, FaMoneyBillWave
+  FaPhoneAlt, FaHandshake, FaComments, FaShieldAlt, 
+  FaNetworkWired, FaChartBar
 } from "react-icons/fa";
 
 const services = [
@@ -15,228 +14,144 @@ const services = [
   { title: "Custom Dashboards & Analytics", description: "Monitor AI call performance and customer engagement in real-time.", icon: <FaChartBar size={20} /> },
 ];
 
-const industries = [
-  { title: "Healthcare", description: "Automate appointment booking, reminders, and patient queries.", icon: <FaHospital size={22} /> },
-  { title: "Retail & E-commerce", description: "Answer product questions, track orders, and handle returns.", icon: <FaShoppingBag size={22} /> },
-  { title: "Logistics & Delivery", description: "Provide real-time updates on shipments and automate driver communication.", icon: <FaTruck size={22} /> },
-  { title: "Education", description: "Manage admissions queries, schedule demos, and follow up on leads.", icon: <FaGraduationCap size={22} /> },
-  { title: "Real Estate", description: "Automate lead qualification and follow-ups.", icon: <FaBuilding size={22} /> },
-  { title: "Finance & Banking", description: "Improve customer service and security confirmations.", icon: <FaMoneyBillWave size={22} /> },
-];
-
 const Services = () => {
-  const [showDetails, setShowDetails] = useState(false);
-
   return (
     <section id="services" className="services-section">
-      <AnimatePresence mode="wait">
-        {!showDetails ? (
-          <motion.div
-            key="services"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            className="services-main"
-          >
-            <h2 className="breezy-text">Our Services</h2>
-            <div className="services-container">
-              {services.map((s, idx) => (
-                <motion.div 
-                  key={idx} 
-                  className="service-card"
-                  whileTap={{ scale: 1.06 }}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 250 }}
-                >
-                  <div className="service-icon">{s.icon}</div>
-                  <h3 className="service-title breezy-text">{s.title}</h3>
-                  <p className="service-desc">{s.description}</p>
-                </motion.div>
-              ))}
-            </div>
-            <motion.button 
-              onClick={() => setShowDetails(true)} 
-              className="read-more-btn"
+      <motion.div
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5 }}
+        className="services-main"
+      >
+        <h2 className="orange-text">Our Services</h2>
+        <div className="services-container">
+          {services.map((s, idx) => (
+            <motion.div 
+              key={idx} 
+              className="service-card"
+              whileTap={{ scale: 1.06 }}
               whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 250 }}
             >
-              View Industries We Serve <FaArrowRight />
-            </motion.button>
-          </motion.div>
-        ) : (
-          <motion.div
-            key="details"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            className="details-section"
-          >
-            <motion.button 
-              className="back-btn" 
-              onClick={() => setShowDetails(false)}
-              whileHover={{ scale: 1.05 }}
-            >
-              <FaArrowLeft /> Back to Services
-            </motion.button>
-            <h1 className="details-title breezy-text">Industries We Serve</h1>
-            <div className="services-container">
-              {industries.map((industry, idx) => (
-                <motion.div 
-                  key={idx} 
-                  className="service-card"
-                  whileTap={{ scale: 1.06 }}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 250 }}
-                >
-                  <div className="service-icon">{industry.icon}</div>
-                  <h3 className="service-title breezy-text">{industry.title}</h3>
-                  <p className="service-desc">{industry.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              <div className="service-icon">{s.icon}</div>
+              <h3 className="service-title orange-text">{s.title}</h3>
+              <p className="service-desc">{s.description}</p>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
 
-<style jsx>{`
-  :root {
-    --breeze: #5D9EFF;
-    --breeze-light: #C7E3FF;
-  }
+      <style jsx>{`
+        :root {
+          --orange-primary: #FF6B00;
+          --orange-secondary: #FF8C42;
+          --orange-light: #FFA76B;
+          --orange-lighter: #FFD1B3;
+          --text-dark: #333333;
+          --text-medium: #555555;
+          --text-light: #777777;
+        }
 
-  .services-section {
-    min-height: 100vh;
-    padding: 1rem 1rem 0.5rem;
-    background: rgba(0, 0, 0, 0.2);
-    color: var(--breeze-light);
-    font-family: 'Segoe UI', sans-serif;
-    text-align: center;
-    position: relative;
-  }
+        .services-section {
+          min-height: 100vh;
+          padding: 2rem;
+          background: #FFFFFF;
+          color: var(--text-dark);
+          font-family: 'Segoe UI', sans-serif;
+          text-align: center;
+        }
 
-  .breezy-text {
-    background: linear-gradient(to right, var(--breeze), var(--breeze-light));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+        .orange-text {
+          background: linear-gradient(to right, var(--orange-primary), var(--orange-secondary));
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
 
-  .services-main,
-  .details-section {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 1rem;
-  }
+        .services-main {
+          max-width: 1100px;
+          margin: 0 auto;
+          padding: 1rem;
+        }
 
-  h2, .details-title {
-    font-size: 1.9rem;
-    margin-bottom: 1.5rem;
-  }
+        h2 {
+          font-size: 2.2rem;
+          margin-bottom: 2rem;
+        }
 
-  .services-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.7rem;
-    margin-bottom: 1rem; /* Reduced spacing between cards and button */
-  }
+        .services-container {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1.5rem;
+        }
 
-  .service-card {
-    background: rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    padding: 1rem;
-    min-height: 140px;
-    text-align: center;
-    transition: transform 0.3s ease;
-  }
+        .service-card {
+          background: #FFFFFF;
+          border-radius: 12px;
+          padding: 1.5rem;
+          min-height: 180px;
+          text-align: center;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+          border: 1px solid var(--orange-lighter);
+        }
 
-  .service-card:active,
-  .service-card:hover {
-    transform: scale(1.03);
-  }
+        .service-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
 
-  .service-icon {
-    font-size: 1.2rem;
-    color: var(--breeze);
-    margin-bottom: 0.6rem;
-  }
+        .service-icon {
+          font-size: 1.5rem;
+          color: var(--orange-primary);
+          margin-bottom: 1rem;
+        }
 
-  .service-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 0.3rem;
-  }
+        .service-title {
+          font-size: 1.2rem;
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+        }
 
-  .service-desc {
-    font-size: 0.95rem;
-    color: #B0CFEA;
-  }
+        .service-desc {
+          font-size: 1rem;
+          color: var(--text-medium);
+          line-height: 1.4;
+        }
 
-  .read-more-btn {
-    position: absolute;
-    bottom: 10px; /* Reduced bottom padding */
-    right: 20px;
-    padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
-    font-weight: bold;
-    background: var(--breeze);
-    color: #111;
-    border: none;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-  }
+        @media (max-width: 1000px) {
+          .services-container {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
 
-  .back-btn {
-    background: none;
-    border: none;
-    color: var(--breeze-light);
-    font-size: 0.95rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-    margin-bottom: 1.2rem;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-  }
+        @media (max-width: 600px) {
+          .services-section {
+            padding: 1.5rem;
+          }
+          
+          .services-container {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+          }
 
-  .back-btn:hover {
-    background: rgba(255, 255, 255, 0.08);
-  }
+          h2 {
+            font-size: 1.8rem;
+          }
 
-  @media (max-width: 1000px) {
-    .services-container {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
+          .service-card {
+            min-height: auto;
+            padding: 1.2rem;
+          }
 
-  @media (max-width: 600px) {
-    .services-container {
-      grid-template-columns: 1fr;
-    }
+          .service-title {
+            font-size: 1.1rem;
+          }
 
-    .read-more-btn {
-      bottom: 10px;
-      right: 12px;
-      padding: 0.6rem 1.1rem;
-      font-size: 0.8rem;
-    }
-
-    h2, .details-title {
-      font-size: 1.7rem;
-    }
-
-    .service-title {
-      font-size: 1rem;
-    }
-
-    .service-desc {
-      font-size: 0.9rem;
-    }
-  }
-`}</style>
+          .service-desc {
+            font-size: 0.95rem;
+          }
+        }
+      `}</style>
     </section>
   );
 };

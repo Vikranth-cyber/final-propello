@@ -11,12 +11,30 @@ export default function UpdateProfile({ onClose }) {
   };
 
   return (
-    <div style={{ color: "white", padding: "20px" }}>
-      <h2 style={{ textAlign: "center", marginBottom: "20px" }}>
+    <div style={{ 
+      color: "#333", 
+      padding: "25px",
+      maxWidth: "400px",
+      margin: "0 auto",
+      backgroundColor: "white",
+      borderRadius: "12px",
+      boxShadow: "0 4px 12px rgba(255, 109, 0, 0.1)"
+    }}>
+      <h2 style={{ 
+        textAlign: "center", 
+        marginBottom: "20px",
+        color: "#ff6d00",
+        fontSize: "1.8rem"
+      }}>
         Update Profile
       </h2>
       <form onSubmit={handleSubmit}>
-        <label>New Username</label>
+        <label style={{
+          display: "block",
+          marginBottom: "8px",
+          fontWeight: "600",
+          color: "#ff6d00"
+        }}>New Username</label>
         <input
           type="text"
           placeholder="Enter new username"
@@ -24,15 +42,27 @@ export default function UpdateProfile({ onClose }) {
           onChange={(e) => setUsername(e.target.value)}
           style={{
             width: "100%",
-            marginBottom: "10px",
-            padding: "10px",
-            backgroundColor: "#111",
-            color: "white",
-            borderRadius: "10px",
-            border: "1px solid #555",
+            marginBottom: "20px",
+            padding: "12px 15px",
+            backgroundColor: "#fff8f0",
+            color: "#333",
+            borderRadius: "8px",
+            border: "1px solid #ffb74d",
+            fontSize: "1rem",
+            outline: "none",
+            transition: "all 0.3s ease",
+            '&:focus': {
+              borderColor: "#ff6d00",
+              boxShadow: "0 0 0 2px rgba(255, 109, 0, 0.2)"
+            }
           }}
         />
-        <label>New Password</label>
+        <label style={{
+          display: "block",
+          marginBottom: "8px",
+          fontWeight: "600",
+          color: "#ff6d00"
+        }}>New Password</label>
         <input
           type="password"
           placeholder="Enter new password"
@@ -40,25 +70,41 @@ export default function UpdateProfile({ onClose }) {
           onChange={(e) => setPassword(e.target.value)}
           style={{
             width: "100%",
-            marginBottom: "10px",
-            padding: "10px",
-            backgroundColor: "#111",
-            color: "white",
-            borderRadius: "10px",
-            border: "1px solid #555",
+            marginBottom: "20px",
+            padding: "12px 15px",
+            backgroundColor: "#fff8f0",
+            color: "#333",
+            borderRadius: "8px",
+            border: "1px solid #ffb74d",
+            fontSize: "1rem",
+            outline: "none",
+            transition: "all 0.3s ease",
+            '&:focus': {
+              borderColor: "#ff6d00",
+              boxShadow: "0 0 0 2px rgba(255, 109, 0, 0.2)"
+            }
           }}
         />
         <button
           type="submit"
           style={{
             width: "100%",
-            padding: "10px",
-            backgroundColor: "#00b7ff",
+            padding: "12px",
+            backgroundColor: "#ff6d00",
             border: "none",
-            borderRadius: "30px",
+            borderRadius: "8px",
             fontWeight: "bold",
             cursor: "pointer",
-            color: "black",
+            color: "white",
+            fontSize: "1rem",
+            transition: "all 0.3s ease",
+            '&:hover': {
+              backgroundColor: "#ff8500",
+              transform: "translateY(-2px)"
+            },
+            '&:active': {
+              transform: "translateY(0)"
+            }
           }}
         >
           Submit
@@ -68,9 +114,14 @@ export default function UpdateProfile({ onClose }) {
         onClick={onClose}
         style={{
           marginTop: "15px",
-          color: "#00b7ff",
+          color: "#ff6d00",
           textAlign: "center",
           cursor: "pointer",
+          fontWeight: "600",
+          transition: "all 0.3s ease",
+          '&:hover': {
+            textDecoration: "underline"
+          }
         }}
       >
         Close

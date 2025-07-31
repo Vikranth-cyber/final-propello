@@ -2,8 +2,8 @@ import React from "react";
 
 const styles = {
   container: {
-    backgroundColor: "transparent",
-    color: "#e0f7ff",
+    backgroundColor: "white",
+    color: "#333",
     minHeight: "100vh",
     display: "flex",
     flexDirection: "column",
@@ -18,12 +18,11 @@ const styles = {
     textAlign: "center",
   },
   sectionTitle: {
-    color: "#00e5ff",
+    color: "#ff6d00", // Orange color
     fontSize: "1.8rem",
     marginBottom: "1.5rem",
     textTransform: "uppercase",
     letterSpacing: "1.5px",
-    textShadow: "0 0 8px rgba(0, 229, 255, 0.6)",
     fontWeight: "700",
   },
   logoGrid: {
@@ -48,7 +47,6 @@ const styles = {
     maxWidth: "140px",
     maxHeight: "120px",
     objectFit: "contain",
-    filter: "drop-shadow(0 0 10px rgba(0,255,255,0.7))",
     transition: "transform 0.3s ease",
     borderRadius: "12px",
   },
@@ -60,7 +58,7 @@ const styles = {
     position: "absolute",
     bottom: "-3rem",
     width: "100%",
-    color: "#b2f5ff",
+    color: "#ff6d00", // Changed to orange
     fontSize: "1.1rem",
     fontWeight: "700",
     letterSpacing: "0.3px",
@@ -75,29 +73,29 @@ const styles = {
     pointerEvents: "auto",
   },
 
-  // New styles for user guide icon & popup
-  breezyBlue: "#4fc3f7",
-  breezyBlueTransparent: "rgba(79, 195, 247, 0.15)",
-
+  // New styles for user guide icon & popup with orange theme
   guideIcon: {
     position: "fixed",
     bottom: "20px",
     left: "20px",
     width: "45px",
     height: "45px",
-    backgroundColor: "#4fc3f7", // breezy blue
+    backgroundColor: "#ff6d00", // orange
     color: "white",
     borderRadius: "50%",
     fontSize: "28px",
     fontWeight: "700",
     cursor: "pointer",
-    boxShadow: "0 0 12px rgba(79,195,247,0.7)",
+    boxShadow: "0 0 12px rgba(255,109,0,0.7)",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     zIndex: 1000,
     userSelect: "none",
     transition: "background-color 0.3s ease",
+    '&:hover': {
+      backgroundColor: "#ff9100",
+    }
   },
 
   guidePopup: {
@@ -107,11 +105,12 @@ const styles = {
     width: "320px",
     maxWidth: "90vw",
     maxHeight: "60vh",
-    backgroundColor: "#4fc3f6", // transparent breezy blue
-    color: "white",
+    backgroundColor: "white",
+    color: "#333",
     padding: "1rem 1.5rem",
     borderRadius: "10px",
-    boxShadow: "0 0 15px rgba(79,195,247,0.5)",
+    boxShadow: "0 0 15px rgba(255,109,0,0.5)",
+    border: "2px solid #ff6d00",
     overflowY: "auto",
     fontSize: "0.9rem",
     fontWeight: "600",
@@ -123,13 +122,15 @@ const styles = {
     fontWeight: "800",
     fontSize: "1.1rem",
     marginBottom: "0.8rem",
-    borderBottom: "2px solid rgba(255,255,255,0.4)",
+    borderBottom: "2px solid #ff6d00",
     paddingBottom: "4px",
+    color: "#ff6d00", // orange
   },
 
   guideList: {
     paddingLeft: "1.2rem",
     marginBottom: "0.8rem",
+    color: "#333",
   },
 
   // Responsive adjustments
@@ -144,16 +145,16 @@ const styles = {
 
 const Registered = () => {
   const registeredWith = [
-    { name: "DPIIT", logo: "/DPIIT.png" },
-    { name: "MSME", logo: "/msme.png" },
-    { name: "MCA", logo: "/mca.png" },
+    { name: "DPIIT", logo: "/DPIIT-logo-trans.png" },
+    { name: "MSME", logo: "/MSME_logo.jpg" },
+    { name: "MCA", logo: "/MCALogo.png" },
   ];
 
   const backedBy = [
-    { name: "Google", logo: "/cloud.png" },
-    { name: "Microsoft", logo: "/microsoft.png" },
-    { name: "Nvidia", logo: "/inception.png" },
-    { name: "AWS", logo: "/aws.png" },
+    { name: "Google", logo: "/GoogleCloudForStartups.png" },
+    { name: "Microsoft", logo: "/MicrosoftForStartups.png" },
+    { name: "Nvidia", logo: "/NvidiaForStartups.jpg" },
+    { name: "AWS", logo: "/Awsforstartups.png" },
   ];
 
   const [hoverIndex, setHoverIndex] = React.useState(null);
@@ -192,7 +193,7 @@ const Registered = () => {
               width: "90%",
               height: "2px",
               background:
-                "linear-gradient(90deg, transparent, #00e5ff, #00bcd4, #00e5ff, transparent)",
+                "linear-gradient(90deg, transparent, #ff6d00, #7b1fa2, #ff6d00, transparent)",
               margin: "1.5rem auto 2rem",
               borderRadius: "3px",
             }}
@@ -239,16 +240,16 @@ const Registered = () => {
           background: transparent;
         }
         div[role="dialog"]::-webkit-scrollbar-thumb {
-          background-color: rgba(255, 255, 255, 0.3);
+          background-color: rgba(255, 109, 0, 0.3);
           border-radius: 10px;
         }
         div[role="dialog"]::-webkit-scrollbar-thumb:hover {
-          background-color: rgba(255, 255, 255, 0.5);
+          background-color: rgba(255, 109, 0, 0.5);
         }
         /* Firefox scrollbar */
         div[role="dialog"] {
           scrollbar-width: thin;
-          scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+          scrollbar-color: rgba(255, 109, 0, 0.3) transparent;
         }
         /* Responsive popup */
         @media (max-width: 400px) {
@@ -273,16 +274,16 @@ const Registered = () => {
       {/* Popup with user guide content */}
       {showGuide && (
         <div style={styles.guidePopup} role="dialog" aria-modal="true" aria-labelledby="guideTitle">
-          <h3 id="guideTitle" style={styles.guideTitle}>User Guides - How to Use the Bot</h3>
-          <p><strong>Getting Started with Propello AI</strong></p>
+          <h3 id="guideTitle" style={styles.guideTitle}>USER GUIDE - HOW TO USE THE BOT</h3>
+          <p style={{color: "#ff6d00"}}><strong>GETTING STARTED WITH PROPELLO AI</strong></p>
           <ul style={styles.guideList}>
-            <li><strong>Sign Up:</strong> Create your account in minutes.</li>
-            <li><strong>Connect Your Number:</strong> Link your business number to our system.</li>
-            <li><strong>Train Your Bot:</strong> Use our easy interface to feed FAQs and workflows.</li>
-            <li><strong>Go Live:</strong> Your voice assistant starts answering calls immediately.</li>
-            <li><strong>Track Performance:</strong> Use the dashboard to monitor calls and responses.</li>
+            <li><strong>SIGN UP:</strong> Create your account in minutes.</li>
+            <li><strong>CONNECT YOUR NUMBER:</strong> Link your business number to our system.</li>
+            <li><strong>TRAIN YOUR BOT:</strong> Use our easy interface to feed FAQs and workflows.</li>
+            <li><strong>GO LIVE:</strong> Your voice assistant starts answering calls immediately.</li>
+            <li><strong>TRACK PERFORMANCE:</strong> Use the dashboard to monitor calls and responses.</li>
           </ul>
-          <p>Need help? Our onboarding team is always available.</p>
+          <p style={{color: "#ff6d00"}}>NEED HELP? OUR ONBOARDING TEAM IS ALWAYS AVAILABLE.</p>
         </div>
       )}
     </>

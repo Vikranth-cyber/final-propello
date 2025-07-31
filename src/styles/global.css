@@ -2,21 +2,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.cdnfonts.com/css/deepseek');
 
-/* CSS Variables */
 :root {
-  --primary: #30D5C8;
-  --primary-light: #A0E7E5;
-  --primary-dark: #008080;
-  --accent: #50C878;
-  --accent-dark: #2E8B57;
-  --dark: #004D40;
-  --darker: #003830;
-  --darkest: #00251E;
-  --light: #CFFFE5;
-  --text-primary: #ffffff;
-  --text-secondary: #cccccc;
-  --glass: rgba(48, 213, 200, 0.1);
-  --glass-border: rgba(48, 213, 200, 0.2);
+  --primary: #8a6dff;
+  --primary-light: #d3c2ff;
+  --primary-dark: #6a5acd;
+  --accent: #b699ff;
+  --accent-dark: #5f4d9d;
+  --dark: #1e1e1e;
+  --darker: #151515;
+  --darkest: #0e0e0e;
+  --light: #f5f5f5;
+  --text-primary: #222222;
+  --text-secondary: #555555;
+  --glass: rgba(138, 109, 255, 0.05);
+  --glass-border: rgba(138, 109, 255, 0.15);
 
   --font-deepseek: 'DeepSeek', 'Montserrat', sans-serif;
   --font-heading: 'Montserrat', sans-serif;
@@ -28,10 +27,10 @@
   --border-radius-xl: 48px;
 
   --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-  --shadow-sm: 0 4px 6px rgba(255, 255, 255, 0.1);
-  --shadow-md: 0 8px 30px rgba(255, 255, 255, 0.15);
-  --shadow-lg: 0 15px 40px rgba(255, 255, 255, 0.25);
-  --shadow-xl: 0 25px 50px rgba(255, 255, 255, 0.3);
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.12);
 
   --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-light));
   --gradient-secondary: linear-gradient(135deg, var(--primary-light), var(--primary));
@@ -47,45 +46,35 @@
   --card-blur: blur(20px);
 }
 
-/* Base Reset */
+/* === Base Reset === */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden !important;
+  -webkit-overflow-scrolling: touch;
+
 }
 
-/* Background and Body - FIXED WHITE LINE ISSUE */
-html, body {
+body {
   width: 100%;
-  height: 100%;
-  margin: 0;
-  background: #000000;
-  color-scheme: dark;
-  overflow-x: hidden !important;
-  overflow-y: auto;
+  min-height: 100vh;
+  background: #ffffff;
+  color-scheme: light;
   color: var(--text-primary);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
-  position: relative;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  z-index: -2;
+  overflow-x: hidden !important;
+  overflow-y: auto;
 }
 
-/* FIX FOR WHITE LINE - ADDED THESE RULES */
-body {
-  position: relative;
-  width: 100vw;
-  overflow-x: hidden;
-}
-
-/* App Wrapper - ADDED WIDTH FIX */
+/* App Wrapper */
 .app {
   width: 100vw;
   min-height: 100vh;
@@ -94,15 +83,14 @@ body {
   overflow-x: hidden;
 }
 
-/* Main Content */
+/* Main */
 main {
   flex: 1;
   width: 100%;
   padding-top: 80px;
-  overflow-x: hidden;
 }
 
-/* Section Styling */
+/* Section */
 section {
   width: 100%;
   min-height: 100vh;
@@ -115,7 +103,7 @@ section {
   overflow: hidden;
 }
 
-/* Container - ADDED OVERFLOW HIDDEN */
+/* Container */
 .container {
   width: 100%;
   max-width: 1200px;
@@ -125,14 +113,13 @@ section {
   overflow-x: hidden;
 }
 
-/* Rest of your existing CSS remains the same */
-/* Typography */
+/* === Typography === */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: var(--font-weight-bold);
   line-height: 1.2;
   margin-bottom: 1.5rem;
-  color: var(--text-primary);
+  color: var(--primary-dark);
   width: 100%;
 }
 
@@ -153,12 +140,11 @@ p {
   font-size: var(--paragraph-size);
   line-height: 1.8;
   margin-bottom: var(--spacing);
-  opacity: 0.9;
   color: var(--text-secondary);
   width: 100%;
 }
 
-/* Buttons */
+/* === Buttons === */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -177,7 +163,7 @@ p {
   overflow: hidden;
   z-index: 1;
   box-shadow: var(--shadow-sm);
-  color: #000;
+  color: white;
   background: var(--gradient-primary);
 }
 
@@ -190,25 +176,18 @@ p {
   transform: scale(0.98);
 }
 
-/* Links */
+/* === Links === */
 a {
-  color: var(--primary);
+  color: var(--primary-dark);
   text-decoration: none;
   transition: var(--transition);
 }
 
 a:hover {
-  color: var(--accent);
+  color: var(--accent-dark);
 }
 
-/* Responsive Images */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Stars Container */
+/* === Stars (Optional, keep if needed) === */
 .stars-container {
   position: fixed;
   top: 0; left: 0;
@@ -231,12 +210,8 @@ img {
 }
 
 @keyframes moveStars {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-120vh);
-  }
+  from { transform: translateY(0); }
+  to { transform: translateY(-120vh); }
 }
 
 @keyframes twinkle {
@@ -246,187 +221,18 @@ img {
   75% { opacity: 0.3; transform: scale(1.3); }
 }
 
-/* Media Queries */
+/* === Media Queries === */
 @media (max-width: 1024px) {
-  .container {
-    padding: 0 16px;
-  }
+  .container { padding: 0 16px; }
 }
 
 @media (max-width: 768px) {
-  main {
-    padding-top: 60px;
-  }
-
-  .btn {
-    padding: 0.8rem 1.8rem;
-    font-size: 0.9rem;
-  }
-
-  h1 {
-    letter-spacing: -0.5px;
-  }
+  main { padding-top: 60px; }
+  .btn { padding: 0.8rem 1.8rem; font-size: 0.9rem; }
+  h1 { letter-spacing: -0.5px; }
 }
 
 @media (max-width: 480px) {
-  .btn {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.85rem;
-  }
-
-  h1, h2, h3 {
-    text-align: center;
-  }
-
-  p {
-    text-align: center;
-  }
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Dashboard Mode Styles */
-.dashboard-mode {
-  background: transparent !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow-x: hidden !important;
-}
-
-.dashboard-mode .stars-container {
-  display: none;
-}
-
-.dashboard-content {
-  width: 100vw !important;
-  max-width: 100% !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  background: transparent !important;
-  overflow-x: hidden !important;
-}
-
-/* Ensure html and body have no margin in dashboard mode */
-.dashboard-mode html,
-.dashboard-mode body {
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow-x: hidden !important;
-}
-
-/* Main content styles for regular pages */
-.main-content {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  overflow-x: hidden;
-}
-
-/* === Dashboard Fullscreen Cleanup === */
-.dashboard-mode {
-  background-color: #F9FAFB !important;
-  overflow-x: hidden !important;
-}
-
-.dashboard-mode .stars-container,
-.dashboard-mode .Navbar,
-.dashboard-mode .Footer {
-  display: none !important;
-}
-
-/* Main dashboard layout */
-.dashboard-content {
-  width: 100vw !important;
-  max-width: 100vw !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow: hidden !important;
-}
-
-/* Reset container margins/paddings */
-.dashboard-mode .container,
-.dashboard-mode section {
-  margin: 0 !important;
-  padding: 0 !important;
-  max-width: 100vw !important;
-  width: 100vw !important;
-  overflow-x: hidden !important;
-}
-
-/* If you use .dashboard-page wrapper in your components */
-.dashboard-page {
-  width: 100vw !important;
-  max-width: 100vw !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow-x: hidden !important;
-}
-
-/* Remove spacing between components inside dashboard if needed */
-.dashboard-mode main,
-.dashboard-mode .content-wrapper {
-  padding: 0 !important;
-  margin: 0 !important;
-  width: 100% !important;
-  overflow-x: hidden !important;
-}
-
-/* Optional: remove max-width limit in .container globally when inside dashboard */
-.dashboard-mode .container {
-  max-width: 100vw !important;
-}
-
-/* Optional: disable section padding if applied by landing design */
-.dashboard-mode section {
-  padding: 0 !important;
-}
-
-/* Prevent horizontal scroll glitch */
-body::-webkit-scrollbar {
-  width: 0 !important;
-  display: none;
-}
-
-/* === SCROLL FIX FOR SAFARI & MOBILE === */
-html, body {
-  scroll-behavior: smooth;
-  overflow-x: hidden !important;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior-y: contain;
-}
-
-/* Ensure every section fills screen */
-section {
-  min-height: 100vh;
-  scroll-snap-align: start;
-  overflow-x: hidden !important;
-}
-
-/* Optional: Add scroll snap behavior for full section snapping */
-main {
-  scroll-snap-type: y mandatory;
-  overflow-x: hidden !important;
-}
-
-/* FINAL FIX FOR WHITE LINE - ADD THESE RULES */
-html {
-  overflow-x: hidden !important;
-}
-body {
-  overflow-x: hidden !important;
-  width: 100% !important;
-}
-.app, .container, section {
-  overflow-x: hidden !important;
+  .btn { padding: 0.6rem 1.2rem; font-size: 0.85rem; }
+  h1, h2, h3, p { text-align: center; }
 }

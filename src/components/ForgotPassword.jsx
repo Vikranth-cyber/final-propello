@@ -18,8 +18,23 @@ export default function ForgotPassword({ onBack }) {
   };
 
   return (
-    <div style={{ color: "white", padding: "20px" }}>
-      <h2 style={{ textAlign: "center", marginBottom: "20px" }}>Forgot Password</h2>
+    <div style={{ 
+      color: "#333", 
+      padding: "20px",
+      maxWidth: "400px",
+      margin: "0 auto",
+      backgroundColor: "white",
+      borderRadius: "12px",
+      boxShadow: "0 4px 12px rgba(255, 109, 0, 0.1)"
+    }}>
+      <h2 style={{ 
+        textAlign: "center", 
+        marginBottom: "20px",
+        color: "#ff6d00",
+        fontSize: "1.8rem"
+      }}>
+        Forgot Password
+      </h2>
       <form onSubmit={handleReset}>
         <input
           type="email"
@@ -28,13 +43,20 @@ export default function ForgotPassword({ onBack }) {
           required
           onChange={(e) => setEmail(e.target.value)}
           style={{
-            padding: "10px",
+            padding: "12px 15px",
             width: "100%",
-            marginBottom: "10px",
+            marginBottom: "15px",
             borderRadius: "8px",
-            border: "1px solid #555",
-            backgroundColor: "#111",
-            color: "white",
+            border: "1px solid #ffb74d",
+            backgroundColor: "#fff8f0",
+            color: "#333",
+            fontSize: "1rem",
+            outline: "none",
+            transition: "all 0.3s ease",
+            '&:focus': {
+              borderColor: "#ff6d00",
+              boxShadow: "0 0 0 2px rgba(255, 109, 0, 0.2)"
+            }
           }}
         />
         <button
@@ -42,27 +64,49 @@ export default function ForgotPassword({ onBack }) {
           style={{
             padding: "12px",
             width: "100%",
-            borderRadius: "30px",
-            backgroundColor: "#00b7ff",
+            borderRadius: "8px",
+            backgroundColor: "#ff6d00",
             border: "none",
             fontWeight: "bold",
             cursor: "pointer",
-            color: "black",
+            color: "white",
+            fontSize: "1rem",
+            transition: "all 0.3s ease",
+            marginBottom: "10px",
+            '&:hover': {
+              backgroundColor: "#ff8500",
+              transform: "translateY(-2px)"
+            },
+            '&:active': {
+              transform: "translateY(0)"
+            }
           }}
         >
           Send Reset Link
         </button>
       </form>
       {message && (
-        <p style={{ textAlign: "center", marginTop: "10px", color: "#00b7ff" }}>{message}</p>
+        <p style={{ 
+          textAlign: "center", 
+          marginTop: "10px", 
+          color: message.includes("Error") ? "#ff3d00" : "#4caf50",
+          fontWeight: "500"
+        }}>
+          {message}
+        </p>
       )}
       <p
         onClick={onBack}
         style={{
-          color: "#00b7ff",
+          color: "#ff6d00",
           cursor: "pointer",
           marginTop: "15px",
           textAlign: "center",
+          fontWeight: "600",
+          transition: "all 0.3s ease",
+          '&:hover': {
+            textDecoration: "underline"
+          }
         }}
       >
         Back to Login

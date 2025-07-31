@@ -1,7 +1,7 @@
 @keyframes twinkle {
-  0% { opacity: 0.2; }
+  0% { opacity: 0.3; }
   50% { opacity: 1; }
-  100% { opacity: 0.2; }
+  100% { opacity: 0.3; }
 }
 
 @keyframes moveStars {
@@ -13,7 +13,8 @@
   position: absolute;
   width: 2px;
   height: 2px;
-  background: #fff;
+  background: linear-gradient(135deg, #ff7e5f, #a18cd1); /* orange-purple gradient */
   border-radius: 50%;
-  animation: twinkle 3s infinite ease-in-out;
+  animation: twinkle 3s infinite ease-in-out, moveStars 60s linear infinite;
+  filter: drop-shadow(0 0 4px rgba(255, 126, 95, 0.5));
 }
