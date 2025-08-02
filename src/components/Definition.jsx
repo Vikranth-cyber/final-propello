@@ -1,210 +1,189 @@
 import {
-  FaComments,
-  FaQuestionCircle,
-  FaChartPie,
-  FaGlobe,
-  FaBolt,
-  FaShieldAlt,
-} from "react-icons/fa";
-
+  MdRecordVoiceOver,
+  MdPsychologyAlt,
+  MdAnalytics,
+  MdConnectWithoutContact,
+  MdRocketLaunch,
+  MdSecurity,
+} from "react-icons/md";
 import { motion } from "framer-motion";
 
 const Definition = () => {
- const features = [
-  {
-    icon: <FaComments />,
-    title: "Humanlike Conversations",
-    description: "Realistic AI that speaks naturally, understands context, and adapts tone.",
-  },
-  {
-    icon: <FaQuestionCircle />,
-    title: "Sales Psychology Engine",
-    description: "Built-in NEPQ-style logic to guide buyers with persuasive dialogues.",
-  },
-  {
-    icon: <FaChartPie />,
-    title: "Smart Call Analytics",
-    description: "Get real-time data on sentiment, intent, and conversion performance.",
-  },
-  {
-    icon: <FaGlobe />,
-    title: "Omnichannel Presence",
-    description: "Connect via Voice, WhatsApp, SMS, and Email — all in one platform.",
-  },
-  {
-    icon: <FaBolt />,
-    title: "Instant Deployment",
-    description: "Go live in 48 hours. No technical setup or coding skills required.",
-  },
-  {
-    icon: <FaShieldAlt />,
-    title: "Enterprise-Grade Security",
-    description: "Your data is protected with end-to-end encryption and role-based access.",
-  },
-];
+  const features = [
+    {
+      icon: <MdRecordVoiceOver size={40} />,
+      title: "Humanlike Conversations",
+      description:
+        "Realistic AI that speaks naturally, understands context, and adapts tone.",
+    },
+    {
+      icon: <MdPsychologyAlt size={40} />,
+      title: "Sales Psychology Engine",
+      description:
+        "Built-in NEPQ-style logic to guide buyers with persuasive dialogues.",
+    },
+    {
+      icon: <MdAnalytics size={40} />,
+      title: "Smart Call Analytics",
+      description:
+        "Get real-time data on sentiment, intent, and conversion performance.",
+    },
+    {
+      icon: <MdConnectWithoutContact size={40} />,
+      title: "Omnichannel Presence",
+      description:
+        "Connect via Voice, WhatsApp, SMS, and Email — all in one platform.",
+    },
+    {
+      icon: <MdRocketLaunch size={40} />,
+      title: "Instant Deployment",
+      description:
+        "Go live in 48 hours. No technical setup or coding skills required.",
+    },
+    {
+      icon: <MdSecurity size={40} />,
+      title: "Enterprise-Grade Security",
+      description:
+        "Your data is protected with end-to-end encryption and role-based access.",
+    },
+    // Optional: Add 3 more for full 3x3
+  ];
 
   return (
-    <section className="slide-wrapper" id="definition">
-      <div className="slide-container">
+    <section className="definition-section" id="definition">
+      <div className="definition-container">
         <motion.div
           className="main-content"
           initial={{ x: 0, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="definition-content">
-            <h2 className="definition-title">What is Propello AI?</h2>
-            <div className="definition-bar"></div>
-
-            <div className="definition-grid">
-              {features.map((f, i) => (
-                <div key={i} className="feature-card">
-                  <div className="feature-icon">{f.icon}</div>
-                  <div className="feature-title">{f.title}</div>
-                  <p className="feature-desc">{f.description}</p>
-                </div>
-              ))}
-            </div>
+          <h2 className="gradient-text title-heading">What is Propello AI?</h2>
+          <div className="definition-grid">
+            {features.map((f, i) => (
+              <motion.div
+                key={i}
+                className="feature-card"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 1.04 }}
+                transition={{ type: "spring", stiffness: 200 }}
+              >
+                <div className="feature-icon">{f.icon}</div>
+                <h3 className="feature-title gradient-text">{f.title}</h3>
+                <p className="feature-desc">{f.description}</p>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>
 
-     <style>{`
-  .slide-wrapper {
-    width: 100%;
-    background-color: #ffffff;
-    color: #333333;
-    font-family: var(--font-body);
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem 0;
-  }
+      <style jsx>{`
+        .definition-section {
+          padding: 3rem 1rem;
+          background: #ffffff;
+          color: #333333;
+          font-family: 'Segoe UI', sans-serif;
+          text-align: center;
+        }
 
-   .slide-container {
-    width: 100%;
-    max-width: 1200px;
-    position: relative;
-    padding: 0 1rem;
-  }
+        .definition-container {
+          max-width: 1200px;
+          margin: 0 auto;
+        }
 
- .main-content {
-    width: 100%;
-    min-height: auto;
-    position: relative;
-  }
+        .gradient-text {
+          background: linear-gradient(90deg, #FC466B, #3F5EFB);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
 
- .definition-content {
-  max-width: 1000px;
-  margin: 0 auto;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-bottom: 2rem; 
-}
+        .title-heading {
+          font-size: 3rem;
+          font-weight: 800;
+          margin-bottom: 2.8rem;
+        }
 
-  .definition-title {
-    font-size: 2.2rem;
-    background: linear-gradient(90deg, #FF7B25, #FFA836);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-top: 0;
-  }
+        .definition-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 2rem;
+        }
 
-  .definition-bar {
-    width: 120px;
-    height: 3px;
-    background: linear-gradient(90deg, #FF7B25, #FFA836);
-    margin: 1rem auto 1.2rem;
-    border-radius: 2px;
-  }
+        .feature-card {
+          background: #f9f9ff;
+          border-radius: 16px;
+          padding: 2rem 1.6rem;
+          text-align: center;
+          transition: all 0.3s ease;
+          box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+          border: 1px solid #e3e7fd;
+          min-height: 260px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
 
- .definition-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  padding: 0 0.5rem;
-  margin-bottom: 1rem; 
-}
+        .feature-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 14px 28px rgba(63, 94, 251, 0.15);
+        }
 
-  .feature-card {
-    background: #FFF5EE;
-    border-radius: 10px;
-    padding: 1.5rem 1rem;
-    text-align: center;
-    min-height: 180px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: 0.3s ease;
-    overflow: hidden;
-    border: 1px solid #FFE4D1;
-  }
+        .feature-icon {
+          font-size: 2.5rem;
+          font-weight: bold;
+          color: #FC466B;
+          margin-bottom: 1rem;
+        }
 
-  .feature-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 15px rgba(255, 123, 37, 0.3);
-  }
+        .feature-title {
+          font-size: 1.3rem;
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+        }
 
-  .feature-icon {
-    font-size: 1.6rem;
-    color: #FF7B25;
-  }
+        .feature-desc {
+          font-size: 0.95rem;
+          color: #555555;
+          line-height: 1.5;
+        }
 
-  .feature-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin: 0.5rem 0;
-    color: #FF7B25;
-  }
+        @media (max-width: 1000px) {
+          .definition-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
 
-  .feature-desc {
-    font-size: 0.9rem;
-    color: #555555;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+          .title-heading {
+            font-size: 2.5rem;
+          }
+        }
 
-  @media (max-width: 768px) {
-    .definition-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    .slide-container {
-      padding: 0 1rem;
-    }
-  }
+        @media (max-width: 600px) {
+          .definition-grid {
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+          }
 
-  @media (max-width: 480px) {
-    .definition-grid {
-      grid-template-columns: 1fr;
-    }
-    .main-content {
-      padding: 0.5rem;
-    }
-    .definition-content {
-      padding-bottom: 1.5rem; 
-    }
-  }
+          .title-heading {
+            font-size: 2rem;
+          }
 
-  @media (max-width: 480px) {
-    .feature-icon {
-      font-size: 1.3rem;
-    }
+          .feature-card {
+            padding: 1.4rem 1rem;
+          }
 
-    .feature-title {
-      font-size: 0.9rem;
-    }
+          .feature-title {
+            font-size: 1.1rem;
+          }
 
-    .feature-desc {
-      font-size: 0.75rem;
-    }
+          .feature-desc {
+            font-size: 0.88rem;
+          }
 
-    .definition-title {
-      font-size: 1.5rem;
-    }
-  }
-`}</style>
-
+          .feature-icon {
+            font-size: 2rem;
+          }
+        }
+      `}</style>
     </section>
   );
 };

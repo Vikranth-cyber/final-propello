@@ -8,10 +8,12 @@ import Services from './components/Services';
 import Working from './components/Working';
 import Demo from './components/Demo';
 import Benefits from './components/Benefits';
+import StatsSection from './components/StatsSection';
 import Registered from './components/Registered';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import './styles/global.css';
+import smoothscroll from 'smoothscroll-polyfill';
 
 const App = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -34,7 +36,7 @@ const App = () => {
 
       const sections = [
         'home', 'definition', 'services', 'working',
-        'demo', 'benefits', 'registered', 'contact'
+        'demo', 'benefits', 'stats', 'registered', 'contact'
       ];
       let current = 'home';
 
@@ -51,9 +53,11 @@ const App = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-      useEffect(() => {
+
+  useEffect(() => {
     smoothscroll.polyfill(); 
   }, []);
+
   useEffect(() => {
     const handleParallaxScroll = () => {
       document.querySelectorAll('.parallax-layer').forEach(layer => {
@@ -79,6 +83,7 @@ const App = () => {
       <Working />
       <Demo />
       <Benefits />
+      <StatsSection />
       <Registered />
       <Contact />
     </main>

@@ -43,7 +43,7 @@ const Step1Industry = ({ formData, setFormData, nextStep }) => {
       .step-title {
         font-size: 1.8rem;
         font-weight: 700;
-        background: linear-gradient(90deg, #ff6600, #ff8c00);
+        background: linear-gradient(90deg, #fc466b 70%, #3f5efb 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
@@ -69,7 +69,7 @@ const Step1Industry = ({ formData, setFormData, nextStep }) => {
         text-align: center;
         cursor: pointer;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
-        border: 1px solid rgba(255, 102, 0, 0.1);
+        border: 1px solid rgba(252, 70, 107, 0.1);
         transition: 0.3s ease;
         display: flex;
         flex-direction: column;
@@ -79,18 +79,18 @@ const Step1Industry = ({ formData, setFormData, nextStep }) => {
 
       .option-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(255, 102, 0, 0.1);
-        border-color: rgba(255, 102, 0, 0.3);
+        box-shadow: 0 10px 25px rgba(252, 70, 107, 0.1);
+        border-color: rgba(252, 70, 107, 0.3);
       }
 
       .option-card.active {
-        background: linear-gradient(135deg, #ff6600, #ff8c00);
+        background: linear-gradient(135deg, #fc466b 70%, #3f5efb 100%);
         color: white;
       }
 
       .industry-icon {
         font-size: 2rem;
-        color: #ff6600;
+        color: #fc466b;
         margin-bottom: 10px;
         transition: 0.3s ease;
       }

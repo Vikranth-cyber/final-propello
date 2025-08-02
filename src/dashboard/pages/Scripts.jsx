@@ -15,108 +15,30 @@ const ScriptsPage = () => {
   return (
     <div className="premium-container">
       <div className="step-content">
+
         {/* Page Title */}
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '15px',
-          marginBottom: '30px'
-        }}>
-          <BsFileText size={28} color="#FF6600" />
-          <h1 style={{
-            color: '#FF6600',
-            fontSize: isMobile ? '22px' : '28px',
-            fontWeight: '700',
-            margin: 0,
-            letterSpacing: '0.5px'
-          }}>
-            Call Scripts
-          </h1>
+        <div className="scripts-header">
+          <BsFileText size={28} color="#3f5efb" />
+          <h1 className="gradient-heading">Call Scripts</h1>
         </div>
 
         {/* Info Box */}
-        <div style={{
-          backgroundColor: 'rgba(255, 102, 0, 0.05)',
-          padding: isMobile ? '20px' : '30px',
-          borderRadius: '12px',
-          border: '1px solid rgba(255, 102, 0, 0.2)',
-          boxShadow: '0 6px 20px rgba(0,0,0,0.05)',
-          marginBottom: '40px',
-        }}>
-          <p style={{
-            color: '#FF6600',
-            fontSize: isMobile ? '14px' : '16px',
-            margin: 0,
-            lineHeight: '1.6'
-          }}>
+        <div className="gradient-box">
+          <p className="gradient-text">
             Download and manage the AI agent's script files for calls and follow-ups below.
           </p>
         </div>
 
         {/* Script List */}
-        <div style={{
-          backgroundColor: '#fff',
-          border: '1px solid rgba(255, 102, 0, 0.15)',
-          borderRadius: '12px',
-          padding: isMobile ? '16px' : '24px',
-          boxShadow: '0 4px 24px rgba(0,0,0,0.04)'
-        }}>
-          <ul style={{
-            listStyle: 'none',
-            padding: 0,
-            margin: 0,
-            display: 'grid',
-            gap: '14px'
-          }}>
+        <div className="scripts-card">
+          <ul className="scripts-list">
             {scriptFiles.map((script, i) => (
-              <li key={i} style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                padding: isMobile ? '12px' : '18px',
-                backgroundColor: 'rgba(255, 102, 0, 0.03)',
-                borderRadius: '10px',
-                border: '1px solid rgba(255, 102, 0, 0.1)',
-                transition: 'all 0.2s ease',
-                '&:hover': {
-                  borderColor: 'rgba(255, 102, 0, 0.3)',
-                  boxShadow: '0 5px 15px rgba(0,0,0,0.05)'
-                }
-              }}>
+              <li className="script-item" key={i}>
                 <div>
-                  <h4 style={{
-                    color: '#FF6600',
-                    margin: '0 0 6px 0',
-                    fontSize: isMobile ? '15px' : '16px',
-                    fontWeight: 600
-                  }}>{script.name}</h4>
-                  <p style={{
-                    color: '#666',
-                    margin: 0,
-                    fontSize: isMobile ? '13px' : '14px'
-                  }}>Last updated: {new Date().toLocaleDateString()}</p>
+                  <h4 className="gradient-heading-small">{script.name}</h4>
+                  <p className="script-date">Last updated: {new Date().toLocaleDateString()}</p>
                 </div>
-                <a
-                  href={script.file}
-                  download
-                  style={{
-                    backgroundColor: '#FF6600',
-                    color: '#fff',
-                    padding: isMobile ? '8px 12px' : '8px 16px',
-                    borderRadius: '6px',
-                    fontSize: isMobile ? '13px' : '14px',
-                    fontWeight: '600',
-                    textDecoration: 'none',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    transition: 'all 0.2s ease',
-                    '&:hover': {
-                      backgroundColor: '#e65c00',
-                      transform: 'translateY(-1px)'
-                    }
-                  }}
-                >
+                <a href={script.file} download className="gradient-download">
                   <BsDownload size={16} />
                   {!isMobile && 'Download'}
                 </a>
@@ -124,14 +46,13 @@ const ScriptsPage = () => {
             ))}
           </ul>
         </div>
+
       </div>
     </div>
   );
 };
 
-export default ScriptsPage;
-
-// CSS Styles (same as StartAgent component)
+// CSS injection
 const styles = `
 .premium-container {
   width: calc(100% - 250px);
@@ -140,7 +61,6 @@ const styles = `
   padding: 30px;
   background: #f9fafb;
   box-sizing: border-box;
-  position: relative;
   font-family: 'Inter', sans-serif;
 }
 
@@ -148,10 +68,111 @@ const styles = `
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  flex: 1;
 }
 
-/* Mobile Responsive Styles */
+.scripts-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.gradient-heading {
+  font-size: 28px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #3f5efb, #fc466b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.gradient-heading-small {
+  font-size: 16px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #3f5efb, #fc466b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 0 6px 0;
+}
+
+.gradient-box {
+  background: linear-gradient(135deg, rgba(63, 94, 251, 0.05), rgba(252, 70, 107, 0.05));
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid rgba(63, 94, 251, 0.2);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  margin-bottom: 40px;
+}
+
+.gradient-text {
+  font-size: 16px;
+  font-weight: 500;
+  background: linear-gradient(135deg, #3f5efb, #fc466b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.scripts-card {
+  background-color: #fff;
+  border: 1px solid rgba(63, 94, 251, 0.15);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+}
+
+.scripts-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.script-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px;
+  background: linear-gradient(135deg, rgba(63, 94, 251, 0.03), rgba(252, 70, 107, 0.03));
+  border-radius: 10px;
+  border: 1px solid rgba(63, 94, 251, 0.1);
+  transition: all 0.2s ease;
+}
+
+.script-item:hover {
+  border-color: rgba(63, 94, 251, 0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.script-date {
+  color: #666;
+  font-size: 14px;
+  margin: 0;
+}
+
+.gradient-download {
+  background: linear-gradient(135deg, #3f5efb, #fc466b);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.gradient-download:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Responsive Styles */
 @media (max-width: 1024px) {
   .premium-container {
     width: 100%;
@@ -165,22 +186,35 @@ const styles = `
     margin-top: 60px;
     padding: 15px;
   }
-}
 
-@media (max-width: 480px) {
-  .premium-container {
-    padding: 15px;
+  .gradient-heading {
+    font-size: 22px;
   }
-}
 
-/* Animation for content transitions */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+  .gradient-box {
+    padding: 20px;
+  }
 
-.step-content > * {
-  animation: fadeIn 0.3s ease-out forwards;
+  .scripts-card {
+    padding: 16px;
+  }
+
+  .script-item {
+    padding: 12px;
+  }
+
+  .gradient-download {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .script-date {
+    font-size: 13px;
+  }
+
+  .gradient-heading-small {
+    font-size: 15px;
+  }
 }
 `;
 
@@ -188,3 +222,5 @@ const styles = `
 const styleTag = document.createElement('style');
 styleTag.innerHTML = styles;
 document.head.appendChild(styleTag);
+
+export default ScriptsPage;

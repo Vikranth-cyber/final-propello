@@ -11,12 +11,11 @@ const SecurityPage = () => {
     { id: 1, device: 'MacBook Pro', os: 'macOS', browser: 'Chrome', location: 'San Francisco, CA', lastActive: '2 hours ago' },
     { id: 2, device: 'iPhone 13', os: 'iOS', browser: 'Safari', location: 'New York, NY', lastActive: '5 minutes ago' }
   ]);
-  
+
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
   const handlePasswordChange = (e) => {
     e.preventDefault();
-    // Password change logic here
     alert('Password updated successfully!');
   };
 
@@ -28,7 +27,7 @@ const SecurityPage = () => {
     <div className="premium-container">
       <div className="step-content">
         <div className="page-header">
-          <RiShieldKeyholeLine size={isMobile ? 28 : 32} color="#FF6600" />
+          <RiShieldKeyholeLine size={isMobile ? 28 : 32} color="#fc466b" />
           <h1>Account Security</h1>
           <p>Manage your account security settings and active sessions</p>
         </div>
@@ -36,7 +35,7 @@ const SecurityPage = () => {
         <div className="security-grid">
           <div className="security-card">
             <div className="card-header">
-              <RiLockPasswordLine size={24} color="#FF6600" />
+              <RiLockPasswordLine size={24} color="#fc466b" />
               <h3>Change Password</h3>
             </div>
             <form onSubmit={handlePasswordChange} className="password-form">
@@ -75,7 +74,7 @@ const SecurityPage = () => {
 
           <div className="security-card">
             <div className="card-header">
-              <RiSmartphoneLine size={24} color="#FF6600" />
+              <RiSmartphoneLine size={24} color="#fc466b" />
               <h3>Two-Factor Authentication</h3>
             </div>
             <div className="toggle-group">
@@ -114,7 +113,7 @@ const SecurityPage = () => {
               <div key={device.id} className="device-card">
                 <div className="device-info">
                   <div className="device-icon">
-                    {device.os === 'iOS' ? <RiSmartphoneLine size={24} /> : <RiSmartphoneLine size={24} />}
+                    {device.os === 'iOS' ? <RiSmartphoneLine size={24} color="#fc466b" /> : <RiSmartphoneLine size={24} color="#fc466b" />}
                   </div>
                   <div className="device-details">
                     <h4>{device.device} ({device.os})</h4>
@@ -165,10 +164,9 @@ const styles = `
 
 .page-header h1 {
   font-size: 2rem;
-  color: #1a1a1a;
   margin: 15px 0 10px;
   font-weight: 700;
-  background: linear-gradient(90deg, #FF6600, #FF8C00);
+  background: linear-gradient(90deg, #fc466b, #3f5efb);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -191,7 +189,7 @@ const styles = `
   border-radius: 16px;
   padding: 30px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(255, 102, 0, 0.1);
+  border: 1px solid rgba(252, 70, 107, 0.1);
 }
 
 .card-header {
@@ -203,7 +201,9 @@ const styles = `
 
 .card-header h3 {
   font-size: 1.3rem;
-  color: #333;
+  background: linear-gradient(90deg, #fc466b, #3f5efb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin: 0;
 }
 
@@ -236,12 +236,12 @@ const styles = `
 
 .form-group input:focus {
   outline: none;
-  border-color: #FF6600;
-  box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.1);
+  border-color: #fc466b;
+  box-shadow: 0 0 0 3px rgba(252, 70, 107, 0.1);
 }
 
 .primary-btn {
-  background: #FF6600;
+  background: linear-gradient(90deg, #fc466b, #3f5efb);
   color: white;
   border: none;
   padding: 14px 20px;
@@ -254,9 +254,9 @@ const styles = `
 }
 
 .primary-btn:hover {
-  background: #E65C00;
+  background: linear-gradient(90deg, #e14269, #2d4bd8);
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(255, 102, 0, 0.3);
+  box-shadow: 0 5px 15px rgba(252, 70, 107, 0.3);
 }
 
 .toggle-group {
@@ -309,7 +309,7 @@ const styles = `
 }
 
 input:checked + .slider {
-  background-color: #FF6600;
+  background-color: #fc466b;
 }
 
 input:checked + .slider:before {
@@ -343,12 +343,14 @@ input:checked + .slider:before {
   border-radius: 16px;
   padding: 30px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(255, 102, 0, 0.1);
+  border: 1px solid rgba(252, 70, 107, 0.1);
 }
 
 .active-sessions h3 {
   font-size: 1.3rem;
-  color: #333;
+  background: linear-gradient(90deg, #fc466b, #3f5efb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin: 0 0 10px;
 }
 
@@ -386,9 +388,9 @@ input:checked + .slider:before {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 102, 0, 0.1);
+  background: rgba(252, 70, 107, 0.1);
   border-radius: 50%;
-  color: #FF6600;
+  color: #fc466b;
 }
 
 .device-details h4 {
@@ -410,8 +412,8 @@ input:checked + .slider:before {
 
 .revoke-btn {
   background: none;
-  border: 1px solid #FF3333;
-  color: #FF3333;
+  border: 1px solid #fc466b;
+  color: #fc466b;
   padding: 8px 15px;
   border-radius: 8px;
   font-size: 0.85rem;
@@ -420,7 +422,7 @@ input:checked + .slider:before {
 }
 
 .revoke-btn:hover {
-  background: #FF3333;
+  background: #fc466b;
   color: white;
 }
 
@@ -473,7 +475,7 @@ input:checked + .slider:before {
 }
 `;
 
-// Inject styles
+
 const styleTag = document.createElement('style');
 styleTag.innerHTML = styles;
 document.head.appendChild(styleTag);

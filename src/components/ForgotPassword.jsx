@@ -18,21 +18,29 @@ export default function ForgotPassword({ onBack }) {
   };
 
   return (
-    <div style={{ 
-      color: "#333", 
-      padding: "20px",
-      maxWidth: "400px",
-      margin: "0 auto",
-      backgroundColor: "white",
-      borderRadius: "12px",
-      boxShadow: "0 4px 12px rgba(255, 109, 0, 0.1)"
-    }}>
-      <h2 style={{ 
-        textAlign: "center", 
-        marginBottom: "20px",
-        color: "#ff6d00",
-        fontSize: "1.8rem"
-      }}>
+    <div
+      style={{
+        color: "#333",
+        padding: "20px",
+        maxWidth: "400px",
+        margin: "0 auto",
+        backgroundColor: "white",
+        borderRadius: "12px",
+        boxShadow: "0 4px 20px rgba(63, 94, 251, 0.1)",
+        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+      }}
+    >
+      <h2
+        style={{
+          textAlign: "center",
+          marginBottom: "20px",
+          fontSize: "1.8rem",
+          background: "linear-gradient(135deg, #fc466b, #3f5efb)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          fontWeight: "700",
+        }}
+      >
         Forgot Password
       </h2>
       <form onSubmit={handleReset}>
@@ -47,16 +55,12 @@ export default function ForgotPassword({ onBack }) {
             width: "100%",
             marginBottom: "15px",
             borderRadius: "8px",
-            border: "1px solid #ffb74d",
-            backgroundColor: "#fff8f0",
+            border: "1px solid #ccc",
+            backgroundColor: "#f9f9f9",
             color: "#333",
             fontSize: "1rem",
             outline: "none",
             transition: "all 0.3s ease",
-            '&:focus': {
-              borderColor: "#ff6d00",
-              boxShadow: "0 0 0 2px rgba(255, 109, 0, 0.2)"
-            }
           }}
         />
         <button
@@ -65,48 +69,41 @@ export default function ForgotPassword({ onBack }) {
             padding: "12px",
             width: "100%",
             borderRadius: "8px",
-            backgroundColor: "#ff6d00",
+            background: "linear-gradient(135deg, #fc466b, #3f5efb)",
             border: "none",
             fontWeight: "bold",
             cursor: "pointer",
             color: "white",
             fontSize: "1rem",
             transition: "all 0.3s ease",
-            marginBottom: "10px",
-            '&:hover': {
-              backgroundColor: "#ff8500",
-              transform: "translateY(-2px)"
-            },
-            '&:active': {
-              transform: "translateY(0)"
-            }
           }}
         >
           Send Reset Link
         </button>
       </form>
       {message && (
-        <p style={{ 
-          textAlign: "center", 
-          marginTop: "10px", 
-          color: message.includes("Error") ? "#ff3d00" : "#4caf50",
-          fontWeight: "500"
-        }}>
+        <p
+          style={{
+            textAlign: "center",
+            marginTop: "10px",
+            color: message.includes("Error") ? "#fc466b" : "#3f5efb",
+            fontWeight: "500",
+          }}
+        >
           {message}
         </p>
       )}
       <p
         onClick={onBack}
         style={{
-          color: "#ff6d00",
+          background: "linear-gradient(135deg, #fc466b, #3f5efb)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
           cursor: "pointer",
           marginTop: "15px",
           textAlign: "center",
           fontWeight: "600",
           transition: "all 0.3s ease",
-          '&:hover': {
-            textDecoration: "underline"
-          }
         }}
       >
         Back to Login

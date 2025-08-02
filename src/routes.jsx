@@ -17,7 +17,7 @@ import ContactPage from "./dashboard/pages/Contact";
 export default function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<App />} />
+      <Route path="*" element={<App />} />
       <Route path="/dashboard" element={<DashboardLayout />}>
         <Route index element={<StartAgent />} />
         <Route path="analytics" element={<Analytics />} />

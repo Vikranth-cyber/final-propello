@@ -59,14 +59,14 @@ const Hero = ({ user }) => {
             borderRadius: "32px",
             maxWidth: "1100px",
             width: "100%",
-            boxShadow: "0 20px 60px rgba(255, 152, 0, 0.2)",
+            boxShadow: "0 20px 60px rgba(252, 70, 107, 0.2)",
             display: "flex",
             flexDirection: "row",
             alignItems: "center",
             gap: "4rem",
             flexWrap: "wrap",
             minHeight: "420px",
-            border: "1px solid rgba(255, 152, 0, 0.2)"
+            border: "1px solid rgba(252, 70, 107, 0.2)"
           }}
           className="hero-container"
         >
@@ -82,14 +82,14 @@ const Hero = ({ user }) => {
                 textTransform: "uppercase",
                 letterSpacing: "2.5px",
                 fontSize: "1.1rem",
-                background: "linear-gradient(90deg, #FF9800, #FF5722)",
+                background: "linear-gradient(90deg, #FC466B, #3F5EFB)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 fontFamily: "var(--font-heading)",
                 maxWidth: "max-content",
                 padding: "0.4rem 1.2rem",
                 borderRadius: "999px",
-                backgroundColor: "rgba(255, 152, 0, 0.1)",
+                backgroundColor: "rgba(252, 70, 107, 0.1)",
               }}
               className="hero-badge"
             >
@@ -102,7 +102,7 @@ const Hero = ({ user }) => {
                 lineHeight: 1.1,
                 marginBottom: "1.5rem",
                 fontFamily: "var(--font-heading)",
-                background: "linear-gradient(90deg, #FF9800, #FF5722)",
+                background: "linear-gradient(90deg, #FC466B, #3F5EFB)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 userSelect: "none",
@@ -142,7 +142,7 @@ const Hero = ({ user }) => {
             >
               <button
                 style={{
-                  background: "linear-gradient(135deg, #FF9800, #FF5722)",
+                  background: "linear-gradient(135deg, #FC466B, #3F5EFB)",
                   color: "#fff",
                   border: "none",
                   borderRadius: "50px",
@@ -155,7 +155,7 @@ const Hero = ({ user }) => {
                   transition: "transform 0.3s ease",
                   userSelect: "none",
                   whiteSpace: "nowrap",
-                  boxShadow: "0 0 25px rgba(255, 152, 0, 0.4)",
+                  boxShadow: "0 0 25px rgba(252, 70, 107, 0.4)",
                 }}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.transform = "scale(1.05)")
@@ -171,8 +171,8 @@ const Hero = ({ user }) => {
               <button
                 style={{
                   background: "transparent",
-                  border: "2px solid #FF9800",
-                  color: "#FF9800",
+                  border: "2px solid #FC466B",
+                  color: "#FC466B",
                   borderRadius: "50px",
                   padding: "1.2rem 3rem",
                   fontWeight: "600",
@@ -185,12 +185,12 @@ const Hero = ({ user }) => {
                   transition: "background-color 0.3s ease, color 0.3s",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "rgba(255, 152, 0, 0.1)";
-                  e.currentTarget.style.color = "#FF5722";
+                  e.currentTarget.style.backgroundColor = "rgba(252, 70, 107, 0.1)";
+                  e.currentTarget.style.color = "#3F5EFB";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.backgroundColor = "transparent";
-                  e.currentTarget.style.color = "#FF9800";
+                  e.currentTarget.style.color = "#FC466B";
                 }}
                 className="hero-button secondary"
                 onClick={() => setShowModal(true)}
@@ -228,7 +228,7 @@ const Hero = ({ user }) => {
             position: relative;
             width: 220px;
             height: 220px;
-            color: #FF9800;
+            color: #FC466B;
             user-select: none;
           }
           .mic::before, .mic::after {
@@ -239,17 +239,17 @@ const Hero = ({ user }) => {
             transform: translate(-50%, -50%);
             border-radius: 100%;
             z-index: 2;
-            box-shadow: 0 0 20px 15px #FF9800;
+            box-shadow: 0 0 20px 15px #FC466B;
           }
           .mic::before {
             width: 220px;
             height: 220px;
-            background-color: #FFF3E0;
+            background-color: #FFF0F5;
           }
           .mic::after {
             width: 140px;
             height: 140px;
-            background-color: #FFE0B2;
+            background-color: #FFE5F1;
             animation: circle-size 0.8s linear infinite alternate;
           }
           .mic-icon {
@@ -267,14 +267,14 @@ const Hero = ({ user }) => {
             border-top: 0;
             margin-top: 20px;
             z-index: 3;
-            border-color: #FF5722;
+            border-color: #3F5EFB;
           }
           .mic-icon::before, .mic-icon::after {
             content: "";
             display: block;
             box-sizing: border-box;
             position: absolute;
-            border-color: #FF5722;
+            border-color: #3F5EFB;
           }
           .mic-icon::before {
             width: 2px;
@@ -282,7 +282,7 @@ const Hero = ({ user }) => {
             top: calc(100% + 1px);
             left: 50%;
             transform: translate(-50%, 0);
-            background-color: #FF5722;
+            background-color: #3F5EFB;
           }
           .mic-icon::after {
             border: 2px solid;
@@ -302,9 +302,9 @@ const Hero = ({ user }) => {
             border-radius: 100%;
             z-index: 1;
             box-shadow:
-              0 0 50px 5px #FF9800,
-              0 0 100px 20px #FF5722,
-              0 0 150px 25px #FF9800;
+              0 0 50px 5px #FC466B,
+              0 0 100px 20px #3F5EFB,
+              0 0 150px 25px #FC466B;
             animation: shadow-rotate 2s linear infinite;
             transform-origin: center;
             transform: translate(-50%, -50%);
@@ -313,12 +313,12 @@ const Hero = ({ user }) => {
             from {
               width: 140px;
               height: 140px;
-              box-shadow: 0 0 15px 15px #FF9800;
+              box-shadow: 0 0 15px 15px #FC466B;
             }
             to {
               width: 120px;
               height: 120px;
-              box-shadow: 0 0 20px 25px #FF5722;
+              box-shadow: 0 0 20px 25px #3F5EFB;
             }
           }
           @keyframes shadow-rotate {
@@ -465,7 +465,7 @@ const Hero = ({ user }) => {
             
             .hero-badge {
               font-size: 0.8rem !important;
-              letter-spacing: 1.5px !important;
+              letterSpacing: 1.5px !important;
             }
             
             .hero-description {
@@ -498,15 +498,15 @@ const Hero = ({ user }) => {
               borderRadius: "16px",
               width: "95%",
               maxWidth: "500px",
-              boxShadow: "0 4px 30px rgba(255, 152, 0, 0.2)",
+              boxShadow: "0 4px 30px rgba(252, 70, 107, 0.2)",
               textAlign: "center",
-              border: "1px solid rgba(255, 152, 0, 0.3)"
+              border: "1px solid rgba(252, 70, 107, 0.3)"
             }}
             className="modal-container"
           >
             <h2 style={{ 
               marginBottom: "1.5rem", 
-              color: "#FF5722",
+              color: "#3F5EFB",
               fontSize: "1.8rem",
               fontFamily: "var(--font-heading)"
             }}>
@@ -521,7 +521,7 @@ const Hero = ({ user }) => {
               style={{
                 ...inputStyle,
                 backgroundColor: "rgba(255,255,255,0.9)",
-                border: "1px solid rgba(255, 152, 0, 0.3)",
+                border: "1px solid rgba(252, 70, 107, 0.3)",
                 color: "#333"
               }}
             />
@@ -534,7 +534,7 @@ const Hero = ({ user }) => {
               style={{
                 ...inputStyle,
                 backgroundColor: "rgba(255,255,255,0.9)",
-                border: "1px solid rgba(255, 152, 0, 0.3)",
+                border: "1px solid rgba(252, 70, 107, 0.3)",
                 color: "#333"
               }}
             />
@@ -547,7 +547,7 @@ const Hero = ({ user }) => {
               style={{
                 ...inputStyle,
                 backgroundColor: "rgba(255,255,255,0.9)",
-                border: "1px solid rgba(255, 152, 0, 0.3)",
+                border: "1px solid rgba(252, 70, 107, 0.3)",
                 color: "#333"
               }}
             />
@@ -560,13 +560,13 @@ const Hero = ({ user }) => {
                 ...inputStyle, 
                 height: "80px",
                 backgroundColor: "rgba(255,255,255,0.9)",
-                border: "1px solid rgba(255, 152, 0, 0.3)",
+                border: "1px solid rgba(252, 70, 107, 0.3)",
                 color: "#333"
               }}
             />
             <p
               style={{
-                color: "#FF9800",
+                color: "#FC466B",
                 marginTop: "1rem",
                 fontSize: "0.9rem",
                 fontStyle: "italic"
@@ -579,16 +579,16 @@ const Hero = ({ user }) => {
                 onClick={closeModal}
                 style={{
                   background: "transparent",
-                  color: "#FF9800",
+                  color: "#FC466B",
                   padding: "0.8rem 1.5rem",
-                  border: "2px solid #FF9800",
+                  border: "2px solid #FC466B",
                   borderRadius: "8px",
                   fontWeight: "600",
                   cursor: "pointer",
                   transition: "all 0.3s ease"
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "rgba(255, 152, 0, 0.1)";
+                  e.currentTarget.style.backgroundColor = "rgba(252, 70, 107, 0.1)";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.backgroundColor = "transparent";
@@ -598,7 +598,7 @@ const Hero = ({ user }) => {
               </button>
               <button
                 style={{
-                  background: "linear-gradient(135deg, #FF9800, #FF5722)",
+                  background: "linear-gradient(135deg, #FC466B, #3F5EFB)",
                   color: "#fff",
                   padding: "0.8rem 1.5rem",
                   border: "none",

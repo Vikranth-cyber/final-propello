@@ -73,7 +73,7 @@ export default function Sidebar() {
             top: "24px",
             right: "24px",
             zIndex: 1000,
-            background: "#ff6600",
+            background: "linear-gradient(135deg, #fc466b, #3f5efb)",
             border: "none",
             borderRadius: "50%",
             width: "48px",
@@ -82,6 +82,7 @@ export default function Sidebar() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            boxShadow: "0 4px 12px rgba(252, 70, 107, 0.3)",
           }}
         >
           {sidebarOpen ? (
@@ -102,7 +103,7 @@ export default function Sidebar() {
           width: "250px",
           height: "100vh",
           backgroundColor: "#ffffff",
-          borderRight: "2px solid #ff6600",
+          borderRight: "2px solid #fc466b",
           boxShadow: isMobile ? "4px 0 20px rgba(0,0,0,0.1)" : "none",
           zIndex: 999,
           overflow: "hidden",
@@ -115,23 +116,22 @@ export default function Sidebar() {
             padding: "28px 20px",
           }}
         >
-          <div
-            style={{
-              fontSize: "20px",
-              fontWeight: "bold",
-              color: "#ff6600",
-              marginBottom: "32px",
-              display: "flex",
-              alignItems: "center",
-              gap: "10px",
-            }}
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#ff6600" />
-              <path d="M2 17L12 22L22 17" fill="#ff6600" />
-              <path d="M2 12L12 17L22 12" fill="#ff6600" />
-            </svg>
-            Propello AI
+          {/* Logo - Reduced height */}
+          <div style={{ 
+            marginBottom: "32px",
+            display: "flex",
+            justifyContent: "center"
+          }}>
+            <img 
+              src="/FullLogo_whitebackground.png" 
+              alt="Propello AI" 
+              style={{ 
+                height: "40px", // Reduced from auto/40px
+                width: "auto",
+                maxWidth: "120px",
+                objectFit: "contain"
+              }} 
+            />
           </div>
 
           {links.map(({ to, label, icon }) => {
@@ -147,7 +147,7 @@ export default function Sidebar() {
                       margin: "20px 0 8px",
                       fontSize: "12px",
                       fontWeight: "600",
-                      color: "#ff6600",
+                      color: "#fc466b",
                     }}
                   >
                     {currentSection}
@@ -166,7 +166,8 @@ export default function Sidebar() {
                     fontSize: "15px",
                     fontWeight: "500",
                     color: isActive ? "#ffffff" : "#333333",
-                    backgroundColor: isActive ? "#ff6600" : "transparent",
+                    backgroundColor: isActive ? "linear-gradient(135deg, #fc466b, #3f5efb)" : "transparent",
+                    background: isActive ? "linear-gradient(135deg, #fc466b, #3f5efb)" : "transparent",
                     transition: "all 0.3s ease",
                   })}
                 >

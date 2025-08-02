@@ -26,18 +26,17 @@ const Footer = () => {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    background: "#FFF8F0",
+    background: "#F8F9FF",
     color: "#333",
-    padding: "1.5rem",
+    padding: "2rem",
     borderRadius: "20px",
-    boxShadow: "0 0 30px rgba(255, 109, 0, 0.3)",
+    boxShadow: "0 0 40px rgba(63, 94, 251, 0.2)",
     zIndex: 1000,
     maxWidth: "90%",
     width: "450px",
     maxHeight: "70vh",
     overflowY: "auto",
-    scrollbarWidth: "thin",
-    scrollbarColor: "#FF9800 #FFF8F0",
+    border: "1px solid rgba(252, 70, 107, 0.2)"
   };
 
   const overlayStyle = {
@@ -53,7 +52,7 @@ const Footer = () => {
   const backButtonStyle = {
     background: "none",
     border: "none",
-    color: "#FF6D00",
+    color: "#3F5EFB",
     display: "flex",
     alignItems: "center",
     gap: "0.5rem",
@@ -61,43 +60,45 @@ const Footer = () => {
     marginBottom: "1rem",
     fontSize: "0.9rem",
     fontWeight: "600",
-    '&:hover': {
-      color: "#FF8500"
+    transition: "all 0.3s ease",
+    ':hover': {
+      color: "#FC466B"
     }
   };
 
   const inputStyle = {
     width: "100%",
-    padding: "0.8rem",
+    padding: "0.9rem 1rem",
     marginBottom: "1rem",
-    background: "#FFF3E0",
-    border: "1px solid #FFB74D",
-    borderRadius: "8px",
+    background: "#F1F3FF",
+    border: "1px solid rgba(63, 94, 251, 0.3)",
+    borderRadius: "10px",
     color: "#333",
     fontSize: "0.95rem",
     outline: "none",
     transition: "all 0.3s ease",
-    '&:focus': {
-      borderColor: "#FF6D00",
-      boxShadow: "0 0 0 2px rgba(255, 109, 0, 0.2)"
+    ':focus': {
+      borderColor: "#FC466B",
+      boxShadow: "0 0 0 3px rgba(252, 70, 107, 0.1)"
     }
   };
 
   const buttonStyle = {
     width: "100%",
-    padding: "0.8rem",
-    background: "linear-gradient(90deg, #FF9800, #FFB74D)",
+    padding: "0.9rem",
+    background: "linear-gradient(90deg, #FC466B, #3F5EFB)",
     border: "none",
-    borderRadius: "8px",
+    borderRadius: "10px",
     color: "white",
-    fontWeight: "bold",
+    fontWeight: "600",
     cursor: "pointer",
     fontSize: "0.95rem",
     marginTop: "0.5rem",
     transition: "all 0.3s ease",
-    '&:hover': {
+    boxShadow: "0 4px 15px rgba(63, 94, 251, 0.3)",
+    ':hover': {
       transform: "translateY(-2px)",
-      boxShadow: "0 4px 8px rgba(255, 109, 0, 0.3)"
+      boxShadow: "0 6px 20px rgba(252, 70, 107, 0.4)"
     }
   };
 
@@ -118,13 +119,21 @@ const Footer = () => {
             <button style={backButtonStyle} onClick={() => setShowFAQs(false)}>
               <FaArrowLeft /> Back
             </button>
-            <h2 style={{ marginBottom: "1rem", fontSize: "1.3rem", color: "#FF6D00" }}>FAQs</h2>
-            <div style={{ fontSize: "0.9rem", lineHeight: "1.6" }}>
-              <p><strong style={{color: "#FF6D00"}}>How is Propello AI different from Siri, Alexa, or Google Assistant?</strong><br />
+            <h2 style={{ 
+              marginBottom: "1.5rem", 
+              fontSize: "1.5rem", 
+              background: "linear-gradient(90deg, #FC466B, #3F5EFB)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent"
+            }}>
+              FAQs
+            </h2>
+            <div style={{ fontSize: "0.95rem", lineHeight: "1.7" }}>
+              <p><strong style={{color: "#3F5EFB"}}>How is Propello AI different from Siri, Alexa, or Google Assistant?</strong><br />
                 Propello AI is business-focused, integrates with CRM, handles mass calls, and supports Indian languages.</p>
-              <p><strong style={{color: "#FF6D00"}}>Is Propello AI available 24/7?</strong><br />
+              <p><strong style={{color: "#3F5EFB"}}>Is Propello AI available 24/7?</strong><br />
                 Yes, it's always on.</p>
-              <p><strong style={{color: "#FF6D00"}}>Do I need technical skills to use it?</strong><br />
+              <p><strong style={{color: "#3F5EFB"}}>Do I need technical skills to use it?</strong><br />
                 No, it's a no-code platform for everyone.</p>
             </div>
           </div>
@@ -138,9 +147,17 @@ const Footer = () => {
             <button style={backButtonStyle} onClick={() => setShowPrivacy(false)}>
               <FaArrowLeft /> Back
             </button>
-            <h2 style={{ marginBottom: "1rem", fontSize: "1.3rem", color: "#FF6D00" }}>Privacy Policy</h2>
-            <div style={{ fontSize: "0.9rem", lineHeight: "1.6" }}>
-              <p><strong style={{color: "#FF6D00"}}>Your Privacy, Our Priority</strong><br />
+            <h2 style={{ 
+              marginBottom: "1.5rem", 
+              fontSize: "1.5rem", 
+              background: "linear-gradient(90deg, #FC466B, #3F5EFB)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent"
+            }}>
+              Privacy Policy
+            </h2>
+            <div style={{ fontSize: "0.95rem", lineHeight: "1.7" }}>
+              <p><strong style={{color: "#3F5EFB"}}>Your Privacy, Our Priority</strong><br />
                 We do not store sensitive data beyond need. All interactions are encrypted. We comply with Indian privacy laws.</p>
             </div>
           </div>
@@ -154,10 +171,18 @@ const Footer = () => {
             <button style={backButtonStyle} onClick={() => setShowAdminLogin(false)}>
               <FaArrowLeft /> Back
             </button>
-            <h2 style={{ marginBottom: "1rem", fontSize: "1.3rem", color: "#FF6D00" }}>Admin Login</h2>
+            <h2 style={{ 
+              marginBottom: "1.5rem", 
+              fontSize: "1.5rem", 
+              background: "linear-gradient(90deg, #FC466B, #3F5EFB)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent"
+            }}>
+              Admin Login
+            </h2>
             <form onSubmit={handleAdminLogin}>
               <div>
-                <label htmlFor="username" style={{ display: "block", marginBottom: "0.5rem", color: "#FF6D00" }}>Username</label>
+                <label htmlFor="username" style={{ display: "block", marginBottom: "0.5rem", color: "#3F5EFB", fontWeight: "500" }}>Username</label>
                 <input
                   type="text"
                   id="username"
@@ -169,7 +194,7 @@ const Footer = () => {
                 />
               </div>
               <div>
-                <label htmlFor="password" style={{ display: "block", marginBottom: "0.5rem", color: "#FF6D00" }}>Password</label>
+                <label htmlFor="password" style={{ display: "block", marginBottom: "0.5rem", color: "#3F5EFB", fontWeight: "500" }}>Password</label>
                 <input
                   type="password"
                   id="password"
@@ -191,7 +216,7 @@ const Footer = () => {
           width: "100%",
           display: "flex",
           justifyContent: "center",
-          padding: "2rem 1rem",
+          padding: "3rem 1rem",
           background: "transparent",
           boxSizing: "border-box",
         }}
@@ -202,18 +227,19 @@ const Footer = () => {
             maxWidth: "1400px",
             background: "white",
             borderRadius: "32px",
-            padding: "2rem",
-            boxShadow: "0 20px 50px rgba(255, 152, 0, 0.15)",
+            padding: "3rem 2rem",
+            boxShadow: "0 20px 50px rgba(252, 70, 107, 0.1)",
             color: "#555",
             userSelect: "none",
             boxSizing: "border-box",
+            border: "1px solid rgba(252, 70, 107, 0.1)"
           }}
         >
           <div
             style={{
               display: "flex",
               flexDirection: "column",
-              gap: "2rem",
+              gap: "2.5rem",
               width: "100%",
             }}
           >
@@ -222,7 +248,7 @@ const Footer = () => {
                 display: "flex",
                 flexWrap: "wrap",
                 justifyContent: "space-between",
-                gap: "2rem",
+                gap: "2.5rem",
                 alignItems: "flex-start",
               }}
             >
@@ -236,7 +262,7 @@ const Footer = () => {
                 <h3
                   style={{
                     fontSize: "clamp(1.5rem, 4vw, 2rem)",
-                    margin: "0 0 0.8rem 0",
+                    margin: "0 0 1rem 0",
                     color: "#333",
                     fontWeight: "700",
                     lineHeight: "1.2",
@@ -244,7 +270,7 @@ const Footer = () => {
                 >
                   <span
                     style={{
-                      background: "linear-gradient(90deg, #FF9800, #FFB74D)",
+                      background: "linear-gradient(90deg, #FC466B, #3F5EFB)",
                       WebkitBackgroundClip: "text",
                       WebkitTextFillColor: "transparent",
                     }}
@@ -271,7 +297,7 @@ const Footer = () => {
                   flex: "1 1 100%",
                   display: "flex",
                   justifyContent: "center",
-                  gap: "1.5rem",
+                  gap: "2rem",
                 }}
               >
                 <button
@@ -279,12 +305,13 @@ const Footer = () => {
                   style={{
                     background: "none",
                     border: "none",
-                    color: "#FF6D00",
+                    color: "#3F5EFB",
                     cursor: "pointer",
-                    fontSize: "0.9rem",
+                    fontSize: "0.95rem",
                     fontWeight: "600",
                     transition: "all 0.3s ease",
-                    '&:hover': {
+                    ':hover': {
+                      color: "#FC466B",
                       textDecoration: "underline"
                     }
                   }}
@@ -296,12 +323,13 @@ const Footer = () => {
                   style={{
                     background: "none",
                     border: "none",
-                    color: "#FF6D00",
+                    color: "#3F5EFB",
                     cursor: "pointer",
-                    fontSize: "0.9rem",
+                    fontSize: "0.95rem",
                     fontWeight: "600",
                     transition: "all 0.3s ease",
-                    '&:hover': {
+                    ':hover': {
+                      color: "#FC466B",
                       textDecoration: "underline"
                     }
                   }}
@@ -313,12 +341,13 @@ const Footer = () => {
                   style={{
                     background: "none",
                     border: "none",
-                    color: "#FF6D00",
+                    color: "#3F5EFB",
                     cursor: "pointer",
-                    fontSize: "0.9rem",
+                    fontSize: "0.95rem",
                     fontWeight: "600",
                     transition: "all 0.3s ease",
-                    '&:hover': {
+                    ':hover': {
+                      color: "#FC466B",
                       textDecoration: "underline"
                     }
                   }}
@@ -333,7 +362,7 @@ const Footer = () => {
                   flex: "1 1 100%",
                   display: "flex",
                   justifyContent: "center",
-                  gap: "1rem",
+                  gap: "1.5rem",
                   flexWrap: "wrap",
                 }}
               >
@@ -345,12 +374,13 @@ const Footer = () => {
                     rel="noreferrer"
                     style={{
                       fontSize: "1.5rem",
-                      color: "#FF6D00",
-                      opacity: 0.85,
+                      color: "#3F5EFB",
+                      opacity: 0.8,
                       transition: "all 0.3s ease",
-                      '&:hover': {
+                      ':hover': {
+                        color: "#FC466B",
                         opacity: 1,
-                        transform: "translateY(-2px)"
+                        transform: "translateY(-3px)"
                       }
                     }}
                   >
@@ -367,28 +397,28 @@ const Footer = () => {
                   fontSize: "0.95rem",
                 }}
               >
-                <p style={{ margin: "0.2rem 0", color: "#FF6D00" }}>📞 +91 8850477716</p>
-                <p style={{ margin: "0.2rem 0", color: "#FF6D00" }}>✉️ hello@propelloai.in</p>
+                <p style={{ margin: "0.3rem 0", color: "#3F5EFB" }}>📞 +91 8850477716</p>
+                <p style={{ margin: "0.3rem 0", color: "#3F5EFB" }}>✉️ hello@propelloai.in</p>
               </div>
             </div>
 
             {/* Bottom - Copyright */}
             <div
               style={{
-                borderTop: "1px solid rgba(255, 109, 0, 0.2)",
+                borderTop: "1px solid rgba(63, 94, 251, 0.2)",
                 display: "flex",
                 flexWrap: "wrap",
                 justifyContent: "space-between",
                 alignItems: "center",
-                paddingTop: "1rem",
+                paddingTop: "1.5rem",
                 fontSize: "0.85rem",
-                color: "#FF6D00",
+                color: "#3F5EFB",
                 gap: "0.5rem",
               }}
             >
               <span>Made with ❤️ in India</span>
               <span style={{ textAlign: "right" }}>
-                © {new Date().getFullYear()} All rights reserved
+                © {new Date().getFullYear()} Propello AI. All rights reserved
               </span>
             </div>
           </div>

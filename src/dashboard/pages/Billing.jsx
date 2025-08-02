@@ -14,7 +14,7 @@ const Billings = () => {
     <div className="premium-container">
       <div className="step-content">
         <div className="page-header">
-          <RiWalletLine size={isMobile ? 28 : 32} color="#FF6600" />
+          <RiWalletLine size={isMobile ? 28 : 32} color="#fc466b" />
           <h1>Billing & Payments</h1>
           <p>Manage your subscription and payment methods</p>
         </div>
@@ -22,38 +22,30 @@ const Billings = () => {
         {/* Subscription Info */}
         <div className="billing-card">
           <h3>Subscription Details</h3>
-          
           <div className="billing-grid">
             <div className="billing-item">
               <p className="billing-label">Plan</p>
               <p className="billing-value">Pro Monthly</p>
             </div>
-            
             <div className="billing-item">
               <p className="billing-label">Next Renewal</p>
               <p className="billing-value">July 1, 2025</p>
             </div>
-            
             <div className="billing-item">
               <p className="billing-label">Status</p>
               <p className="billing-value status-active">Active</p>
             </div>
-            
             <div className="billing-item">
               <p className="billing-label">Price</p>
               <p className="billing-value">₹999/month</p>
             </div>
           </div>
-          
-          <button className="primary-btn">
-            Change Plan
-          </button>
+          <button className="primary-btn">Change Plan</button>
         </div>
 
         {/* Billing History */}
         <div className="billing-card">
           <h3>Billing History</h3>
-          
           <div className="table-container">
             <table>
               <thead>
@@ -83,16 +75,12 @@ const Billings = () => {
         {/* Payment Method */}
         <div className="billing-card">
           <h3>Payment Method</h3>
-          
           <div className="payment-method">
             <div>
               <p className="billing-label">Current Method</p>
               <p className="billing-value">UPI - vik***@oksbi</p>
             </div>
-            
-            <button className="secondary-btn">
-              Update Payment Method
-            </button>
+            <button className="secondary-btn">Update Payment Method</button>
           </div>
         </div>
       </div>
@@ -128,10 +116,9 @@ const styles = `
 
 .page-header h1 {
   font-size: 2rem;
-  color: #1a1a1a;
-  margin: 15px 0 10px;
   font-weight: 700;
-  background: linear-gradient(90deg, #FF6600, #FF8C00);
+  margin: 15px 0 10px;
+  background: linear-gradient(90deg, #fc466b, #3f5efb);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -147,12 +134,14 @@ const styles = `
   border-radius: 16px;
   padding: 30px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(255, 102, 0, 0.1);
+  border: 1px solid rgba(252, 70, 107, 0.1);
   margin-bottom: 30px;
 }
 
 .billing-card h3 {
-  color: #FF6600;
+  background: linear-gradient(90deg, #fc466b, #3f5efb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 25px;
   font-size: 1.3rem;
   font-weight: 600;
@@ -183,11 +172,16 @@ const styles = `
 }
 
 .status-active {
-  color: #FF6600 !important;
+  background: linear-gradient(90deg, #fc466b, #3f5efb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
 }
 
 .status-paid {
-  color: #FF6600;
+  background: linear-gradient(90deg, #fc466b, #3f5efb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-weight: 600;
 }
 
@@ -208,10 +202,12 @@ table {
 th {
   text-align: left;
   padding: 12px 16px;
-  color: #FF6600;
+  background: linear-gradient(90deg, #fc466b, #3f5efb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: 0.9rem;
   font-weight: 600;
-  border-bottom: 2px solid rgba(255, 102, 0, 0.2);
+  border-bottom: 2px solid rgba(252, 70, 107, 0.2);
 }
 
 td {
@@ -222,7 +218,7 @@ td {
 }
 
 tr:hover {
-  background-color: rgba(255, 102, 0, 0.03);
+  background-color: rgba(252, 70, 107, 0.03);
 }
 
 .payment-method {
@@ -234,7 +230,7 @@ tr:hover {
 }
 
 .primary-btn {
-  background: #FF6600;
+  background: linear-gradient(90deg, #fc466b, #3f5efb);
   color: white;
   border: none;
   padding: 14px 30px;
@@ -243,18 +239,19 @@ tr:hover {
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 1rem;
+  box-shadow: 0 4px 15px rgba(252, 70, 107, 0.3);
 }
 
 .primary-btn:hover {
-  background: #E65C00;
+  background: linear-gradient(90deg, #e14269, #2d4bd8);
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(255, 102, 0, 0.3);
+  box-shadow: 0 6px 20px rgba(252, 70, 107, 0.4);
 }
 
 .secondary-btn {
   background: white;
-  color: #FF6600;
-  border: 1px solid #FF6600;
+  color: #fc466b;
+  border: 1px solid #fc466b;
   padding: 14px 30px;
   border-radius: 10px;
   font-weight: 600;
@@ -264,10 +261,10 @@ tr:hover {
 }
 
 .secondary-btn:hover {
-  background: rgba(255, 102, 0, 0.1);
+  background: rgba(252, 70, 107, 0.1);
 }
 
-/* Responsive Styles */
+/* Responsive */
 @media (max-width: 1024px) {
   .premium-container {
     width: 100%;
@@ -281,15 +278,15 @@ tr:hover {
     margin-top: 120px;
     padding: 15px;
   }
-  
+
   .page-header h1 {
     font-size: 1.8rem;
   }
-  
+
   .billing-card {
     padding: 20px;
   }
-  
+
   .billing-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -299,23 +296,22 @@ tr:hover {
   .page-header h1 {
     font-size: 1.5rem;
   }
-  
+
   .billing-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .payment-method {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .secondary-btn {
     width: 100%;
   }
 }
 `;
 
-// Inject styles
 const styleTag = document.createElement('style');
 styleTag.innerHTML = styles;
 document.head.appendChild(styleTag);

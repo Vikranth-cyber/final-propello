@@ -213,12 +213,12 @@ const StartAgent = () => {
         }
 
         .step-indicator.completed .step-icon {
-          background: #ff6600;
+          background: linear-gradient(135deg, #fc466b 0%, #3f5efb 100%);
           color: white;
         }
 
         .step-indicator.active .step-icon {
-          background: #ff6600;
+          background: linear-gradient(135deg, #fc466b 0%, #3f5efb 100%);
           color: white;
           transform: scale(1.1);
         }
@@ -248,7 +248,7 @@ const StartAgent = () => {
         }
 
         .step-indicator.completed:not(:last-child)::after {
-          background: #ff6600;
+          background: linear-gradient(90deg, #fc466b 0%, #3f5efb 100%);
         }
 
         .welcome-screen {
@@ -273,7 +273,7 @@ const StartAgent = () => {
           margin-bottom: 30px;
           box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
           text-align: center;
-          border: 1px solid rgba(255, 102, 0, 0.1);
+          border: 1px solid rgba(252, 70, 107, 0.1);
           width: 100%;
           position: relative;
         }
@@ -282,13 +282,13 @@ const StartAgent = () => {
           position: absolute;
           top: -10px;
           right: 30px;
-          background: #ff6600;
+          background: linear-gradient(135deg, #fc466b 0%, #3f5efb 100%);
           color: white;
           padding: 6px 16px;
           border-radius: 20px;
           font-size: 0.8rem;
           font-weight: 700;
-          box-shadow: 0 4px 8px rgba(255, 102, 0, 0.2);
+          box-shadow: 0 4px 8px rgba(252, 70, 107, 0.2);
         }
 
         .welcome-title {
@@ -297,7 +297,7 @@ const StartAgent = () => {
           font-weight: 700;
           color: #111827;
           line-height: 1.2;
-          background: linear-gradient(90deg, #ff6600, #ff8c00);
+          background: linear-gradient(90deg, #fc466b 0%, #3f5efb 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
@@ -326,7 +326,7 @@ const StartAgent = () => {
           display: flex;
           flex-direction: column;
           align-items: center;
-          border: 1px solid rgba(255, 102, 0, 0.1);
+          border: 1px solid rgba(252, 70, 107, 0.1);
           box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
           transition: all 0.3s ease;
           text-align: center;
@@ -335,7 +335,7 @@ const StartAgent = () => {
         .feature-card:hover {
           transform: translateY(-5px);
           box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-          border-color: rgba(255, 102, 0, 0.3);
+          border-color: rgba(252, 70, 107, 0.3);
         }
 
         .feature-icon {
@@ -344,14 +344,24 @@ const StartAgent = () => {
           display: flex;
           align-items: center;
           justify-content: center;
-          background: rgba(255, 102, 0, 0.05);
+          background: rgba(252, 70, 107, 0.05);
           border-radius: 18px;
           margin-bottom: 25px;
+          transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+          background: rgba(63, 94, 251, 0.05);
         }
 
         .feature-icon-svg {
           font-size: 2rem;
-          color: #ff6600;
+          color: #fc466b;
+          transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon-svg {
+          color: #3f5efb;
         }
 
         .feature-title {
@@ -377,7 +387,7 @@ const StartAgent = () => {
         }
 
         .primary-btn {
-          background: #ff6600;
+          background: linear-gradient(135deg, #fc466b 0%, #3f5efb 100%);
           color: white;
           border: none;
           padding: 18px 36px;
@@ -388,7 +398,7 @@ const StartAgent = () => {
           display: flex;
           align-items: center;
           justify-content: center;
-          box-shadow: 0 8px 15px rgba(255, 102, 0, 0.3);
+          box-shadow: 0 8px 15px rgba(252, 70, 107, 0.3);
           transition: all 0.3s ease;
           width: 100%;
           max-width: 320px;
@@ -396,13 +406,13 @@ const StartAgent = () => {
         }
 
         .primary-btn:hover {
-          background: #e65c00;
+          background: linear-gradient(135deg, #e6425f 0%, #3855e8 100%);
           transform: translateY(-3px);
-          box-shadow: 0 12px 20px rgba(255, 102, 0, 0.4);
+          box-shadow: 0 12px 20px rgba(252, 70, 107, 0.4);
         }
 
         .glow-on-hover:hover {
-          box-shadow: 0 0 20px rgba(255, 102, 0, 0.5);
+          box-shadow: 0 0 20px rgba(252, 70, 107, 0.5);
         }
 
         .btn-icon {

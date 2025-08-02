@@ -17,7 +17,7 @@ const Docs = () => {
     <div className="premium-container">
       <div className="step-content">
         <div className="page-header">
-          <MdOutlineLibraryBooks size={isMobile ? 28 : 32} color="#FF6600" />
+          <MdOutlineLibraryBooks size={isMobile ? 28 : 32} color="#fc466b" />
           <h1>Documentation</h1>
           <p>Comprehensive guides and resources for all platform features</p>
         </div>
@@ -93,7 +93,7 @@ const styles = `
   color: #1a1a1a;
   margin: 15px 0 10px;
   font-weight: 700;
-  background: linear-gradient(90deg, #FF6600, #FF8C00);
+  background: linear-gradient(90deg, #fc466b, #3f5efb);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -109,12 +109,12 @@ const styles = `
   border-radius: 16px;
   padding: 30px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(255, 102, 0, 0.1);
+  border: 1px solid rgba(252, 70, 107, 0.1);
   margin-bottom: 30px;
 }
 
 .docs-card h3 {
-  color: #FF6600;
+  color: #fc466b;
   margin-bottom: 25px;
   font-size: 1.3rem;
   font-weight: 600;
@@ -128,20 +128,20 @@ const styles = `
 
 .doc-item {
   padding: 20px;
-  background: rgba(255, 102, 0, 0.03);
+  background: rgba(252, 70, 107, 0.03);
   border-radius: 8px;
-  border: 1px solid rgba(255, 102, 0, 0.1);
+  border: 1px solid rgba(252, 70, 107, 0.1);
   text-decoration: none;
   transition: all 0.2s ease;
 }
 
 .doc-item:hover {
-  background: rgba(255, 102, 0, 0.08);
+  background: rgba(252, 70, 107, 0.08);
   transform: translateY(-2px);
 }
 
 .doc-item h4 {
-  color: #FF6600;
+  color: #fc466b;
   margin: 0 0 8px 0;
   font-size: 1rem;
   font-weight: 600;
@@ -167,19 +167,19 @@ const styles = `
   gap: 8px;
   padding: 14px 28px;
   border-radius: 10px;
-  background: #FF6600;
+  background: linear-gradient(90deg, #fc466b, #3f5efb);
   color: white;
   font-weight: 600;
   text-decoration: none;
   font-size: 1rem;
-  box-shadow: 0 4px 15px rgba(255, 102, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(252, 70, 107, 0.3);
   transition: all 0.3s ease;
 }
 
 .download-btn:hover {
-  background: #E65C00;
+  background: linear-gradient(90deg, #e6425f, #3854e6);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 102, 0, 0.4);
+  box-shadow: 0 6px 20px rgba(252, 70, 107, 0.4);
 }
 
 /* Responsive Styles */

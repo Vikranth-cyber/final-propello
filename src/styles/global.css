@@ -2,20 +2,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.cdnfonts.com/css/deepseek');
 
+/* === Root Variables === */
 :root {
-  --primary: #8a6dff;
-  --primary-light: #d3c2ff;
-  --primary-dark: #6a5acd;
-  --accent: #b699ff;
-  --accent-dark: #5f4d9d;
+  --primary: #fc466b;
+  --primary-light: #ff85a1;
+  --primary-dark: #d93a5b;
+  --accent: #fd6b8b;
+  --accent-dark: #b8324f;
+  --secondary: #3f5efb;
+  --secondary-light: #7b8cff;
   --dark: #1e1e1e;
   --darker: #151515;
   --darkest: #0e0e0e;
   --light: #f5f5f5;
   --text-primary: #222222;
   --text-secondary: #555555;
-  --glass: rgba(138, 109, 255, 0.05);
-  --glass-border: rgba(138, 109, 255, 0.15);
+  --glass: rgba(252, 70, 107, 0.05);
+  --glass-border: rgba(252, 70, 107, 0.15);
 
   --font-deepseek: 'DeepSeek', 'Montserrat', sans-serif;
   --font-heading: 'Montserrat', sans-serif;
@@ -32,8 +35,8 @@
   --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.1);
   --shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.12);
 
-  --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-light));
-  --gradient-secondary: linear-gradient(135deg, var(--primary-light), var(--primary));
+  --gradient-primary: linear-gradient(135deg, var(--primary), var(--secondary));
+  --gradient-secondary: linear-gradient(135deg, var(--primary-light), var(--secondary-light));
   --gradient-dark: linear-gradient(to bottom, var(--darker), var(--darkest));
 
   --title-size: clamp(2rem, 5vw, 3.5rem);
@@ -51,27 +54,29 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: inherit;
 }
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden !important;
   -webkit-overflow-scrolling: touch;
-
+  overflow-x: hidden !important;
 }
 
 body {
   width: 100%;
   min-height: 100vh;
+  font-family: var(--font-body);
+  color: var(--text-primary);
   background: #ffffff;
   color-scheme: light;
-  color: var(--text-primary);
-  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   display: flex;
   flex-direction: column;
   overflow-x: hidden !important;
   overflow-y: auto;
+  scroll-behavior: smooth;
+  overscroll-behavior-y: none;
 }
 
 /* App Wrapper */
@@ -187,7 +192,7 @@ a:hover {
   color: var(--accent-dark);
 }
 
-/* === Stars (Optional, keep if needed) === */
+/* === Optional Stars Effect === */
 .stars-container {
   position: fixed;
   top: 0; left: 0;

@@ -80,7 +80,7 @@ const styles = `
   margin-bottom: 10px;
   font-weight: 700;
   color: #2a2a2a;
-  background: linear-gradient(90deg, #ff6600, #ff8c00);
+  background: linear-gradient(90deg, #fc466b 70%, #3f5efb 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -106,7 +106,7 @@ const styles = `
   padding: 30px 20px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
   transition: all 0.3s ease;
-  border: 1px solid rgba(255, 102, 0, 0.1);
+  border: 1px solid rgba(252, 70, 107, 0.1);
   text-align: center;
   cursor: pointer;
   display: flex;
@@ -120,14 +120,14 @@ const styles = `
 
 .option-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(255, 102, 0, 0.1);
-  border-color: rgba(255, 102, 0, 0.3);
+  box-shadow: 0 10px 25px rgba(252, 70, 107, 0.1);
+  border-color: rgba(252, 70, 107, 0.3);
 }
 
 .option-card.active {
-  background: linear-gradient(135deg, #ff6600, #ff8c00);
+  background: linear-gradient(135deg, #fc466b 70%, #3f5efb 100%);
   color: white;
-  box-shadow: 0 10px 25px rgba(255, 102, 0, 0.2);
+  box-shadow: 0 10px 25px rgba(252, 70, 107, 0.2);
 }
 
 .option-icon {
@@ -136,7 +136,7 @@ const styles = `
 
 .channel-icon {
   font-size: 2rem;
-  color: #ff6600;
+  color: #fc466b;
   transition: all 0.3s ease;
 }
 
@@ -159,7 +159,7 @@ const styles = `
   top: 15px;
   right: 15px;
   background: white;
-  color: #ff6600;
+  color: #fc466b;
   width: 28px;
   height: 28px;
   border-radius: 50%;
@@ -173,7 +173,7 @@ const styles = `
 
 .option-card.active .selected-badge {
   background: white;
-  color: #ff6600;
+  color: #fc466b;
 }
 
 @media (max-width: 1024px) {

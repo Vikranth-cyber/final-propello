@@ -24,7 +24,7 @@ const SettingsPage = () => {
     <div className="premium-container">
       <div className="step-content">
         <div className="page-header">
-          <RiSettings3Line size={isMobile ? 28 : 32} color="#FF6600" />
+          <RiSettings3Line size={isMobile ? 28 : 32} color="#fc466b" />
           <h1>Account Settings</h1>
           <p>Customize your account preferences and notification settings</p>
         </div>
@@ -32,7 +32,7 @@ const SettingsPage = () => {
         <div className="settings-grid">
           <div className="settings-card">
             <div className="card-header">
-              <RiNotification3Line size={24} color="#FF6600" />
+              <RiNotification3Line size={24} color="#fc466b" />
               <h3>Notification Preferences</h3>
             </div>
             <div className="settings-group">
@@ -74,7 +74,7 @@ const SettingsPage = () => {
 
           <div className="settings-card">
             <div className="card-header">
-              <RiGlobalLine size={24} color="#FF6600" />
+              <RiGlobalLine size={24} color="#fc466b" />
               <h3>Language & Region</h3>
             </div>
             <div className="settings-group">
@@ -106,7 +106,7 @@ const SettingsPage = () => {
 
           <div className="settings-card">
             <div className="card-header">
-              <RiDatabaseLine size={24} color="#FF6600" />
+              <RiDatabaseLine size={24} color="#fc466b" />
               <h3>Data Usage</h3>
             </div>
             <div className="settings-group">
@@ -196,10 +196,9 @@ const styles = `
 
 .page-header h1 {
   font-size: 2rem;
-  color: #1a1a1a;
   margin: 15px 0 10px;
   font-weight: 700;
-  background: linear-gradient(90deg, #FF6600, #FF8C00);
+  background: linear-gradient(90deg, #fc466b, #3f5efb);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -222,7 +221,7 @@ const styles = `
   border-radius: 16px;
   padding: 30px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(255, 102, 0, 0.1);
+  border: 1px solid rgba(252, 70, 107, 0.1);
 }
 
 .card-header {
@@ -234,7 +233,9 @@ const styles = `
 
 .card-header h3 {
   font-size: 1.3rem;
-  color: #333;
+  background: linear-gradient(90deg, #fc466b, #3f5efb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin: 0;
 }
 
@@ -295,7 +296,7 @@ const styles = `
 }
 
 input:checked + .slider {
-  background-color: #FF6600;
+  background-color: #fc466b;
 }
 
 input:checked + .slider:before {
@@ -326,8 +327,8 @@ input:checked + .slider:before {
 
 .form-select:focus {
   outline: none;
-  border-color: #FF6600;
-  box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.1);
+  border-color: #fc466b;
+  box-shadow: 0 0 0 3px rgba(252, 70, 107, 0.1);
 }
 
 .radio-group {
@@ -358,8 +359,8 @@ input:checked + .slider:before {
 }
 
 .radio-option input:checked + .radio-custom {
-  border-color: #FF6600;
-  background-color: #FF6600;
+  border-color: #fc466b;
+  background-color: #fc466b;
 }
 
 .radio-option input:checked + .radio-custom::after {
@@ -385,7 +386,7 @@ input:checked + .slider:before {
 }
 
 .primary-btn {
-  background: #FF6600;
+  background: linear-gradient(90deg, #fc466b, #3f5efb);
   color: white;
   border: none;
   padding: 14px 30px;
@@ -397,9 +398,9 @@ input:checked + .slider:before {
 }
 
 .primary-btn:hover {
-  background: #E65C00;
+  background: linear-gradient(90deg, #e14269, #2d4bd8);
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(255, 102, 0, 0.3);
+  box-shadow: 0 5px 15px rgba(252, 70, 107, 0.3);
 }
 
 /* Responsive Styles */

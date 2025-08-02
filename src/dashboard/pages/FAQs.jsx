@@ -9,7 +9,7 @@ const HelpCenter = () => {
     <div className="premium-container">
       <div className="step-content">
         <div className="page-header">
-          <FiHelpCircle size={isMobile ? 28 : 32} color="#FF6600" />
+          <FiHelpCircle size={isMobile ? 28 : 32} color="#fc466b" />
           <h1>Help Center</h1>
           <p>Find answers to common questions and get support</p>
         </div>
@@ -105,7 +105,7 @@ const styles = `
   color: #1a1a1a;
   margin: 15px 0 10px;
   font-weight: 700;
-  background: linear-gradient(90deg, #FF6600, #FF8C00);
+  background: linear-gradient(90deg, #fc466b, #3f5efb);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -127,7 +127,7 @@ const styles = `
   border-radius: 16px;
   padding: 30px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(255, 102, 0, 0.1);
+  border: 1px solid rgba(252, 70, 107, 0.1);
 }
 
 .help-item {
@@ -158,27 +158,27 @@ const styles = `
 }
 
 .help-q {
-  color: #FF6600;
+  color: #fc466b;
   font-weight: 700;
 }
 
 .help-a {
-  color: #FF6600;
+  color: #fc466b;
   font-weight: 700;
 }
 
 .help-answer em {
   font-style: normal;
   font-weight: 600;
-  color: #FF6600;
+  color: #fc466b;
 }
 
 .additional-help {
-  background: rgba(255, 102, 0, 0.05);
+  background: linear-gradient(90deg, #fc466b11, #3f5efb11);
   border-radius: 16px;
   padding: 30px;
   text-align: center;
-  border: 1px solid rgba(255, 102, 0, 0.1);
+  border: 1px solid rgba(252, 70, 107, 0.1);
 }
 
 .additional-help h3 {
@@ -196,7 +196,7 @@ const styles = `
 }
 
 .primary-btn {
-  background: #FF6600;
+  background: linear-gradient(90deg, #fc466b, #3f5efb);
   color: white;
   border: none;
   padding: 14px 30px;
@@ -205,12 +205,13 @@ const styles = `
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 1rem;
+  box-shadow: 0 4px 15px rgba(252, 70, 107, 0.3);
 }
 
 .primary-btn:hover {
-  background: #E65C00;
+  background: linear-gradient(90deg, #e6425f, #3854e6);
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(255, 102, 0, 0.3);
+  box-shadow: 0 6px 20px rgba(252, 70, 107, 0.4);
 }
 
 /* Responsive Styles */

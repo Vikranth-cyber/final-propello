@@ -1,17 +1,45 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {
-  FaPhoneAlt, FaHandshake, FaComments, FaShieldAlt, 
-  FaNetworkWired, FaChartBar
-} from "react-icons/fa";
+  MdOutbound,
+  MdMonetizationOn,
+  MdSupportAgent,
+  MdEnhancedEncryption,
+  MdHub,
+  MdQueryStats,
+} from "react-icons/md";
 
 const services = [
-  { title: "Outbound AI Calling", description: "Automated outbound AI calls for seamless customer engagement.", icon: <FaPhoneAlt size={20} /> },
-  { title: "Sales AI Calling", description: "Boost conversions with AI-driven sales call automation.", icon: <FaHandshake size={20} /> },
-  { title: "Inbound AI Handling", description: "Manage WhatsApp, Email, Chatbot, and scheduling automatically.", icon: <FaComments size={20} /> },
-  { title: "Data Security", description: "Enterprise-grade encryption and compliance for secure communications.", icon: <FaShieldAlt size={20} /> },
-  { title: "Omnichannel Automation", description: "Integrate AI across multiple platforms for effortless customer interaction.", icon: <FaNetworkWired size={20} /> },
-  { title: "Custom Dashboards & Analytics", description: "Monitor AI call performance and customer engagement in real-time.", icon: <FaChartBar size={20} /> },
+  {
+    title: "Outbound AI Calling",
+    description: "Automated outbound AI calls for seamless customer engagement.",
+    icon: <MdOutbound size={40} />,
+  },
+  {
+    title: "Sales AI Calling",
+    description: "Boost conversions with AI-driven persuasive sales conversations.",
+    icon: <MdMonetizationOn size={40} />,
+  },
+  {
+    title: "Inbound AI Handling",
+    description: "Manage WhatsApp, Email, Chatbot, and scheduling automatically.",
+    icon: <MdSupportAgent size={40} />,
+  },
+  {
+    title: "Data Security",
+    description: "Enterprise-grade encryption and compliance for secure communications.",
+    icon: <MdEnhancedEncryption size={40} />,
+  },
+  {
+    title: "Omnichannel Automation",
+    description: "Integrate AI across multiple platforms for effortless customer interaction.",
+    icon: <MdHub size={40} />,
+  },
+  {
+    title: "Custom Dashboards & Analytics",
+    description: "Monitor AI call performance and customer engagement in real-time.",
+    icon: <MdQueryStats size={40} />,
+  },
 ];
 
 const Services = () => {
@@ -23,124 +51,128 @@ const Services = () => {
         transition={{ duration: 0.5 }}
         className="services-main"
       >
-        <h2 className="orange-text">Our Services</h2>
+        <h2 className="gradient-text title-heading">Our Services</h2>
         <div className="services-container">
           {services.map((s, idx) => (
-            <motion.div 
-              key={idx} 
+            <motion.div
+              key={idx}
               className="service-card"
               whileTap={{ scale: 1.06 }}
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 250 }}
             >
               <div className="service-icon">{s.icon}</div>
-              <h3 className="service-title orange-text">{s.title}</h3>
+              <h3 className="service-title gradient-text">{s.title}</h3>
               <p className="service-desc">{s.description}</p>
             </motion.div>
           ))}
+          {/* Fill empty spaces if not divisible by 3 */}
+          {services.length % 3 !== 0 &&
+            Array.from({ length: 3 - (services.length % 3) }).map((_, i) => (
+              <div key={`empty-${i}`} className="service-card empty-card"></div>
+            ))}
         </div>
       </motion.div>
 
       <style jsx>{`
-        :root {
-          --orange-primary: #FF6B00;
-          --orange-secondary: #FF8C42;
-          --orange-light: #FFA76B;
-          --orange-lighter: #FFD1B3;
-          --text-dark: #333333;
-          --text-medium: #555555;
-          --text-light: #777777;
-        }
-
         .services-section {
           min-height: 100vh;
-          padding: 2rem;
-          background: #FFFFFF;
-          color: var(--text-dark);
+          padding: 3rem 1rem;
+          background: #ffffff;
+          color: #333333;
           font-family: 'Segoe UI', sans-serif;
           text-align: center;
         }
 
-        .orange-text {
-          background: linear-gradient(to right, var(--orange-primary), var(--orange-secondary));
+        .gradient-text {
+          background: linear-gradient(90deg, #FC466B, #3F5EFB);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
 
-        .services-main {
-          max-width: 1100px;
-          margin: 0 auto;
-          padding: 1rem;
+        .title-heading {
+          font-size: 3rem;
+          font-weight: 800;
+          margin-bottom: 2.8rem;
         }
 
-        h2 {
-          font-size: 2.2rem;
-          margin-bottom: 2rem;
+        .services-main {
+          max-width: 1200px;
+          margin: 0 auto;
         }
 
         .services-container {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 1.5rem;
+          gap: 2rem;
         }
 
         .service-card {
-          background: #FFFFFF;
-          border-radius: 12px;
-          padding: 1.5rem;
-          min-height: 180px;
+          background: #f7f8ff;
+          border-radius: 16px;
+          padding: 2rem 1.6rem;
           text-align: center;
           transition: all 0.3s ease;
-          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-          border: 1px solid var(--orange-lighter);
+          box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+          border: 1px solid #e3e7fd;
+          min-height: 260px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
         }
 
         .service-card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+          transform: translateY(-6px);
+          box-shadow: 0 14px 28px rgba(252, 70, 107, 0.15);
         }
 
         .service-icon {
-          font-size: 1.5rem;
-          color: var(--orange-primary);
+          font-size: 2.5rem;
+          font-weight: bold;
+          color: #FC466B;
           margin-bottom: 1rem;
         }
 
         .service-title {
-          font-size: 1.2rem;
+          font-size: 1.3rem;
           font-weight: 600;
           margin-bottom: 0.5rem;
         }
 
         .service-desc {
-          font-size: 1rem;
-          color: var(--text-medium);
-          line-height: 1.4;
+          font-size: 0.95rem;
+          color: #555555;
+          line-height: 1.5;
+        }
+
+        .empty-card {
+          background: transparent;
+          box-shadow: none;
+          border: none;
         }
 
         @media (max-width: 1000px) {
           .services-container {
             grid-template-columns: repeat(2, 1fr);
           }
+
+          .title-heading {
+            font-size: 2.5rem;
+          }
         }
 
         @media (max-width: 600px) {
-          .services-section {
-            padding: 1.5rem;
-          }
-          
           .services-container {
             grid-template-columns: 1fr;
-            gap: 1rem;
+            gap: 1.2rem;
           }
 
-          h2 {
-            font-size: 1.8rem;
+          .title-heading {
+            font-size: 2rem;
           }
 
           .service-card {
-            min-height: auto;
-            padding: 1.2rem;
+            padding: 1.4rem 1rem;
           }
 
           .service-title {
@@ -148,7 +180,11 @@ const Services = () => {
           }
 
           .service-desc {
-            font-size: 0.95rem;
+            font-size: 0.88rem;
+          }
+
+          .service-icon {
+            font-size: 2rem;
           }
         }
       `}</style>

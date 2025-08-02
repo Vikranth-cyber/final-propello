@@ -47,9 +47,11 @@ const RecordingsPage = () => {
           gap: '15px',
           marginBottom: '24px'
         }}>
-          <BsMic size={28} color="#FF6600" />
+          <BsMic size={28} color="#fc466b" />
           <h1 style={{
-            color: '#FF6600',
+            background: 'linear-gradient(90deg, #fc466b, #3f5efb)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
             fontSize: isMobile ? '22px' : '28px',
             fontWeight: '700',
             margin: 0,
@@ -61,15 +63,15 @@ const RecordingsPage = () => {
 
         {/* Info Box */}
         <div style={{
-          backgroundColor: 'rgba(255, 102, 0, 0.05)',
+          backgroundColor: 'rgba(252, 70, 107, 0.05)',
           padding: isMobile ? '16px' : '24px',
           borderRadius: '12px',
-          border: '1px solid rgba(255, 102, 0, 0.15)',
+          border: '1px solid rgba(252, 70, 107, 0.15)',
           marginBottom: '32px',
           boxShadow: '0 6px 20px rgba(0,0,0,0.05)'
         }}>
           <p style={{
-            color: '#FF6600',
+            color: '#fc466b',
             fontSize: isMobile ? '14px' : '15px',
             margin: 0
           }}>
@@ -79,7 +81,7 @@ const RecordingsPage = () => {
 
         {/* Recordings List */}
         <div style={{
-          border: '1px solid rgba(255, 102, 0, 0.15)',
+          border: '1px solid rgba(252, 70, 107, 0.15)',
           borderRadius: '12px',
           padding: isMobile ? '14px' : '20px',
           backgroundColor: '#fff',
@@ -89,7 +91,7 @@ const RecordingsPage = () => {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
               {dummyRecordings.map(recording => (
                 <div key={recording.id} style={{
-                  borderBottom: '1px solid rgba(255, 102, 0, 0.1)',
+                  borderBottom: '1px solid rgba(252, 70, 107, 0.1)',
                   paddingBottom: '16px'
                 }}>
                   <div style={{
@@ -97,7 +99,7 @@ const RecordingsPage = () => {
                     justifyContent: 'space-between',
                     marginBottom: '8px'
                   }}>
-                    <span style={{ fontWeight: '600', color: '#FF6600' }}>{recording.leadName}</span>
+                    <span style={{ fontWeight: '600', color: '#fc466b' }}>{recording.leadName}</span>
                     <span style={{ color: '#666' }}>{recording.date}</span>
                   </div>
                   <div style={{
@@ -114,7 +116,7 @@ const RecordingsPage = () => {
                       style={{
                         background: 'none',
                         border: 'none',
-                        color: '#FF6600',
+                        color: '#fc466b',
                         fontSize: '24px',
                         cursor: 'pointer',
                         display: 'flex',
@@ -143,8 +145,8 @@ const RecordingsPage = () => {
             <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: '900px' }}>
               <thead>
                 <tr style={{
-                  backgroundColor: 'rgba(255, 102, 0, 0.05)',
-                  borderBottom: '2px solid rgba(255, 102, 0, 0.2)'
+                  backgroundColor: 'rgba(252, 70, 107, 0.05)',
+                  borderBottom: '2px solid rgba(252, 70, 107, 0.2)'
                 }}>
                   <th style={thStyle}>Lead Name</th>
                   <th style={thStyle}>Campaign</th>
@@ -156,7 +158,7 @@ const RecordingsPage = () => {
               <tbody>
                 {dummyRecordings.map(recording => (
                   <tr key={recording.id} style={{
-                    borderBottom: '1px solid rgba(255, 102, 0, 0.1)',
+                    borderBottom: '1px solid rgba(252, 70, 107, 0.1)',
                   }}>
                     <td style={tdStyle}>{recording.leadName}</td>
                     <td style={tdStyle}>{recording.campaign}</td>
@@ -181,7 +183,7 @@ const RecordingsPage = () => {
 
 const thStyle = {
   padding: '14px',
-  color: '#FF6600',
+  color: '#fc466b',
   textAlign: 'left',
   fontSize: '14px',
   fontWeight: '600',
@@ -227,9 +229,9 @@ const styles = `
 
 @media (max-width: 768px) {
   .premium-container {
-    margin-top: 110px; /* Increased to account for mobile header height */
+    margin-top: 110px;
     padding: 15px;
-    min-height: calc(100vh - 110px); /* Adjusted to match */
+    min-height: calc(100vh - 110px);
   }
 }
 

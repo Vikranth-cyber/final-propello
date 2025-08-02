@@ -24,7 +24,7 @@ const Contact = () => {
     <div className="premium-container">
       <div className="step-content">
         <div className="page-header">
-          <MdOutlineContactSupport size={isMobile ? 28 : 32} color="#FF6600" />
+          <MdOutlineContactSupport size={isMobile ? 28 : 32} color="#fc466b" />
           <h1>Contact Support</h1>
           <p>Need help? Our team is ready to assist you</p>
         </div>
@@ -120,10 +120,9 @@ const styles = `
 
 .page-header h1 {
   font-size: 2rem;
-  color: #1a1a1a;
   margin: 15px 0 10px;
   font-weight: 700;
-  background: linear-gradient(90deg, #FF6600, #FF8C00);
+  background: linear-gradient(90deg, #fc466b, #3f5efb);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -139,19 +138,21 @@ const styles = `
   border-radius: 16px;
   padding: 30px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(255, 102, 0, 0.1);
+  border: 1px solid rgba(252, 70, 107, 0.1);
   margin-bottom: 30px;
 }
 
 .contact-card h3 {
-  color: #FF6600;
-  margin-bottom: 25px;
+  background: linear-gradient(90deg, #fc466b, #3f5efb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: 1.3rem;
   font-weight: 600;
+  margin-bottom: 25px;
 }
 
 .contact-intro {
-  color: #FF6600;
+  color: #fc466b;
   font-size: 1rem;
   margin-bottom: 20px;
   line-height: 1.6;
@@ -163,7 +164,7 @@ const styles = `
 
 .form-group label {
   display: block;
-  color: #FF6600;
+  color: #fc466b;
   font-size: 0.9rem;
   font-weight: 600;
   margin-bottom: 8px;
@@ -174,8 +175,8 @@ const styles = `
   width: 100%;
   padding: 12px;
   border-radius: 8px;
-  border: 1px solid #FF6600;
-  background: rgba(255, 102, 0, 0.03);
+  border: 1px solid #fc466b;
+  background: rgba(252, 70, 107, 0.05);
   color: #333;
   font-size: 0.95rem;
 }
@@ -189,20 +190,20 @@ const styles = `
   width: 100%;
   padding: 14px;
   border-radius: 8px;
-  background: linear-gradient(90deg, #FF6600, #FF8C00);
+  background: linear-gradient(90deg, #fc466b, #3f5efb);
   color: white;
   font-weight: 600;
   border: none;
   cursor: pointer;
   font-size: 1rem;
-  box-shadow: 0 4px 15px rgba(255, 102, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(252, 70, 107, 0.3);
   transition: all 0.3s ease;
 }
 
 .primary-btn:hover {
-  background: linear-gradient(90deg, #E65C00, #E67300);
+  background: linear-gradient(90deg, #e6425f, #3854e6);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 102, 0, 0.4);
+  box-shadow: 0 6px 20px rgba(252, 70, 107, 0.4);
 }
 
 .contact-methods {
@@ -218,7 +219,7 @@ const styles = `
 }
 
 .contact-icon {
-  color: #FF6600;
+  color: #fc466b;
   margin-top: 2px;
 }
 
