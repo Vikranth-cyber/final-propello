@@ -20,12 +20,15 @@ import { BsMic, BsFileText } from "react-icons/bs";
 
 export default function Sidebar() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1024);
+  const [isHD, setIsHD] = useState(window.innerWidth <= 1366);
   const [sidebarOpen, setSidebarOpen] = useState(!isMobile);
 
   useEffect(() => {
     const handleResize = () => {
       const mobile = window.innerWidth <= 1024;
+      const hd = window.innerWidth <= 1366;
       setIsMobile(mobile);
+      setIsHD(hd);
       setSidebarOpen(!mobile);
     };
     handleResize();
@@ -100,7 +103,7 @@ export default function Sidebar() {
           left: 0,
           transform: isMobile && !sidebarOpen ? "translateX(-100%)" : "translateX(0)",
           transition: "transform 0.3s ease",
-          width: "250px",
+          width: isHD ? "220px" : "250px",
           height: "100vh",
           backgroundColor: "#ffffff",
           borderRight: "2px solid #fc466b",
@@ -113,12 +116,12 @@ export default function Sidebar() {
           style={{
             height: "100%",
             overflowY: "auto",
-            padding: "28px 20px",
+            padding: isHD ? "20px 16px" : "28px 20px",
           }}
         >
           {/* Logo - Reduced height */}
           <div style={{ 
-            marginBottom: "32px",
+            marginBottom: isHD ? "24px" : "32px",
             display: "flex",
             justifyContent: "center"
           }}>
@@ -126,7 +129,7 @@ export default function Sidebar() {
               src="/FullLogo_whitebackground.png" 
               alt="Propello AI" 
               style={{ 
-                height: "40px", // Reduced from auto/40px
+                height: isHD ? "35px" : "40px",
                 width: "auto",
                 maxWidth: "120px",
                 objectFit: "contain"
@@ -144,7 +147,7 @@ export default function Sidebar() {
                 {renderSectionTitle && (
                   <div
                     style={{
-                      margin: "20px 0 8px",
+                      margin: isHD ? "16px 0 6px" : "20px 0 8px",
                       fontSize: "12px",
                       fontWeight: "600",
                       color: "#fc466b",
@@ -158,12 +161,12 @@ export default function Sidebar() {
                   style={({ isActive }) => ({
                     display: "flex",
                     alignItems: "center",
-                    gap: "16px",
-                    padding: "12px 18px",
+                    gap: "12px",
+                    padding: isHD ? "10px 14px" : "12px 18px",
                     marginBottom: "6px",
                     borderRadius: "8px",
                     textDecoration: "none",
-                    fontSize: "15px",
+                    fontSize: isHD ? "14px" : "15px",
                     fontWeight: "500",
                     color: isActive ? "#ffffff" : "#333333",
                     backgroundColor: isActive ? "linear-gradient(135deg, #fc466b, #3f5efb)" : "transparent",

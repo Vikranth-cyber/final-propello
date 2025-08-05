@@ -7,7 +7,7 @@ import { signInWithGoogle, auth } from "../firebaseAuth";
 import ForgotPassword from "./ForgotPassword";
 import { useNavigate } from "react-router-dom";
 
-export default function Navbar({ activeSection, user, setUser, scrolled, onLogout }) {
+export default function Navbar({ activeSection, scrolled }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -36,8 +36,7 @@ export default function Navbar({ activeSection, user, setUser, scrolled, onLogou
   const handleNavClick = (id) => {
     const el = document.getElementById(id);
     if (el) {
-      // Calculate the position to scroll to (accounting for navbar height)
-      const yOffset = -120; // Adjust this value based on your navbar height
+      const yOffset = -120;
       const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
@@ -53,18 +52,13 @@ export default function Navbar({ activeSection, user, setUser, scrolled, onLogou
   const handleEmailSubmit = async (e) => {
     e.preventDefault();
     try {
-      let currentUser;
       if (showSignUp) {
-        const cred = await createUserWithEmailAndPassword(auth, email, password);
-        currentUser = { email: cred.user.email };
+        await createUserWithEmailAndPassword(auth, email, password);
         alert("Sign up successful!");
       } else {
-        const cred = await signInWithEmailAndPassword(auth, email, password);
-        currentUser = { email: cred.user.email };
+        await signInWithEmailAndPassword(auth, email, password);
         alert("Login successful!");
       }
-      setUser(currentUser);
-      localStorage.setItem("user", JSON.stringify(currentUser));
       resetModal();
       navigate("/dashboard");
     } catch (err) {
@@ -74,11 +68,7 @@ export default function Navbar({ activeSection, user, setUser, scrolled, onLogou
 
   const handleGoogleLogin = async () => {
     try {
-      const googleUser = await signInWithGoogle();
-      const gUser = { email: googleUser.email, name: googleUser.displayName };
-      setUser(gUser);
-      localStorage.setItem("user", JSON.stringify(gUser));
-      alert(`Welcome ${gUser.name || gUser.email}`);
+      await signInWithGoogle();
       resetModal();
       navigate("/dashboard");
     } catch (error) {
@@ -446,51 +436,39 @@ export default function Navbar({ activeSection, user, setUser, scrolled, onLogou
 
             {/* Sign In button with tooltip */}
             <div style={{ position: 'relative' }}>
-              {user ? (
-                <button
-                  style={styles.signInBtn}
-                  onClick={onLogout}
-                  aria-label="Log out"
-                >
-                  Log Out
-                </button>
-              ) : (
-                <>
-                  <button
-                    style={styles.signInBtn}
-                    onClick={() => {
-                      setIsModalOpen(true);
-                      setShowTooltip(false);
-                    }}
-                    aria-label="Sign in"
+              <button
+                style={styles.signInBtn}
+                onClick={() => {
+                  setIsModalOpen(true);
+                  setShowTooltip(false);
+                }}
+                aria-label="Sign in"
+              >
+                Sign In
+              </button>
+              
+              {showTooltip && (
+                <div style={styles.tooltip}>
+                  <div style={styles.tooltipArrow} />
+                  <div style={styles.tooltipHeader}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M12 16V12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M12 8H12.01" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                    <span style={{ fontWeight: 'bold', fontSize: '14px' }}>Quick Access</span>
+                  </div>
+                  <p style={{ margin: 0, fontSize: '13px', lineHeight: '1.4' }}>
+                    Click here to login or create an account
+                  </p>
+                  <button 
+                    onClick={() => setShowTooltip(false)}
+                    style={styles.tooltipClose}
+                    aria-label="Close tooltip"
                   >
-                    Sign In
+                    ×
                   </button>
-                  
-                  {showTooltip && (
-                    <div style={styles.tooltip}>
-                      <div style={styles.tooltipArrow} />
-                      <div style={styles.tooltipHeader}>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                          <path d="M12 16V12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                          <path d="M12 8H12.01" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
-                        <span style={{ fontWeight: 'bold', fontSize: '14px' }}>Quick Access</span>
-                      </div>
-                      <p style={{ margin: 0, fontSize: '13px', lineHeight: '1.4' }}>
-                        Click here to login or create an account
-                      </p>
-                      <button 
-                        onClick={() => setShowTooltip(false)}
-                        style={styles.tooltipClose}
-                        aria-label="Close tooltip"
-                      >
-                        ×
-                      </button>
-                    </div>
-                  )}
-                </>
+                </div>
               )}
             </div>
           </div>

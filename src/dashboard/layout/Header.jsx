@@ -29,10 +29,7 @@ const Header = ({ toggleSidebar }) => {
   };
 
   useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
+    const handleResize = () => setWindowWidth(window.innerWidth);
     const handleClickOutside = () => {
       setShowNotifications(false);
       setShowHelp(false);
@@ -74,6 +71,7 @@ const Header = ({ toggleSidebar }) => {
     );
 
   const isMobile = windowWidth <= 768;
+  const isHD = windowWidth <= 1366;
 
   return (
     <div
@@ -82,7 +80,7 @@ const Header = ({ toggleSidebar }) => {
         flexDirection: isMobile ? "column" : "row",
         justifyContent: "space-between",
         alignItems: isMobile ? "flex-start" : "center",
-        padding: "20px",
+        padding: isHD ? "16px" : "20px",
         backgroundColor: "#ffffff",
         borderBottom: "2px solid #fc466b",
         position: "fixed",
@@ -104,14 +102,15 @@ const Header = ({ toggleSidebar }) => {
       >
         {/* Logo */}
         <div style={{ display: "flex", alignItems: "center" }}>
-          <img 
-            src="/FullLogo_whitebackground.png" 
-            alt="Propello AI" 
-            style={{ 
-              height: "40px",
+          <img
+            src="/FullLogo_whitebackground.png"
+            alt="Propello AI"
+            style={{
+              height: isMobile ? "55px" : isHD ? "35px" : "40px",
               width: "auto",
-              maxWidth: "200px"
-            }} 
+              maxWidth: "200px",
+              transition: "all 0.3s ease",
+            }}
           />
         </div>
 
@@ -136,7 +135,7 @@ const Header = ({ toggleSidebar }) => {
         style={{
           display: "flex",
           alignItems: "center",
-          gap: "20px",
+          gap: isHD ? "12px" : "20px",
           width: isMobile ? "100%" : "auto",
           justifyContent: isMobile ? "space-between" : "flex-end",
         }}
@@ -194,7 +193,7 @@ const Header = ({ toggleSidebar }) => {
             display: "flex",
             alignItems: "center",
             gap: "8px",
-            padding: "10px 20px",
+            padding: isHD ? "8px 16px" : "10px 20px",
             background: "linear-gradient(135deg, #fc466b, #3f5efb)",
             color: "#fff",
             border: "none",

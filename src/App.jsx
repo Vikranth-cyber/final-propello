@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Definition from './components/Definition';
@@ -14,6 +14,17 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import './styles/global.css';
 import smoothscroll from 'smoothscroll-polyfill';
+import ReactGA from 'react-ga4';
+
+const Analytics = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    ReactGA.send({ hitType: "pageview", page: location.pathname });
+  }, [location]);
+
+  return null;
+};
 
 const App = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -22,6 +33,11 @@ const App = () => {
   const [authMode, setAuthMode] = useState('login');
   const [activeSection, setActiveSection] = useState('home');
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    ReactGA.initialize("G-11843173366");
+    ReactGA.send("pageview");
+  }, []);
 
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
@@ -91,6 +107,8 @@ const App = () => {
 
   return (
     <div className="app">
+      <Analytics />
+      
       <AnimatePresence>
         {isLoading && (
           <motion.div
