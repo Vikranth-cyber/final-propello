@@ -7,7 +7,7 @@ import { signInWithGoogle, auth } from "../firebaseAuth";
 import ForgotPassword from "./ForgotPassword";
 import { useNavigate } from "react-router-dom";
 
-export default function Navbar({ activeSection, scrolled }) {
+export default function Navbar({ activeSection, scrolled, user }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -379,6 +379,34 @@ export default function Navbar({ activeSection, scrolled }) {
       color: 'white',
       cursor: 'pointer',
       fontSize: '14px',
+    },
+    userProfile: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '10px',
+      cursor: 'pointer',
+      padding: '8px 12px',
+      borderRadius: '20px',
+      transition: 'all 0.3s ease',
+      '&:hover': {
+        background: 'rgba(252, 70, 107, 0.1)'
+      }
+    },
+    userAvatar: {
+      width: '36px',
+      height: '36px',
+      borderRadius: '50%',
+      background: 'linear-gradient(135deg, #fc466b, #3f5efb)',
+      color: 'white',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontWeight: '600',
+      fontSize: '14px'
+    },
+    userName: {
+      fontWeight: '600',
+      color: '#333'
     }
   };
 
@@ -418,59 +446,73 @@ export default function Navbar({ activeSection, scrolled }) {
 
           {/* Auth buttons */}
           <div style={styles.authButtons}>
-            {/* Mobile menu button */}
-            {isMobile && (
-              <div
-                onClick={() => setMenuOpen(!menuOpen)}
-                style={styles.hamburger}
-                aria-label="Toggle menu"
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") setMenuOpen(!menuOpen);
-                }}
+            {user ? (
+              <div 
+                style={styles.userProfile}
+                onClick={() => navigate('/profile')}
               >
-                ☰
-              </div>
-            )}
-
-            {/* Sign In button with tooltip */}
-            <div style={{ position: 'relative' }}>
-              <button
-                style={styles.signInBtn}
-                onClick={() => {
-                  setIsModalOpen(true);
-                  setShowTooltip(false);
-                }}
-                aria-label="Sign in"
-              >
-                Sign In
-              </button>
-              
-              {showTooltip && (
-                <div style={styles.tooltip}>
-                  <div style={styles.tooltipArrow} />
-                  <div style={styles.tooltipHeader}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      <path d="M12 16V12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      <path d="M12 8H12.01" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                    <span style={{ fontWeight: 'bold', fontSize: '14px' }}>Quick Access</span>
-                  </div>
-                  <p style={{ margin: 0, fontSize: '13px', lineHeight: '1.4' }}>
-                    Click here to login or create an account
-                  </p>
-                  <button 
-                    onClick={() => setShowTooltip(false)}
-                    style={styles.tooltipClose}
-                    aria-label="Close tooltip"
-                  >
-                    ×
-                  </button>
+                <div style={styles.userAvatar}>
+                  {user.displayName ? user.displayName.charAt(0).toUpperCase() : user.email.charAt(0).toUpperCase()}
                 </div>
-              )}
-            </div>
+                {!isMobile && <span style={styles.userName}>{user.displayName || user.email.split('@')[0]}</span>}
+              </div>
+            ) : (
+              <>
+                {/* Mobile menu button */}
+                {isMobile && (
+                  <div
+                    onClick={() => setMenuOpen(!menuOpen)}
+                    style={styles.hamburger}
+                    aria-label="Toggle menu"
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") setMenuOpen(!menuOpen);
+                    }}
+                  >
+                    ☰
+                  </div>
+                )}
+
+                {/* Sign In button with tooltip */}
+                <div style={{ position: 'relative' }}>
+                  <button
+                    style={styles.signInBtn}
+                    onClick={() => {
+                      setIsModalOpen(true);
+                      setShowTooltip(false);
+                    }}
+                    aria-label="Sign in"
+                  >
+                    Sign In
+                  </button>
+                  
+                  {showTooltip && (
+                    <div style={styles.tooltip}>
+                      <div style={styles.tooltipArrow} />
+                      <div style={styles.tooltipHeader}>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          <path d="M12 16V12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          <path d="M12 8H12.01" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                        <span style={{ fontWeight: 'bold', fontSize: '14px' }}>Quick Access</span>
+                      </div>
+                      <p style={{ margin: 0, fontSize: '13px', lineHeight: '1.4' }}>
+                        Click here to login or create an account
+                      </p>
+                      <button 
+                        onClick={() => setShowTooltip(false)}
+                        style={styles.tooltipClose}
+                        aria-label="Close tooltip"
+                      >
+                        ×
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </>
+            )}
           </div>
         </div>
 

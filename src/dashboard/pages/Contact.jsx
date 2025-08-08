@@ -72,8 +72,8 @@ const Contact = () => {
 
           <div className="contact-methods">
             {[
-              { icon: <MdEmail size={20} />, label: 'Email', value: 'support@example.com' },
-              { icon: <MdPhone size={20} />, label: 'Phone', value: '+91-98765-43210' },
+              { icon: <MdEmail size={20} />, label: 'Email', value: 'hello@propelloai.in' },
+              { icon: <MdPhone size={20} />, label: 'Phone', value: '+91 8850477716' },
               { icon: <MdSchedule size={20} />, label: 'Support Hours', value: 'Mon–Fri, 9AM–6PM IST' },
               { icon: <MdLocationOn size={20} />, label: 'Office Address', value: 'Hyderabad, India' }
             ].map((item, idx) => (

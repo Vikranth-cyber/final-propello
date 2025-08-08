@@ -4,7 +4,9 @@ import {
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
-  signInWithEmailAndPassword, // ✅ ADD THIS
+  signInWithEmailAndPassword,
+  confirmPasswordReset, // Add this
+  sendPasswordResetEmail, // Add this
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -30,5 +32,11 @@ const signInWithGoogle = async () => {
   }
 };
 
-// ✅ Export signInWithEmailAndPassword as well
-export { signInWithGoogle, auth, signInWithEmailAndPassword };
+// Export all needed auth functions
+export { 
+  signInWithGoogle, 
+  auth, 
+  signInWithEmailAndPassword,
+  confirmPasswordReset,
+  sendPasswordResetEmail
+};

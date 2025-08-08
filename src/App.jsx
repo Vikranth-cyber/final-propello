@@ -12,6 +12,7 @@ import StatsSection from './components/StatsSection';
 import Registered from './components/Registered';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ResetPassword from './components/ResetPassword';
 import './styles/global.css';
 import smoothscroll from 'smoothscroll-polyfill';
 import ReactGA from 'react-ga4';
@@ -27,12 +28,15 @@ const Analytics = () => {
 };
 
 const App = () => {
+  const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [user, setUser] = useState(null);
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [authMode, setAuthMode] = useState('login');
   const [activeSection, setActiveSection] = useState('home');
   const [isLoading, setIsLoading] = useState(false);
+
+  const isResetPage = location.pathname.startsWith("/reset-password");
 
   useEffect(() => {
     ReactGA.initialize("G-11843173366");
@@ -47,6 +51,8 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    if (isResetPage) return; // Don't handle scroll effects on reset page
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
@@ -68,13 +74,15 @@ const App = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isResetPage]);
 
   useEffect(() => {
     smoothscroll.polyfill(); 
   }, []);
 
   useEffect(() => {
+    if (isResetPage) return; // Don't handle parallax on reset page
+
     const handleParallaxScroll = () => {
       document.querySelectorAll('.parallax-layer').forEach(layer => {
         const speed = layer.getAttribute('data-speed');
@@ -84,7 +92,7 @@ const App = () => {
 
     window.addEventListener('scroll', handleParallaxScroll);
     return () => window.removeEventListener('scroll', handleParallaxScroll);
-  }, []);
+  }, [isResetPage]);
 
   const handleLogout = () => {
     setUser(null);
@@ -147,41 +155,46 @@ const App = () => {
         )}
       </AnimatePresence>
 
-      <div className="stars-container">
-        {Array.from({ length: 200 }).map((_, i) => {
-          const size = Math.random() > 0.9 ? 4 : Math.random() > 0.7 ? 3 : 2;
-          return (
-            <div
-              key={i}
-              className="stars"
-              style={{
-                top: `${Math.random() * 100}vh`,
-                left: `${Math.random() * 100}vw`,
-                animationDelay: `${Math.random() * 90}s, ${Math.random() * 2.5}s`,
-                animationDuration: `${60 + Math.random() * 30}s, ${1 + Math.random() * 2}s`,
-                opacity: 0.7 + Math.random() * 0.3,
-                width: `${size}px`,
-                height: `${size}px`,
-                filter: 'drop-shadow(0 0 4px white)',
-              }}
-            />
-          );
-        })}
-      </div>
+      {!isResetPage && (
+        <div className="stars-container">
+          {Array.from({ length: 200 }).map((_, i) => {
+            const size = Math.random() > 0.9 ? 4 : Math.random() > 0.7 ? 3 : 2;
+            return (
+              <div
+                key={i}
+                className="stars"
+                style={{
+                  top: `${Math.random() * 100}vh`,
+                  left: `${Math.random() * 100}vw`,
+                  animationDelay: `${Math.random() * 90}s, ${Math.random() * 2.5}s`,
+                  animationDuration: `${60 + Math.random() * 30}s, ${1 + Math.random() * 2}s`,
+                  opacity: 0.7 + Math.random() * 0.3,
+                  width: `${size}px`,
+                  height: `${size}px`,
+                  filter: 'drop-shadow(0 0 4px white)',
+                }}
+              />
+            );
+          })}
+        </div>
+      )}
 
-      <Navbar
-        user={user}
-        setUser={setUser}
-        scrolled={scrolled}
-        activeSection={activeSection}
-        onLogout={handleLogout}
-      />
+      {!isResetPage && (
+        <Navbar
+          user={user}
+          setUser={setUser}
+          scrolled={scrolled}
+          activeSection={activeSection}
+          onLogout={handleLogout}
+        />
+      )}
 
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/reset-password" element={<ResetPassword onBack={() => window.location.href = '/'} />} />
       </Routes>
 
-      <Footer />
+      {!isResetPage && <Footer />}
 
       <AnimatePresence>
         {showAuthModal && (

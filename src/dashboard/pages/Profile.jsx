@@ -1,15 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { RiUserLine } from 'react-icons/ri';
 import { useMediaQuery } from 'react-responsive';
+import { auth } from "../../firebaseAuth.js";
+
 
 const ProfilePage = () => {
   const [profile, setProfile] = useState({
-    name: 'Vikranth D',
-    email: 'vikranth@example.com',
-    phone: '9876543210'
+    name: '',
+    email: '',
+    phone: ''
   });
   const [isEditing, setIsEditing] = useState(false);
   const isMobile = useMediaQuery({ maxWidth: 768 });
+
+  useEffect(() => {
+    if (auth.currentUser) {
+      setProfile({
+        name: auth.currentUser.displayName || '',
+        email: auth.currentUser.email || '',
+        phone: auth.currentUser.phoneNumber || ''
+      });
+    }
+  }, []);
 
   const handleChange = (e) => {
     setProfile({ ...profile, [e.target.name]: e.target.value });
@@ -20,6 +32,7 @@ const ProfilePage = () => {
   };
 
   const handleSave = () => {
+    // Here you would typically update the user profile in your database
     setIsEditing(false);
     alert('Profile updated successfully!');
   };

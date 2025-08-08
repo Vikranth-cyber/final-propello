@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { RiWalletLine } from 'react-icons/ri';
 import { useMediaQuery } from 'react-responsive';
+import { auth } from "../../firebaseAuth.js";
+
 
 const Billings = () => {
+  const [paymentMethod, setPaymentMethod] = useState('');
   const billingHistory = [
     { date: '2025-05-01', amount: '₹999', method: 'UPI', status: 'Paid' },
     { date: '2025-04-01', amount: '₹999', method: 'Credit Card', status: 'Paid' },
     { date: '2025-03-01', amount: '₹999', method: 'Credit Card', status: 'Paid' },
   ];
   const isMobile = useMediaQuery({ maxWidth: 768 });
+
+  useEffect(() => {
+    if (auth.currentUser) {
+      const emailPrefix = auth.currentUser.email.split('@')[0];
+      setPaymentMethod(`UPI - ${emailPrefix.substring(0, 3)}***@oksbi`);
+    }
+  }, []);
 
   return (
     <div className="premium-container">
@@ -78,7 +88,7 @@ const Billings = () => {
           <div className="payment-method">
             <div>
               <p className="billing-label">Current Method</p>
-              <p className="billing-value">UPI - vik***@oksbi</p>
+              <p className="billing-value">{paymentMethod || 'UPI - vik***@oksbi'}</p>
             </div>
             <button className="secondary-btn">Update Payment Method</button>
           </div>

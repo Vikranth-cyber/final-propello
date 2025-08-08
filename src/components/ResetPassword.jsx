@@ -1,19 +1,27 @@
-// components/ForgotPassword.jsx
+// components/ResetPassword.jsx
 import React, { useState } from "react";
-import { sendPasswordResetEmail } from "firebase/auth";
+import { confirmPasswordReset } from "firebase/auth";
 import { auth } from "../firebaseconfig";
+import { useSearchParams } from "react-router-dom";
 
-export default function ForgotPassword({ onBack }) {
-  const [email, setEmail] = useState("");
+export default function ResetPassword({ onBack }) {
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
+  const [searchParams] = useSearchParams();
+  const oobCode = searchParams.get("oobCode");
 
   const handleReset = async (e) => {
     e.preventDefault();
+    
+    if (newPassword !== confirmPassword) {
+      setMessage("Error: Passwords don't match");
+      return;
+    }
+
     try {
-      await sendPasswordResetEmail(auth, email, {
-        url: "https://www.propelloai.in/reset-password",
-      });
-      setMessage("Password reset email sent! Check your inbox.");
+      await confirmPasswordReset(auth, oobCode, newPassword);
+      setMessage("Password reset successfully! You can now login with your new password.");
     } catch (error) {
       setMessage("Error: " + error.message);
     }
@@ -43,15 +51,36 @@ export default function ForgotPassword({ onBack }) {
           fontWeight: "700",
         }}
       >
-        Forgot Password
+        Reset Password
       </h2>
       <form onSubmit={handleReset}>
         <input
-          type="email"
-          placeholder="Enter your email"
-          value={email}
+          type="password"
+          placeholder="New Password"
+          value={newPassword}
           required
-          onChange={(e) => setEmail(e.target.value)}
+          minLength="6"
+          onChange={(e) => setNewPassword(e.target.value)}
+          style={{
+            padding: "12px 15px",
+            width: "100%",
+            marginBottom: "15px",
+            borderRadius: "8px",
+            border: "1px solid #ccc",
+            backgroundColor: "#f9f9f9",
+            color: "#333",
+            fontSize: "1rem",
+            outline: "none",
+            transition: "all 0.3s ease",
+          }}
+        />
+        <input
+          type="password"
+          placeholder="Confirm New Password"
+          value={confirmPassword}
+          required
+          minLength="6"
+          onChange={(e) => setConfirmPassword(e.target.value)}
           style={{
             padding: "12px 15px",
             width: "100%",
@@ -80,7 +109,7 @@ export default function ForgotPassword({ onBack }) {
             transition: "all 0.3s ease",
           }}
         >
-          Send Reset Link
+          Reset Password
         </button>
       </form>
       {message && (
